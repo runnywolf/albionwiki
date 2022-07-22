@@ -17,6 +17,12 @@
         background-size: cover;
         font-family: monospace;
       }
+      a{
+        text-decoration: none;
+      }
+      a:hover{
+        text-decoration:underline;
+      }
       .head{
         width: 100%;
         height: 50px;
@@ -76,7 +82,7 @@
       <div class="main">
         <div class="main_list" id="mainlist"></div>
         <div class="main_article">
-          測試
+          
         </div>
       </div>
     </div>
@@ -90,7 +96,7 @@
         $("#mainlist").append("<div style='font-size:14px; font-weight:bold;'>攻略("+data["mainlist"].length+")</div>")
         $("#mainlist").append("<div style='margin-left:10px; font-size:12px;' id='mainlist_list'></div>")
         data["mainlist"].map(function (i){
-          $("#mainlist_list").append("<a herf='https://runnywolf.github.io/albionwiki/"+i["url"]+"/'>"+i["title"]+"</a>")
+          $("#mainlist_list").append("<a href='https://runnywolf.github.io/albionwiki/"+i["url"]+"'>"+i["title"]+"</a>")
         });
       };
     </script>
