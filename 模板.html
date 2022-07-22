@@ -43,16 +43,17 @@
         width: 1000px;
       }
       .main_list{
-        margin: 56px 0px 0px 5px;
+        margin: 58px 0px 0px 5px;
+        padding: 4px;
         width: 200px;
         border-radius: 6px;
         background-color: #fffc;
         position: fixed;
-        font-size: 14px;
+        font-size: 12px;
       }
       .main_article{
-        margin: 56px 0px 0px 215px;
-        width: 770px;
+        margin: 58px 0px 0px 226px;
+        width: 750px;
         height: 1000px;
         border-radius: 6px;
         background-color: #fffc;
@@ -74,7 +75,11 @@
     <div class="mid">
       <div class="main">
         <div class="main_list" id="mainlist">
-          <div>測試</div>
+          <div style="margin-left:10px; font-size:12px;" id="mainlist_list">
+            <div>物品強度(ip)</div>
+            <div>物品強度</div>
+            <div>物品強度</div>
+          </div>
         </div>
         <div class="main_article">
           測試
@@ -88,8 +93,10 @@
       request.send();
       request.onload = function(){
         var data = request.response;
+        $("#mainlist").append("<div style='font-size:14px; font-weight:bold;'>攻略("+data["mainlist"].length+")</div>")
+        $("#mainlist").append("<div style='margin-left:10px; font-size:12px;' id='mainlist_list'></div>")
         data["mainlist"].map(function (i){
-          $("#mainlist").append("<a herf='https://runnywolf.github.io/albionwiki/"+i["url"]+"/'>"+i["title"]+"</a>")
+          $("#mainlist_list").append("<a herf='https://runnywolf.github.io/albionwiki/"+i["url"]+"/'>"+i["title"]+"</a>")
         });
       };
     </script>
