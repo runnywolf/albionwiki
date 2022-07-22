@@ -87,12 +87,11 @@
       request.responseType = "json";
       request.send();
       request.onload = function(){
-        data = request.response;
+        var data = request.response;
+        data["mainlist"].map(function (i){
+          $("#mainlist").append("<a herf='https://runnywolf.github.io/albionwiki/"+i["url"]+"/'>"+i["title"]+"</a>")
+        });
       };
-      data["mainlist"].map(function (i){
-        $("#mainlist").append("<a herf='https://runnywolf.github.io/albionwiki/"+i["url"]+"/'>"+i["title"]+"</a>")
-      });
-      
     </script>
   </body>
 </html>
