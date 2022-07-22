@@ -10,7 +10,7 @@
     <style>
       body{
         margin: 0px;
-        background-image: url("image/bg.png");
+        background-image: url("../image/bg.png");
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
@@ -72,7 +72,7 @@
   <body>
     <div class="head">
       <a href="https://runnywolf.github.io/albionwiki/">
-        <img src="image/albion.png" style="margin:5px 0px 0px 20px; max-height:40px;">
+        <img src="../image/albion.png" style="margin:5px 0px 0px 20px; max-height:40px;">
       </a>
       <div class="head_title">
         狼的<span style="color:#730;">阿爾比恩</span>攻略網
@@ -88,7 +88,7 @@
     </div>
     <script>
       var request = new XMLHttpRequest();
-      request.open("get", "data.json");
+      request.open("get", "../data.json");
       request.responseType = "json";
       request.send();
       request.onload = function(){
