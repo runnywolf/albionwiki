@@ -150,7 +150,7 @@
         $("#mainlist").append("<div style='font-size:14px; font-weight:bold;'>攻略("+data["mainlist"].length+")</div>")
         $("#mainlist").append("<div style='margin-left:10px; font-size:12px;' id='mainlist_list'></div>")
         data["mainlist"].map(function (i){
-          $("#mainlist_list").append("<a href='https://runnywolf.github.io/albionwiki/page/"+i["url"]+"'>"+i["title"]+"</a>")
+          $("#mainlist_list").append("<div><a href='https://runnywolf.github.io/albionwiki/page/"+i["url"]+"'>"+i["title"]+"</a></div>")
         });
       };
     </script>
