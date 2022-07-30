@@ -22,9 +22,11 @@
       }
       a{
         text-decoration: none;
+        color: #60f;
+        font-weight: bold;
       }
       a:hover{
-        text-decoration:underline;
+        text-decoration: underline;
       }
       table{
         margin: 4px;
@@ -36,15 +38,27 @@
         text-align: center;
       }
       td{
+        padding: 0px 4px;
         border-right: 1px #000000 solid;
         border-bottom: 1px #000000 solid;
       }
-      input{
-        font-family:monospace;
-        text-align:center;
-      }
       select{
-        font-family:monospace;
+        margin: 4px;
+        height: 20px;
+        font-family: monospace;
+      }
+      input{
+        margin: 4px;
+        height: 14px;
+        font-family: monospace;
+        text-align: center;
+      }
+      button{
+        margin: 4px;
+        height: 20px;
+        font-size: 12px;
+        font-family: monospace;
+        text-align: center;
       }
       .head{
         width: 100%;
@@ -105,7 +119,7 @@
         padding-top: 20px;
       }
       .bold{
-        font-weight:bold;
+        font-weight: bold;
       }
     </style>
   </head>
@@ -128,9 +142,11 @@
             <div style="font-size:24px; font-weight:bold;">物品強度(ip)</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
             <img src="../image/itempower/1.png" style="margin:4px;">
-            <div><span class="bold">平均物品強度(ip, item power)</span>為身上6格裝備的ip取平均。(雙手武器會以兩格計算)</div>
-            <div><span class="bold">基礎平均物品強度</span>計算方法同上，但會忽略掉天賦羅盤的ip加成，即無練度的情況下穿同樣裝備的ip。</div>
-            <div>單一物品的ip為: 基礎物品強度 + 技能掌握加成</div>
+            <div>
+              <span class="bold">平均物品強度(ip, item power)</span>為身上6格裝備的ip取平均。(雙手武器會以兩格計算)<br>
+              <span class="bold">基礎平均物品強度</span>計算方法同上，但會忽略掉天賦羅盤的ip加成，即無練度的情況下穿同樣裝備的ip。<br>
+              單一物品的ip為: 基礎物品強度 + 技能掌握加成
+            </div>
             <br>
             <div style="font-size:20px; font-weight:bold;">基礎物品強度</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
@@ -140,13 +156,12 @@
             <div style="font-size:20px; font-weight:bold;">技能掌握加成</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
             <img src="../image/itempower/3.png" style="margin:4px;">
-            <div><span class="bold">技能掌握加成</span>取決於該物品天賦羅盤上的外圈和內圈等級。T3或T3以下的物品，技能掌握加成為0。</div>
-            <div><span class="bold">技能掌握加成係數</span>根據物品的階級會有不同的加成。(=技能掌握加成ip*加成比例)</div>
+            <div>
+              <span class="bold">技能掌握加成</span>取決於該物品天賦羅盤上的外圈和內圈等級。T3或T3以下的物品，技能掌握加成為0。<br>
+              <span class="bold">技能掌握加成係數</span>根據物品的階級會有不同的加成。(=技能掌握加成ip*加成比例)
+            </div>
             <table>
-              <tr style="font-weight:bold;">
-                <td style="padding:0px 4px;">階級</td>
-                <td style="padding:0px 4px;">加成比例</td>
-              </tr>
+              <tr class="bold"><td>階級</td><td>加成比例</td></tr>
               <tr><td>T4</td><td>0%</td></tr>
               <tr><td>T5</td><td>5%</td></tr>
               <tr><td>T6</td><td>10%</td></tr>
@@ -159,7 +174,7 @@
             <div>單個物品ip計算:</div>
             <div style="display:flex; justify-content:flex-start; text-align:center;">
               <div>
-                <select style="margin:4px; padding:1px; height:20px;" onchange="a_calc()" id="calc_tier">
+                <select onchange="a_calc()" id="calc_tier">
                   <option disabled>階級</option>
                   <option value="1" selected>T1(灰底)</option>
                   <option value="2">T2(棕底)</option>
@@ -173,7 +188,7 @@
                 <div id="calc_tier_ip">100</div>
               </div>
               <div>
-                <select style="margin:4px; padding:1px; height:20px;" onchange="a_calc()" id="calc_material">
+                <select onchange="a_calc()" id="calc_material">
                   <option disabled>物品素材</option>
                   <option value="0" selected>無</option>
                   <option value="25">含皇家素材</option>
@@ -185,7 +200,7 @@
                 <div id="calc_material_ip">+0</div>
               </div>
               <div>
-                <select style="margin:4px; padding:1px; height:20px;" onchange="a_calc()" id="calc_enchant">
+                <select onchange="a_calc()" id="calc_enchant">
                   <option disabled>附魔</option>
                   <option value="0" selected>.0(無色)</option>
                   <option value="100">.1(綠色)</option>
@@ -195,7 +210,7 @@
                 <div id="calc_enchant_ip">+0</div>
               </div>
               <div>
-                <select style="margin:4px; padding:1px; height:20px;" onchange="a_calc()" id="calc_quality">
+                <select onchange="a_calc()" id="calc_quality">
                   <option disabled>品質</option>
                   <option value="0" selected>普通(灰邊)</option>
                   <option value="20">良好(鐵邊)</option>
@@ -206,25 +221,33 @@
                 <div id="calc_quality_ip">+0</div>
               </div>
               <div>
-                <input style="margin:4px; padding:1px; width:80px; height:14px;" placeholder="技能掌握加成" onchange="a_calc()" id="calc_skill">
+                <input style="width:80px;" placeholder="技能掌握加成" onchange="a_calc()" id="calc_skill">
                 <div id="calc_skill_ip">+0</div>
               </div>
               <div>
                 <div style="width:50px; margin:5px; height:18px;" id="calc_add">+0%</div>
                 <div id="calc_add_ip">+0</div>
               </div>
-              <div style="margin-top:28px;">= <span style="color:#00f;" id="calc_output">100</span> ip</div>
+              <div>
+                <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+                <div style="margin-top:0px;">= <span style="color:#00f;" id="calc_output">100</span> ip</div>
+              </div>
               <script>
                 function a_calc(){
                   var tier = parseInt($("#calc_tier").val());
                   var v1 = parseInt($("#calc_material").val());
                   var v2 = parseInt($("#calc_enchant").val());
                   var v3 = parseInt($("#calc_quality").val());
-                  var v4 = parseInt($("#calc_skill").val());
+                  var v4 = $("#calc_skill").val();
 
                   var v0 = [0, 100, 300, 500, 700, 800, 900, 1000, 1100][tier];
                   var add_percent = [0, 0, 0, 0, 0, 0.05, 0.1, 0.15, 0.2][tier];
-                  if (!(v4 != "" && v4 >= 0 && v4 <= 392 && v4%1 == 0) || tier <= 3) v4 = 0;
+                  if (!(v4 != "" && v4 >= 0 && v4 <= 392 && v4%1 == 0)){
+                    $("#calc_skill").val("");
+                    v4 = 0;
+                  }
+                  if (tier <= 3) v4 = 0;
+                  v4 = parseInt(v4);
                   var v5 = parseInt(v4*add_percent);
 
                   $("#calc_tier_ip").text(v0);
@@ -239,9 +262,11 @@
               </script>
             </div>
             <br>
-            <div>技能掌握加成的理論最高ip：</div>
-            <div>頭、甲、鞋為392(不包含採集裝)</div>
-            <div>武器及副手為380</div>
+            <div>
+              技能掌握加成的理論最高ip：<br>
+              頭、甲、鞋為392(不包含採集裝)<br>
+              武器及副手為380
+            </div>
             <br>
             <div style="font-size:20px; font-weight:bold; color:#888;">編輯紀錄</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
@@ -256,7 +281,7 @@
         如有任何問題請私訊discord: runnywolf#3104<br>
         <br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.0.10 -> Last update date: 2022/7/29
+        v1.0.13 -> Last update date: 2022/7/30
       </div>
     </div>
     <script>

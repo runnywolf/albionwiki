@@ -22,9 +22,11 @@
       }
       a{
         text-decoration: none;
+        color: #60f;
+        font-weight: bold;
       }
       a:hover{
-        text-decoration:underline;
+        text-decoration: underline;
       }
       table{
         margin: 4px;
@@ -36,15 +38,27 @@
         text-align: center;
       }
       td{
+        padding: 0px 4px;
         border-right: 1px #000000 solid;
         border-bottom: 1px #000000 solid;
       }
-      input{
-        font-family:monospace;
-        text-align:center;
-      }
       select{
-        font-family:monospace;
+        margin: 4px;
+        height: 20px;
+        font-family: monospace;
+      }
+      input{
+        margin: 4px;
+        height: 14px;
+        font-family: monospace;
+        text-align: center;
+      }
+      button{
+        margin: 4px;
+        height: 20px;
+        font-size: 12px;
+        font-family: monospace;
+        text-align: center;
       }
       .head{
         width: 100%;
@@ -105,7 +119,7 @@
         padding-top: 20px;
       }
       .bold{
-        font-weight:bold;
+        font-weight: bold;
       }
     </style>
   </head>
@@ -131,20 +145,16 @@
             <br>
             <div style="font-size:20px; font-weight:bold;">購買</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>如要購買個人島，必須先購買 7 天以上的<span class="bold">尊享會員</span>。</div>
-            <div>然後到皇家大陸其中一個主城找到<span class="bold">島嶼商人</span>。</div>
+            <div>
+              如要購買個人島，必須先購買 7 天以上的<span class="bold">尊享會員</span>。<br>
+              然後到皇家大陸其中一個主城找到<span class="bold">島嶼商人</span>。
+            </div>
             <img src="../image/island/1.png" style="margin:4px;">
             <div>按購買島嶼即可。</div>
             <br>
             <div>島嶼花費如下表：</div>
             <table>
-              <tr style="font-weight:bold;">
-                <td style="padding:0px 4px;">島嶼等級</td>
-                <td style="padding:0px 4px;">單次升級費用</td>
-                <td style="padding:0px 4px;">累計升級費用</td>
-                <td style="padding:0px 4px;">建築地</td>
-                <td style="padding:0px 4px;">農地</td>
-              </tr>
+              <tr class="bold"><td>島嶼等級</td><td>單次升級費用</td><td>累計升級費用</td><td>建築地</td><td>農地</td></tr>
               <tr><td>Lv1</td><td>18,750</td><td>18,750</td><td>1大</td><td>0</td></tr>
               <tr><td>Lv2</td><td>56,250</td><td>75,000</td><td>2大2小</td><td>1</td></tr>
               <tr><td>Lv3</td><td>187,500</td><td>262,500</td><td>4大2小</td><td>2</td></tr>
@@ -152,19 +162,26 @@
               <tr><td>Lv5</td><td>1,875,000</td><td>2,700,000	</td><td>8大2小</td><td>4</td></tr>
               <tr><td>Lv6</td><td>3,750,000</td><td>6,450,000</td><td>11大2小</td><td>5</td></tr>
             </table>
-            <div>注1：因<span class="bold">全局折扣</span>，實際情況可能會比上表報價便宜一點點。</div>
-            <div>注2：島嶼等級達到 Lv2 才會解鎖<span class="bold">農業商人</span>。</div>
-            <div>注3：<span class="bold">小型</span>建築地僅能建造<span class="bold">屠夫</span>或<span class="bold">冶煉匠</span>站點，大型建築地面積等於2*2小型建築地。</div>
+            <div>
+              注：因<span class="bold">全局折扣</span>，實際情況可能會比上表報價便宜一點點。<br>
+              <br>
+              島嶼等級達到 Lv2 才會解鎖<span class="bold">農業商人</span>。<br>
+              <span class="bold">小型</span>建築地僅能建造<span class="bold">屠夫</span>或<span class="bold">冶煉匠</span>站點，大型建築地面積等於2*2小型建築地。
+            </div>
             <br>
             <div style="font-size:20px; font-weight:bold;">轉移</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>如果你需要把島嶼轉到其他城市，步驟如下。</div>
-            <div style="color:#f00; font-weight:bold;">警告：島嶼上的建築、農地會在放棄島嶼後被清空，請先回收建築材料。</div>
-            <br>
-            <div><span class="bold">步驟一</span>：前往你目前的島嶼所在城市，找島嶼商人按放棄按鈕。</div>
+            <div>
+              如果你需要把島嶼轉到其他城市，步驟如下。<br>
+              <span style="color:#f00; font-weight:bold;">警告：島嶼上的建築、農地會在放棄島嶼後被清空，請先回收建築材料。</span><br>
+              <br>
+              <span class="bold">步驟一</span>：前往你目前的島嶼所在城市，找島嶼商人按放棄按鈕。
+            </div>
             <img src="../image/island/2.png" style="margin:4px; max-height:300px;">
-            <div><span class="bold">步驟二</span>：前往你想要遷移到的城市，找島嶼商人按購買按鈕。</div>
-            <div>需要支付 Lv1 島嶼費用($18,750)，購買後的島嶼等級會等於放棄前島嶼等級。</div>
+            <div>
+              <span class="bold">步驟二</span>：前往你想要遷移到的城市，找島嶼商人按購買按鈕。<br>
+              需要支付 Lv1 島嶼費用($18,750)，購買後的島嶼等級會等於放棄前島嶼等級。
+            </div>
             <br>
             <div style="font-size:20px; font-weight:bold; color:#888;">編輯紀錄</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
@@ -179,7 +196,7 @@
         如有任何問題請私訊discord: runnywolf#3104<br>
         <br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.0.10 -> Last update date: 2022/7/29
+        v1.0.13 -> Last update date: 2022/7/30
       </div>
     </div>
     <script>
