@@ -2,6 +2,7 @@
     "mainlist":[
         {"url":"itempower", "title":"物品強度(ip)"},
         {"url":"island", "title":"個人島"},
-        {"url":"farmer", "title":"農作物種植"}
+        {"url":"farmer", "title":"農作物種植"},
+        {"url":"infoboard", "title":"儀錶板"}
     ]
 }

@@ -279,11 +279,11 @@
                   var price = $("#calc2_price").val();
                   var tax = $("#calc2_tax").val();
 
-                  if (!(plot != "" && plot >= 0 && plot%1 == 0)){
+                  if (!(plot != "" && plot >= 0 && plot <= 100000 && plot%1 == 0)){
                     $("#calc2_plot").val("");
                     plot = 0;
                   }
-                  if (!(price != "" && price >= 0 && price%1 == 0)){
+                  if (!(price != "" && price >= 0 && price <= 1000000 && price%1 == 0)){
                     $("#calc2_price").val("");
                     price = 0;
                   }
@@ -320,15 +320,15 @@
                   var dp = $("#calc3_dp").val();
                   var vip = $("#calc3_vip").val();
 
-                  if (!(p != "" && p >= 0 && p%1 == 0)){
+                  if (!(p != "" && p >= 125 && p <= 1000 && p%1 == 0)){
                     $("#calc3_p").val("");
-                    p = 0;
+                    p = 1;
                   }
-                  if (!(dp != "" && dp >= 0 && dp%1 == 0)){
+                  if (!(dp != "" && dp >= 0 && dp <= 1e8 && dp%1 == 0)){
                     $("#calc3_dp").val("");
                     dp = 0;
                   }
-                  if (!(vip != "" && vip >= 0 && vip%1 == 0)){
+                  if (!(vip != "" && vip >= 0 && vip <= 1e12 && vip%1 == 0)){
                     $("#calc3_vip").val("");
                     vip = 0;
                   }
