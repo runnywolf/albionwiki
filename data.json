@@ -12,11 +12,11 @@
         },
         {
             "group":"研究中",
-            "pages":[{"url":"itempower", "title":"物品強度(ip)"}]
+            "pages":[]
         },
         {
             "group":"資料",
-            "pages":[{"url":"itempower", "title":"物品強度(ip)"}]
+            "pages":[]
         }
     ]
 }
