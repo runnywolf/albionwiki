@@ -16,7 +16,9 @@
         },
         {
             "group":"資料",
-            "pages":[]
+            "pages":[
+                {"url":"faction_chest", "title":"100抽陣營黑鐵寶箱"}
+            ]
         }
     ]
 }
