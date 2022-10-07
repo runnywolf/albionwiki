@@ -213,6 +213,31 @@
               <tr><td>冷卻修正係數</td><td>減少 n% 的技能冷卻時間。</td></tr>
             </table>
             <br>
+            <div style="font-size:20px; font-weight:bold;">防禦</div>
+            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
+            <img src="../image/infoboard/12.png" style="margin:4px;">
+            <div>防禦值減傷效果計算：</div>
+            <div style="display:flex; justify-content:flex-start; text-align:center;">
+              <div style="margin:2px;">對...的防禦</div>
+              <input style="width:80px;" placeholder="" onchange="a_calc0()" id="calc0_n">
+              <div style="margin:2px;">%，接受的傷害為原本的 <span id="calc0_output" style="color:#00f;">1</span> 倍。</div>
+              <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+              <div style="margin:2px; color:#f00; font-weight:bold;">[需要進一步驗證]</div>
+              <script>
+                function a_calc0(){
+                  var n = $("#calc0_n").val();
+
+                  if (!(n != "" && n > -100)){
+                    $("#calc0_n").val("");
+                    n = 0;
+                  }
+                  n = parseFloat(n);
+
+                  $("#calc0_output").text(parseInt(1/(1+n/100)*1000)/1000);
+                }
+              </script>
+            </div>
+            <br>
             <div style="font-size:20px; font-weight:bold;">數值實際影響</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
             <div>在儀錶板上我們看到的這三項數據，數值顯示的是能夠減少 n% 的傷害或群體控制時間。</div>
@@ -234,7 +259,9 @@
                 </select>
                 <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
               </div>
-              <div id="calc1_output">如果裝備的魔法抗性點數總和為0，在面對敵人的魔法傷害時，只會受到 100% 的傷害。</div>
+              <div>
+                如果裝備的<span id="calc1_output_type">魔法抗性</span>點數總和為<span id="calc1_output_point">0</span>，在面對敵人的<span id="calc1_output_Dtype1">魔法傷害</span>時，只會受到 <span id="calc1_output_n" style="color:#00f;">100%</span> 的<span id="calc1_output_Dtype2">傷害</span>。
+              </div>
               <script>
                 function a_calc1(){
                   var point = $("#calc1_point").val();
@@ -245,8 +272,12 @@
                     point = 0;
                   }
                   point = parseInt(point);
-
-                  $("#calc1_output").text("如果裝備的"+["魔法抗性","護甲","群體控制抗性"][type]+"點數總和為"+point+"，在面對敵人的"+["魔法傷害","物理傷害","群體控制"][type]+"時，只會受到 "+(parseInt(100/(point+100)*10000)/100)+"% 的"+["傷害","傷害","群控時間"][type]+"。");
+                  
+                  $("#calc1_output_type").text(["魔法抗性","護甲","群體控制抗性"][type]);
+                  $("#calc1_output_point").text(point);
+                  $("#calc1_output_Dtype1").text(["魔法傷害","物理傷害","群體控制"][type]);
+                  $("#calc1_output_n").text((parseInt(100/(point+100)*10000)/100)+"%");
+                  $("#calc1_output_Dtype2").text(["傷害","傷害","群控時間"][type]);
                 }
               </script>
             </div>
@@ -275,6 +306,12 @@
                   }
                   p = parseInt(p);
                   dp = parseInt(dp);
+                  if (dp > p){
+                    $("#calc2_p").val("");
+                    $("#calc2_dp").val("");
+                    p = 0;
+                    dp = 0;
+                  }
 
                   $("#calc2_output").text(parseInt((100+p)/(100+p-dp)*1000)/1000);
                 }
@@ -291,7 +328,7 @@
             <div style="font-size:20px; font-weight:bold; color:#888;">編輯紀錄</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
             <div>作者: runnywolf</div>
-            <div>最後編輯日期: 2022/08/03</div>
+            <div>最後編輯日期: 2022/10/08</div>
           </div>
         </div>
       </div>
