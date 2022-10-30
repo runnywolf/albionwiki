@@ -195,6 +195,7 @@
                   <option value="25">含符石素材</option>
                   <option value="50">含精煉之魂素材</option>
                   <option value="75">含古遺物素材</option>
+                  <option value="75">含迷霧素材</option>
                   <option value="100">含阿瓦隆素材</option>
                 </select>
                 <div id="calc_material_ip">+0</div>
@@ -206,6 +207,7 @@
                   <option value="100">.1(綠色)</option>
                   <option value="200">.2(藍色)</option>
                   <option value="300">.3(紫色)</option>
+                  <option value="400">.4(金色)</option>
                 </select>
                 <div id="calc_enchant_ip">+0</div>
               </div>
@@ -242,7 +244,7 @@
 
                   var v0 = [0, 100, 300, 500, 700, 800, 900, 1000, 1100][tier];
                   var add_percent = [0, 0, 0, 0, 0, 0.05, 0.1, 0.15, 0.2][tier];
-                  if (!(v4 != "" && v4 >= 0 && v4 <= 392 && v4%1 == 0)){
+                  if (!(v4 != "" && v4 >= 0 && v4 <= 404 && v4%1 == 0)){
                     $("#calc_skill").val("");
                     v4 = 0;
                   }
@@ -264,14 +266,14 @@
             <br>
             <div>
               技能掌握加成的理論最高ip：<br>
-              頭、甲、鞋為392(不包含採集裝)<br>
+              頭、甲、鞋為404(不包含採集裝)<br>
               武器及副手為380
             </div>
             <br>
             <div style="font-size:20px; font-weight:bold; color:#888;">編輯紀錄</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
             <div>作者: runnywolf</div>
-            <div>最後編輯日期: 2022/07/28</div>
+            <div>最後編輯日期: 2022/10/30</div>
           </div>
         </div>
       </div>
