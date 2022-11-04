@@ -139,9 +139,9 @@
         </div>
         <div>
           <div class="main_article">
-            <div style="font-size:24px; font-weight:bold;">儀錶板</div>
+            <div style="font-size:24px; font-weight:bold;">儀錶板與減傷機制</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>關於背包介面旁的儀錶板。</div>
+            <div>關於背包介面旁的儀錶板，以及儀錶板數值的減傷機制。</div>
             <br>
             <div style="font-size:20px; font-weight:bold;">顯示儀錶板</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
@@ -219,7 +219,7 @@
             <div>防禦值減傷效果計算：</div>
             <div style="display:flex; justify-content:flex-start; text-align:center;">
               <div style="margin:2px;">對...的防禦</div>
-              <input style="width:80px;" placeholder="" onchange="a_calc0()" id="calc0_n">
+              <input style="width:60px;" placeholder="" onchange="a_calc0()" id="calc0_n">
               <div style="margin:2px;">%，接受的傷害為原本的 <span id="calc0_output" style="color:#00f;">1</span> 倍。</div>
               <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
               <script>
@@ -322,12 +322,13 @@
               </script>
             </div>
             <br>
-            <div>例：如果敵人的傷害抗性為150，丟他T8毒藥降低了 35 點傷害抗性，造成的傷害為原本的 1.162 倍。</div>
+            <div style="color:#888; text-decoration:line-through;">例：如果敵人的傷害抗性為150，丟他T8毒藥降低了 35 點傷害抗性，造成的傷害為原本的 1.162 倍。</div>
+            <div style="color:#f00;" class="bold">目前發現減抗性機制有問題，解決中，此計算器僅供參考。</div>
             <br>
             <div style="font-size:20px; font-weight:bold; color:#888;">編輯紀錄</div>
             <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
             <div>作者: runnywolf</div>
-            <div>最後編輯日期: 2022/10/08</div>
+            <div>最後編輯日期: 2022/11/04</div>
           </div>
         </div>
       </div>
