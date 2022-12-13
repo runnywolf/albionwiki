@@ -41,9 +41,9 @@ function calc_input_check(e_element, MIN, MAX, b_int){
   show_error(e_element, $("#main-error"), main_error_html);
   return false;
 }
-function main_contents_insert(){
+function main_contents_insert(data_url){
   var request = new XMLHttpRequest();
-  request.open("get", "tool/data.json");
+  request.open("get", data_url);
   request.responseType = "json";
   request.send();
   request.onload = function(){
