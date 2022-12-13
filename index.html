@@ -50,26 +50,23 @@
       </div>
     </div>
     <script>
-      function main_contents_insert(data_url){
-        var request = new XMLHttpRequest();
-        request.open("get", data_url);
-        request.responseType = "json";
-        request.send();
-        request.onload = function(){
-          var data = request.response;
-          var s = "";
-          data["mainlist"].map(function (i){
-            s += "<div class='main-contents-group'>"+i["group"]+"("+i["pages"].length+")</div>";
-            s += "<div class='main-contents-link'>";
-            i["pages"].map(function (j){
-              s += "<div><a href='https://runnywolf.github.io/albionwiki/page/"+j["url"]+"'>"+j["title"]+"</a></div>";
-            })
-            s += "</div>";
-          });
-          $("#main-contents").append(s);
-        };
-      }
-      main_contents_insert("tool/data.json");
+      var request = new XMLHttpRequest();
+      request.open("get", "tool/data.json");
+      request.responseType = "json";
+      request.send();
+      request.onload = function(){
+        var data = request.response;
+        var s = "";
+        data["mainlist"].map(function (i){
+          s += "<div class='main-contents-group'>"+i["group"]+"("+i["pages"].length+")</div>";
+          s += "<div class='main-contents-link'>";
+          i["pages"].map(function (j){
+            s += "<div><a href='https://runnywolf.github.io/albionwiki/page/"+j["url"]+"'>"+j["title"]+"</a></div>";
+          })
+          s += "</div>";
+        });
+        $("#main-contents").append(s);
+      };
     </script>
   </body>
 </html>
