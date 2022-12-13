@@ -57,7 +57,7 @@ function main_contents_insert(data_url){
       })
       s += "</div>";
     });
-    $("#main-contents").append(s);
+    $("#main_contents").append(s);
   };
 }
 var error_show_id0 = null, error_show_id1 = null;
