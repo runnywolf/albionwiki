@@ -25,106 +25,108 @@
           <div>
             <div class="main-contents" id="main_contents"></div>
           </div>
-          <div class="main-article">
-            <div>
-              <div class="main-article-title-h1">戰鬥聲望點</div>
-              戰鬥聲望點(也稱自由點)獲取、使用、自動重新專攻。
-            </div>
-            <div class="main-article-paragraph">
-              <div class="main-article-title-h2">獲取</div>
-              裝備中的頭、甲、鞋、武器、副手，如果該物品內圈或外圈達到 Lv100 或以上，<br>
-              則PvE聲望會以一定比例轉為戰鬥聲望點(聲望溢出)。<br>
-              <br>
-              聲望溢出轉換為戰鬥聲望點的比例：(內外圈皆同)
-              <table class="table-style1">
-                <tr><td>裝備類型</td><td>轉換比例</td></tr>
-                <tr><td>頭</td><td>*0.025</td></tr>
-                <tr><td>甲</td><td>*0.05</td></tr>
-                <tr><td>鞋</td><td>*0.025</td></tr>
-                <tr><td>武器</td><td>*0.1</td></tr>
-                <tr><td>副手</td><td>*0.005</td></tr>
-              </table>
-              <br>
-              某物品如果內外圈皆為 Lv100 或以上，獲得的戰鬥聲望點會<span class="bold">重複計算</span>。<br>
-            </div>
-            <div class="main-article-paragraph">
-              <div class="main-article-title-h2">自動重新專攻</div>
-              <img src="../image/pvepoint/1.png"><br>
-              如果開啟，獲得的戰鬥聲望點提高至 4 倍，但是每獲得 1 點戰鬥聲望點，會消耗 0.9 銀幣。
-            </div>
-            <div class="main-article-paragraph">
-              <div class="main-article-title-h2">使用</div>
-              點擊裝備的內圈或外圈圖示，進到聲望進度條介面，按下等級按鈕。(至少要Lv1)<br>
-              <img src="../image/pvepoint/2.png" style="max-height:150px;"><br>
-              <br>
-              進入到升級介面<br>
-              <img src="../image/pvepoint/3.png" style="max-height:300px;"><br>
-              <br>
-              把拉桿往右拉或是點擊"+"按鈕，可以花費戰鬥聲望點直接升級內外圈裝備的等級。<br>
-              裝備的外圈等級到Lv100就無法經由PvE聲望直接升級了，僅能使用戰鬥聲望點升級到Lv120。<br>
-              <br>
-              每 1 點戰鬥聲望點可以轉換成：(內外圈皆同)
-              <table class="table-style1">
-                <tr><td>裝備類型</td><td>等級進度條增加</td></tr>
-                <tr><td>頭</td><td>8 聲望</td></tr>
-                <tr><td>甲</td><td>4 聲望</td></tr>
-                <tr><td>鞋</td><td>8 聲望</td></tr>
-                <tr><td>武器</td><td>2 聲望</td></tr>
-                <tr><td>副手</td><td>40 聲望</td></tr>
-              </table>
-              <br>
-              把拉桿往左拉或是點擊"-"按鈕，可以花費銀幣將<span class="bold">等級進度條聲望</span>轉為<span class="bold">戰鬥聲望點</span>，<br>
-              會消耗 獲得的戰鬥聲望點*0.9 銀幣。
-            </div>
-            <div class="main-article-paragraph">
-              <div class="main-article-title-h2">計算</div>
-              計算轉換成的戰鬥聲望點：
-              <table>
-                <tr>
-                  <td>滿Lv100？</td>
-                  <td>內圈</td>
-                  <td>外圈</td>
-                </tr>
-                <tr>
-                  <td>頭</td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_head_in"></td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_head_out"></td>
-                </tr>
-                <tr>
-                  <td>甲</td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_armor_in"></td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_armor_out"></td>
-                </tr>
-                <tr>
-                  <td>鞋</td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_in"></td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_out"></td>
-                </tr>
-                <tr>
-                  <td>武器</td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_in"></td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_out"></td>
-                </tr>
-                <tr>
-                  <td>副手</td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_in"></td>
-                  <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_out"></td>
-                </tr>
-                <tr>
-                  <td colspan="3"><div class="flex-start"><input type="checkbox" onchange="calc1()" id="calc1_auto">是否開啟自動重新專攻</div></td>
-                </tr>
-              </table>
-              <div class="flex-start" style="margin-top:4px;">
-                <div>每獲得</div>
-                <input style="width:100px;" onchange="calc1()" id="calc1_fame">
-                <div>PvE聲望，會累積 <span style="color:#00f;" id="calc1_output_point">0</span> 戰鬥聲望點，並消耗 <span style="color:#00f;" id="calc1_output_silver">0</span> 銀幣。</div>
-                <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+          <div>
+            <div class="main-article">
+              <div>
+                <div class="main-article-title-h1">戰鬥聲望點</div>
+                戰鬥聲望點(也稱自由點)獲取、使用、自動重新專攻。
               </div>
-            </div>
-            <div class="main-article-foot">
-              <div class="main-article-title-h2">編輯紀錄</div>
-              <div>作者: runnywolf</div>
-              <div>最後編輯日期: 2022/08/04</div>
+              <div class="main-article-paragraph">
+                <div class="main-article-title-h2">獲取</div>
+                裝備中的頭、甲、鞋、武器、副手，如果該物品內圈或外圈達到 Lv100 或以上，<br>
+                則PvE聲望會以一定比例轉為戰鬥聲望點(聲望溢出)。<br>
+                <br>
+                聲望溢出轉換為戰鬥聲望點的比例：(內外圈皆同)
+                <table class="table-style1">
+                  <tr><td>裝備類型</td><td>轉換比例</td></tr>
+                  <tr><td>頭</td><td>*0.025</td></tr>
+                  <tr><td>甲</td><td>*0.05</td></tr>
+                  <tr><td>鞋</td><td>*0.025</td></tr>
+                  <tr><td>武器</td><td>*0.1</td></tr>
+                  <tr><td>副手</td><td>*0.005</td></tr>
+                </table>
+                <br>
+                某物品如果內外圈皆為 Lv100 或以上，獲得的戰鬥聲望點會<span class="bold">重複計算</span>。<br>
+              </div>
+              <div class="main-article-paragraph">
+                <div class="main-article-title-h2">自動重新專攻</div>
+                <img src="../image/pvepoint/1.png"><br>
+                如果開啟，獲得的戰鬥聲望點提高至 4 倍，但是每獲得 1 點戰鬥聲望點，會消耗 0.9 銀幣。
+              </div>
+              <div class="main-article-paragraph">
+                <div class="main-article-title-h2">使用</div>
+                點擊裝備的內圈或外圈圖示，進到聲望進度條介面，按下等級按鈕。(至少要Lv1)<br>
+                <img src="../image/pvepoint/2.png" style="max-height:150px;"><br>
+                <br>
+                進入到升級介面<br>
+                <img src="../image/pvepoint/3.png" style="max-height:300px;"><br>
+                <br>
+                把拉桿往右拉或是點擊"+"按鈕，可以花費戰鬥聲望點直接升級內外圈裝備的等級。<br>
+                裝備的外圈等級到Lv100就無法經由PvE聲望直接升級了，僅能使用戰鬥聲望點升級到Lv120。<br>
+                <br>
+                每 1 點戰鬥聲望點可以轉換成：(內外圈皆同)
+                <table class="table-style1">
+                  <tr><td>裝備類型</td><td>等級進度條增加</td></tr>
+                  <tr><td>頭</td><td>8 聲望</td></tr>
+                  <tr><td>甲</td><td>4 聲望</td></tr>
+                  <tr><td>鞋</td><td>8 聲望</td></tr>
+                  <tr><td>武器</td><td>2 聲望</td></tr>
+                  <tr><td>副手</td><td>40 聲望</td></tr>
+                </table>
+                <br>
+                把拉桿往左拉或是點擊"-"按鈕，可以花費銀幣將<span class="bold">等級進度條聲望</span>轉為<span class="bold">戰鬥聲望點</span>，<br>
+                會消耗 獲得的戰鬥聲望點*0.9 銀幣。
+              </div>
+              <div class="main-article-paragraph">
+                <div class="main-article-title-h2">計算</div>
+                計算轉換成的戰鬥聲望點：
+                <table>
+                  <tr>
+                    <td>滿Lv100？</td>
+                    <td>內圈</td>
+                    <td>外圈</td>
+                  </tr>
+                  <tr>
+                    <td>頭</td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_head_in"></td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_head_out"></td>
+                  </tr>
+                  <tr>
+                    <td>甲</td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_armor_in"></td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_armor_out"></td>
+                  </tr>
+                  <tr>
+                    <td>鞋</td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_in"></td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_out"></td>
+                  </tr>
+                  <tr>
+                    <td>武器</td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_in"></td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_out"></td>
+                  </tr>
+                  <tr>
+                    <td>副手</td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_in"></td>
+                    <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_out"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><div class="flex-start"><input type="checkbox" onchange="calc1()" id="calc1_auto">是否開啟自動重新專攻</div></td>
+                  </tr>
+                </table>
+                <div class="flex-start" style="margin-top:4px;">
+                  <div>每獲得</div>
+                  <input style="width:100px;" onchange="calc1()" id="calc1_fame">
+                  <div>PvE聲望，會累積 <span style="color:#00f;" id="calc1_output_point">0</span> 戰鬥聲望點，並消耗 <span style="color:#00f;" id="calc1_output_silver">0</span> 銀幣。</div>
+                  <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+                </div>
+              </div>
+              <div class="main-article-foot">
+                <div class="main-article-title-h2">編輯紀錄</div>
+                <div>作者: runnywolf</div>
+                <div>最後編輯日期: 2022/08/04</div>
+              </div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>
