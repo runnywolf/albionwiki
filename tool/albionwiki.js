@@ -41,22 +41,23 @@ function calc_input_check(e_element, MIN, MAX, b_int){
   show_error(e_element, $("#main-error"), main_error_html);
   return false;
 }
-
+function main_contents_insert(){
+  var request = new XMLHttpRequest();
+  request.open("get", "tool/data.json");
+  request.responseType = "json";
+  request.send();
+  request.onload = function(){
+    var data = request.response;
+    var s = "";
+    data["mainlist"].map(function (i){
+      s += "<div class='main-contents-group'>"+i["group"]+"("+i["pages"].length+")</div>";
+      s += "<div class='main-contents-link'>";
+      i["pages"].map(function (j){
+        s += "<div><a href='https://runnywolf.github.io/albionwiki/page/"+j["url"]+"'>"+j["title"]+"</a></div>";
+      })
+      s += "</div>";
+    });
+    $("#main-contents").append(s);
+  };
+}
 var error_show_id0 = null, error_show_id1 = null;
-var request = new XMLHttpRequest();
-request.open("get", "tool/data.json");
-request.responseType = "json";
-request.send();
-request.onload = function(){
-  var data = request.response;
-  var s = "";
-  data["mainlist"].map(function (i){
-    s += "<div class='main-contents-group'>"+i["group"]+"("+i["pages"].length+")</div>";
-    s += "<div class='main-contents-link'>";
-    i["pages"].map(function (j){
-      s += "<div><a href='https://runnywolf.github.io/albionwiki/page/"+j["url"]+"'>"+j["title"]+"</a></div>";
-    })
-    s += "</div>";
-  });
-  $("#main-contents").append(s);
-};
