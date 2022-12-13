@@ -1,8 +1,8 @@
-https://runnywolf.github.io/albionwiki/page/itempower
-https://runnywolf.github.io/albionwiki/page/island
-https://runnywolf.github.io/albionwiki/page/farmer
-https://runnywolf.github.io/albionwiki/page/infoboard
-https://runnywolf.github.io/albionwiki/page/pvepoint
-https://runnywolf.github.io/albionwiki/page/pvefame
-https://runnywolf.github.io/albionwiki/page/faction_chest
-https://runnywolf.github.io/albionwiki/page/conqueror_chest
+https://runnywolf.github.io/albionwiki/page/itempower.html
+https://runnywolf.github.io/albionwiki/page/island.html
+https://runnywolf.github.io/albionwiki/page/farmer.html
+https://runnywolf.github.io/albionwiki/page/infoboard.html
+https://runnywolf.github.io/albionwiki/page/pvepoint.html
+https://runnywolf.github.io/albionwiki/page/pvefame.html
+https://runnywolf.github.io/albionwiki/page/faction_chest.html
+https://runnywolf.github.io/albionwiki/page/conqueror_chest.html
