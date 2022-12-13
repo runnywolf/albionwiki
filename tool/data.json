@@ -12,12 +12,15 @@
         },
         {
             "group":"研究中",
-            "pages":[]
+            "pages":[
+                {"url":"pvefame", "title":"PvE聲望"}
+            ]
         },
         {
             "group":"資料",
             "pages":[
-                {"url":"faction_chest", "title":"100抽陣營黑鐵寶箱"}
+                {"url":"faction_chest", "title":"100抽陣營黑鐵寶箱"},
+                {"url":"conqueror_chest", "title":"100抽T7征服者寶箱"}
             ]
         }
     ]

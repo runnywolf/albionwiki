@@ -1,223 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
   <head>
-    <meta charset="utf-8"></meta>
-    <link rel="shortcut icon" type="image/png" href="../image/icon.png?">
-    <title>An albionOL wiki by wolf.</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"></script>
-    <style>
-      html, body{
-        margin: 0px;
-        height: 100%;
-      }
-      body{
-        background-image: url("../image/bg.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-size: cover;
-        font-family: monospace;
-      }
-      a{
-        text-decoration: none;
-        color: #60f;
-        font-weight: bold;
-      }
-      a:hover{
-        text-decoration: underline;
-      }
-      table{
-        margin: 4px;
-        white-space: nowrap;
-        border-collapse: separate;
-        border-spacing: 0px;
-        border-top: 1px #000000 solid;
-        border-left: 1px #000000 solid;
-        text-align: center;
-      }
-      td{
-        padding: 0px 4px;
-        border-right: 1px #000000 solid;
-        border-bottom: 1px #000000 solid;
-      }
-      select{
-        margin: 4px;
-        height: 20px;
-        font-family: monospace;
-      }
-      input{
-        margin: 4px;
-        height: 14px;
-        font-family: monospace;
-        text-align: center;
-      }
-      button{
-        margin: 4px;
-        height: 20px;
-        font-size: 12px;
-        font-family: monospace;
-        text-align: center;
-      }
-      .head{
-        width: 100%;
-        height: 50px;
-        background-color: #fd9;
-        position: fixed;
-        display: flex;
-        justify-content: flex-start;
-      }
-      .head_title{
-        margin-top: 2px;
-        margin-left: 10px;
-        height: 50px;
-        font-size: 30px;
-        line-height: 50px;
-        font-weight: bold;
-        text-align: center;
-      }
-      .mid{
-        min-width: 1000px;
-        min-height: calc(100% - 108px);
-        display: flex;
-        justify-content: center;
-      }
-      .main{
-        width: 1000px;
-        display: flex;
-        justify-content: flex-start;
-      }
-      .main_list{
-        margin: 58px 0px 0px 5px;
-        padding: 4px;
-        width: 200px;
-        border-radius: 6px;
-        background-color: #fffc;
-        font-size: 12px;
-      }
-      .main_article{
-        margin: 58px 0px 0px 12px;
-        padding: 8px;
-        width: 750px;
-        border-radius: 6px;
-        background-color: #fffc;
-        font-size: 16px;
-        word-break: break-all;
-        word-wrap: break-word;
-      }
-      .foot{
-        margin-top: 8px;
-        width: 100%;
-        min-width: 1000px;
-        height: 100px;
-        background-color: #ca6;
-        font-size: 12px;
-        text-align: center;
-      }
-      .foot_version{
-        padding-top: 14px;
-      }
-      .bold{
-        font-weight: bold;
-      }
-    </style>
+    <meta name="google-site-verification" content="KjJ2kGLplqSGMcVhe_L_akt4qWFFSB7MoQYQGAVWj3A">
+    <meta charset="utf-8">
+    <meta name="description" content="An Albion Online wiki by wolf.">
+    <link rel="canonical" href="https://runnywolf.github.io/albionwiki/">
+    <link rel="shortcut icon" type="image/png" href="../image/icon.png">
+    <title>狼的阿爾比恩攻略網</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../tool/albionwiki.js"></script>
+    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
   </head>
   <body>
-    <div class="head">
-      <a href="https://runnywolf.github.io/albionwiki/">
-        <img src="../image/albion.png" style="margin:5px 0px 0px 20px; max-height:40px;" title="首頁">
-      </a>
-      <div class="head_title">
-        狼的<span style="color:#730;">阿爾比恩</span>攻略網
-      </div>
-    </div>
-    <div class="mid">
-      <div class="main">
-        <div>
-          <div class="main_list" id="mainlist"></div>
+    <div class="headMainWrapper">
+      <div class="head flex-start">
+        <a href="https://runnywolf.github.io/albionwiki/">
+          <img src="../image/albion.png" class="head-homeButton" title="首頁">
+        </a>
+        <div class="head-title">
+          狼的<span style="color:#730;">阿爾比恩</span>攻略網
         </div>
-        <div>
-          <div class="main_article">
-            <div style="font-size:24px; font-weight:bold;">個人島</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>個人島的購買與轉移方法。</div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">購買</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
+      </div>
+      <div class="mainWrapper">
+        <div class="main flex-start">
+          <div>
+            <div class="main-contents"></div>
+          </div>
+          <div class="main-article">
             <div>
-              如要購買個人島，必須先購買 7 天以上的<span class="bold">尊享會員</span>。<br>
-              然後到皇家大陸其中一個主城找到<span class="bold">島嶼商人</span>。
+              <div class="main-article-title-h1">個人島</div>
+              個人島的購買與轉移方法。
             </div>
-            <img src="../image/island/1.png" style="margin:4px;">
-            <div>按購買島嶼即可。</div>
-            <br>
-            <div>島嶼花費如下表：</div>
-            <table>
-              <tr class="bold"><td>島嶼等級</td><td>單次升級費用</td><td>累計升級費用</td><td>建築地</td><td>農地</td></tr>
-              <tr><td>Lv1</td><td>18,750</td><td>18,750</td><td>1大</td><td>0</td></tr>
-              <tr><td>Lv2</td><td>56,250</td><td>75,000</td><td>2大2小</td><td>1</td></tr>
-              <tr><td>Lv3</td><td>187,500</td><td>262,500</td><td>4大2小</td><td>2</td></tr>
-              <tr><td>Lv4</td><td>562,500</td><td>825,000</td><td>6大2小</td><td>3</td></tr>
-              <tr><td>Lv5</td><td>1,875,000</td><td>2,700,000	</td><td>8大2小</td><td>4</td></tr>
-              <tr><td>Lv6</td><td>3,750,000</td><td>6,450,000</td><td>11大2小</td><td>5</td></tr>
-            </table>
-            <div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">購買</div>
+              如要購買個人島，必須先購買7天以上的<span class="bold">尊享會員</span>。<br>
+              然後到皇家大陸其中一個主城找到<span class="bold">島嶼商人</span>。<br>
+              <img src="../image/island/1.png"><br>
+              按購買島嶼即可。<br>
+              <br>
+              島嶼花費如下表：
+              <table class="table-style1">
+                <tr><td>島嶼等級</td><td>單次升級費用</td><td>累計升級費用</td><td>建築地</td><td>農地</td></tr>
+                <tr><td>Lv1</td><td>18,750</td><td>18,750</td><td>1大</td><td>0</td></tr>
+                <tr><td>Lv2</td><td>56,250</td><td>75,000</td><td>2大2小</td><td>1</td></tr>
+                <tr><td>Lv3</td><td>187,500</td><td>262,500</td><td>4大2小</td><td>2</td></tr>
+                <tr><td>Lv4</td><td>562,500</td><td>825,000</td><td>6大2小</td><td>3</td></tr>
+                <tr><td>Lv5</td><td>1,875,000</td><td>2,700,000	</td><td>8大2小</td><td>4</td></tr>
+                <tr><td>Lv6</td><td>3,750,000</td><td>6,450,000</td><td>11大2小</td><td>5</td></tr>
+              </table>
               注：因<span class="bold">全局折扣</span>，實際情況可能會比上表報價便宜一點點。<br>
               <br>
               島嶼等級達到 Lv2 才會解鎖<span class="bold">農業商人</span>。<br>
               <span class="bold">小型</span>建築地僅能建造<span class="bold">屠夫</span>或<span class="bold">冶煉匠</span>站點，大型建築地面積等於2*2小型建築地。
             </div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">轉移</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">轉移</div>
               如果你需要把島嶼轉到其他城市，步驟如下。<br>
-              <span style="color:#f00; font-weight:bold;">警告：島嶼上的建築、農地會在放棄島嶼後被清空，請先回收建築材料。</span><br>
+              <span class="bold" style="color:#f00;">警告：島嶼上的建築、農地會在放棄島嶼後被清空，請先回收建築材料。</span><br>
               <br>
-              <span class="bold">步驟一</span>：前往你目前的島嶼所在城市，找島嶼商人按放棄按鈕。
-            </div>
-            <img src="../image/island/2.png" style="margin:4px; max-height:300px;">
-            <div>
+              <span class="bold">步驟一</span>：前往你目前的島嶼所在城市，找島嶼商人按放棄按鈕。<br>
+              <img src="../image/island/2.png" style="max-height:300px;"><br>
               <span class="bold">步驟二</span>：前往你想要遷移到的城市，找島嶼商人按購買按鈕。<br>
               需要支付 Lv1 島嶼費用($18,750)，購買後的島嶼等級會等於放棄前島嶼等級。
             </div>
-            <br>
-            <div style="font-size:20px; font-weight:bold; color:#888;">編輯紀錄</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>作者: runnywolf</div>
-            <div>最後編輯日期: 2022/07/29</div>
+            <div class="main-article-foot">
+              <div class="main-article-title-h2">編輯紀錄</div>
+              <div>作者: runnywolf</div>
+              <div>最後編輯日期: 2022/07/29</div>
+            </div>
           </div>
+          <div class="main-error" id="main-error"></div>
         </div>
       </div>
     </div>
     <div class="foot">
-      <div class="foot_version">
+      <div class="foot-info">
         "如果有一天退坑了，那麼狼除了銀幣以外，還能留下什麼呢？"<br>
-        <br>
-        如有任何問題請私訊discord: runnywolf#3104<br>
+        <div style="height:10px;"></div>
+        如有任何bug或建議請至<img src="../image/discord_icon.png" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.1.2 -> Last update date: 2022/8/17
+        v1.2 -> Last update date: 2022/12/13
       </div>
     </div>
-    <script>
-      var request = new XMLHttpRequest();
-      request.open("get", "../data.json");
-      request.responseType = "json";
-      request.send();
-      request.onload = function(){
-        var data = request.response;
-        var s = "";
-        data["mainlist"].map(function (i){
-          s += "<div style='font-size:14px; font-weight:bold;'>"+i["group"]+"("+i["pages"].length+")</div>";
-          s += "<div style='margin-left:10px; font-size:12px;'>";
-          i["pages"].map(function (j){
-            s += "<div><a href='https://runnywolf.github.io/albionwiki/page/"+j["url"]+"'>"+j["title"]+"</a></div>";
-          })
-          s += "</div>";
-        });
-        $("#mainlist").append(s)
-      };
-    </script>
   </body>
 </html>

@@ -1,310 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
   <head>
-    <meta charset="utf-8"></meta>
-    <link rel="shortcut icon" type="image/png" href="../image/icon.png?">
-    <title>An albionOL wiki by wolf.</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"></script>
-    <style>
-      html, body{
-        margin: 0px;
-        height: 100%;
-      }
-      body{
-        background-image: url("../image/bg.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-size: cover;
-        font-family: monospace;
-      }
-      a{
-        text-decoration: none;
-        color: #60f;
-        font-weight: bold;
-      }
-      a:hover{
-        text-decoration: underline;
-      }
-      table{
-        margin: 4px;
-        white-space: nowrap;
-        border-collapse: separate;
-        border-spacing: 0px;
-        border-top: 1px #000000 solid;
-        border-left: 1px #000000 solid;
-        text-align: center;
-      }
-      td{
-        padding: 0px 4px;
-        border-right: 1px #000000 solid;
-        border-bottom: 1px #000000 solid;
-      }
-      select{
-        margin: 4px;
-        height: 20px;
-        font-family: monospace;
-      }
-      input{
-        margin: 4px;
-        height: 14px;
-        font-family: monospace;
-        text-align: center;
-      }
-      button{
-        margin: 4px;
-        height: 20px;
-        font-size: 12px;
-        font-family: monospace;
-        text-align: center;
-      }
-      .head{
-        width: 100%;
-        height: 50px;
-        background-color: #fd9;
-        position: fixed;
-        display: flex;
-        justify-content: flex-start;
-      }
-      .head_title{
-        margin-top: 2px;
-        margin-left: 10px;
-        height: 50px;
-        font-size: 30px;
-        line-height: 50px;
-        font-weight: bold;
-        text-align: center;
-      }
-      .mid{
-        min-width: 1000px;
-        min-height: calc(100% - 108px);
-        display: flex;
-        justify-content: center;
-      }
-      .main{
-        width: 1000px;
-        display: flex;
-        justify-content: flex-start;
-      }
-      .main_list{
-        margin: 58px 0px 0px 5px;
-        padding: 4px;
-        width: 200px;
-        border-radius: 6px;
-        background-color: #fffc;
-        font-size: 12px;
-      }
-      .main_article{
-        margin: 58px 0px 0px 12px;
-        padding: 8px;
-        width: 750px;
-        border-radius: 6px;
-        background-color: #fffc;
-        font-size: 16px;
-        word-break: break-all;
-        word-wrap: break-word;
-      }
-      .foot{
-        margin-top: 8px;
-        width: 100%;
-        min-width: 1000px;
-        height: 100px;
-        background-color: #ca6;
-        font-size: 12px;
-        text-align: center;
-      }
-      .foot_version{
-        padding-top: 14px;
-      }
-      .bold{
-        font-weight: bold;
-      }
-    </style>
+    <meta name="google-site-verification" content="KjJ2kGLplqSGMcVhe_L_akt4qWFFSB7MoQYQGAVWj3A">
+    <meta charset="utf-8">
+    <meta name="description" content="An Albion Online wiki by wolf.">
+    <link rel="canonical" href="https://runnywolf.github.io/albionwiki/">
+    <link rel="shortcut icon" type="image/png" href="../image/icon.png">
+    <title>狼的阿爾比恩攻略網</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../tool/albionwiki.js"></script>
+    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
   </head>
   <body>
-    <div class="head">
-      <a href="https://runnywolf.github.io/albionwiki/">
-        <img src="../image/albion.png" style="margin:5px 0px 0px 20px; max-height:40px;" title="首頁">
-      </a>
-      <div class="head_title">
-        狼的<span style="color:#730;">阿爾比恩</span>攻略網
-      </div>
-    </div>
-    <div class="mid">
-      <div class="main">
-        <div>
-          <div class="main_list" id="mainlist"></div>
+    <div class="headMainWrapper">
+      <div class="head flex-start">
+        <a href="https://runnywolf.github.io/albionwiki/">
+          <img src="../image/albion.png" class="head-homeButton" title="首頁">
+        </a>
+        <div class="head-title">
+          狼的<span style="color:#730;">阿爾比恩</span>攻略網
         </div>
-        <div>
-          <div class="main_article">
-            <div style="font-size:24px; font-weight:bold;">物品強度(ip)</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <img src="../image/itempower/1.png" style="margin:4px;">
+      </div>
+      <div class="mainWrapper">
+        <div class="main flex-start">
+          <div>
+            <div class="main-contents"></div>
+          </div>
+          <div class="main-article">
             <div>
+              <div class="main-article-title-h1">物品強度(ip)</div>
+              <img src="../image/itempower/1.png"><br>
               <span class="bold">平均物品強度(ip, Item Power)</span>為身上6格裝備的ip取平均。(雙手武器會以兩格計算)<br>
               <span class="bold">基礎平均物品強度</span>計算方法同上，但會忽略掉天賦羅盤的ip加成，即無練度的情況下穿同樣裝備的ip。<br>
               單一物品的ip為: 基礎物品強度 + 技能掌握加成
             </div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">基礎物品強度</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <img src="../image/itempower/2.png" style="margin:4px;">
-            <div>即使你該物品沒有任何練度，仍然會有<span class="bold">基礎物品強度</span>。</div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">技能掌握加成</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <img src="../image/itempower/3.png" style="margin:4px;">
-            <div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">基礎物品強度</div>
+              <img src="../image/itempower/2.png"><br>
+              即使你該物品沒有任何練度，仍然會有<span class="bold">基礎物品強度</span>。
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">技能掌握加成</div>
+              <img src="../image/itempower/3.png"><br>
               <span class="bold">技能掌握加成</span>取決於該物品天賦羅盤上的外圈和內圈等級。T3或T3以下的物品，技能掌握加成為0。<br>
-              <span class="bold">技能掌握加成係數</span>根據物品的階級會有不同的加成。(=技能掌握加成ip*加成比例)
+              <span class="bold">技能掌握修正係數</span>根據物品的階級會有不同的加成。(=技能掌握加成ip*加成比例)
+              <table class="table-style1">
+                <tr><td>階級</td><td>加成比例</td></tr>
+                <tr><td>T4</td><td>0%</td></tr>
+                <tr><td>T5</td><td>5%</td></tr>
+                <tr><td>T6</td><td>10%</td></tr>
+                <tr><td>T7</td><td>15%</td></tr>
+                <tr><td>T8</td><td>20%</td></tr>
+              </table>
             </div>
-            <table>
-              <tr class="bold"><td>階級</td><td>加成比例</td></tr>
-              <tr><td>T4</td><td>0%</td></tr>
-              <tr><td>T5</td><td>5%</td></tr>
-              <tr><td>T6</td><td>10%</td></tr>
-              <tr><td>T7</td><td>15%</td></tr>
-              <tr><td>T8</td><td>20%</td></tr>
-            </table>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">計算</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>單個物品ip計算:</div>
-            <div style="display:flex; justify-content:flex-start; text-align:center;">
-              <div>
-                <select onchange="a_calc()" id="calc_tier">
-                  <option disabled>階級</option>
-                  <option value="1" selected>T1(灰底)</option>
-                  <option value="2">T2(棕底)</option>
-                  <option value="3">T3(綠底)</option>
-                  <option value="4">T4(藍底)</option>
-                  <option value="5">T5(紅底)</option>
-                  <option value="6">T6(橙底)</option>
-                  <option value="7">T7(黃底)</option>
-                  <option value="8">T8(白底)</option>
-                </select>
-                <div id="calc_tier_ip">100</div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">計算</div>
+              單個物品ip計算:
+              <div class="flex-start" style="text-align:center;">
+                <div>
+                  <select onchange="calc1()" id="calc1_tier">
+                    <option disabled>階級</option>
+                    <option value="1" selected>T1(灰底)</option>
+                    <option value="2">T2(棕底)</option>
+                    <option value="3">T3(綠底)</option>
+                    <option value="4">T4(藍底)</option>
+                    <option value="5">T5(紅底)</option>
+                    <option value="6">T6(橙底)</option>
+                    <option value="7">T7(黃底)</option>
+                    <option value="8">T8(白底)</option>
+                  </select>
+                  <div><span id="calc1_tier_ip">100</span></div>
+                </div>
+                <div>
+                  <select onchange="calc1()" id="calc1_material">
+                    <option disabled>物品素材</option>
+                    <option value="0" selected>無</option>
+                    <option value="25">含皇家素材</option>
+                    <option value="25">含符石素材</option>
+                    <option value="50">含精煉之魂素材</option>
+                    <option value="75">含古遺物素材</option>
+                    <option value="75">含迷霧素材</option>
+                    <option value="100">含阿瓦隆素材</option>
+                  </select>
+                  <div>+<span id="calc1_material_ip">0</span></div>
+                </div>
+                <div>
+                  <select onchange="calc1()" id="calc1_level">
+                    <option disabled>附魔</option>
+                    <option value="0" selected>.0(無色)</option>
+                    <option value="100">.1(綠色)</option>
+                    <option value="200">.2(藍色)</option>
+                    <option value="300">.3(紫色)</option>
+                    <option value="400">.4(金色)</option>
+                  </select>
+                  <div>+<span id="calc1_level_ip">0</span></div>
+                </div>
+                <div>
+                  <select onchange="calc1()" id="calc1_quality">
+                    <option disabled>品質</option>
+                    <option value="0" selected>普通(灰邊)</option>
+                    <option value="20">良好(鐵邊)</option>
+                    <option value="40">優秀(銅邊)</option>
+                    <option value="60">傑出(銀邊)</option>
+                    <option value="100">不凡(金邊)</option>
+                  </select>
+                  <div>+<span id="calc1_quality_ip">0</span></div>
+                </div>
+                <div>
+                  <input style="width:80px;" placeholder="技能掌握加成" onchange="calc1()" id="calc1_skill">
+                  <div>+<span id="calc1_skill_ip">0</span></div>
+                </div>
+                <div>
+                  <div style="width:50px; margin-top:3px; height:14px;">+<span id="calc1_add">0</span>%</div>
+                  <div style="margin-top:5px;">+<span id="calc1_add_ip">0</span></div>
+                </div>
+                <div>
+                  <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+                  <div>= <span style="color:#00f;" id="calc1_output">100</span> ip</div>
+                </div>
               </div>
-              <div>
-                <select onchange="a_calc()" id="calc_material">
-                  <option disabled>物品素材</option>
-                  <option value="0" selected>無</option>
-                  <option value="25">含皇家素材</option>
-                  <option value="25">含符石素材</option>
-                  <option value="50">含精煉之魂素材</option>
-                  <option value="75">含古遺物素材</option>
-                  <option value="75">含迷霧素材</option>
-                  <option value="100">含阿瓦隆素材</option>
-                </select>
-                <div id="calc_material_ip">+0</div>
-              </div>
-              <div>
-                <select onchange="a_calc()" id="calc_enchant">
-                  <option disabled>附魔</option>
-                  <option value="0" selected>.0(無色)</option>
-                  <option value="100">.1(綠色)</option>
-                  <option value="200">.2(藍色)</option>
-                  <option value="300">.3(紫色)</option>
-                  <option value="400">.4(金色)</option>
-                </select>
-                <div id="calc_enchant_ip">+0</div>
-              </div>
-              <div>
-                <select onchange="a_calc()" id="calc_quality">
-                  <option disabled>品質</option>
-                  <option value="0" selected>普通(灰邊)</option>
-                  <option value="20">良好(鐵邊)</option>
-                  <option value="40">優秀(銅邊)</option>
-                  <option value="60">傑出(銀邊)</option>
-                  <option value="100">不凡(金邊)</option>
-                </select>
-                <div id="calc_quality_ip">+0</div>
-              </div>
-              <div>
-                <input style="width:80px;" placeholder="技能掌握加成" onchange="a_calc()" id="calc_skill">
-                <div id="calc_skill_ip">+0</div>
-              </div>
-              <div>
-                <div style="width:50px; margin:5px; height:18px;" id="calc_add">+0%</div>
-                <div id="calc_add_ip">+0</div>
-              </div>
-              <div>
-                <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
-                <div style="margin-top:0px;">= <span style="color:#00f;" id="calc_output">100</span> ip</div>
-              </div>
-              <script>
-                function a_calc(){
-                  var tier = parseInt($("#calc_tier").val());
-                  var v1 = parseInt($("#calc_material").val());
-                  var v2 = parseInt($("#calc_enchant").val());
-                  var v3 = parseInt($("#calc_quality").val());
-                  var v4 = $("#calc_skill").val();
-
-                  var v0 = [0, 100, 300, 500, 700, 800, 900, 1000, 1100][tier];
-                  var add_percent = [0, 0, 0, 0, 0, 0.05, 0.1, 0.15, 0.2][tier];
-                  if (!(v4 != "" && v4 >= 0 && v4 <= 404 && v4%1 == 0)){
-                    $("#calc_skill").val("");
-                    v4 = 0;
-                  }
-                  if (tier <= 3) v4 = 0;
-                  v4 = parseInt(v4);
-                  var v5 = parseInt(v4*add_percent);
-
-                  $("#calc_tier_ip").text(v0);
-                  $("#calc_material_ip").text("+"+v1);
-                  $("#calc_enchant_ip").text("+"+v2);
-                  $("#calc_quality_ip").text("+"+v3);
-                  $("#calc_skill_ip").text("+"+v4);
-                  $("#calc_add").text("+"+add_percent*100+"%");
-                  $("#calc_add_ip").text("+"+v5);
-                  $("#calc_output").text(v0+v1+v2+v3+v4+v5);
-                }
-              </script>
-            </div>
-            <br>
-            <div>
+              <br>
               技能掌握加成的理論最高ip：<br>
               頭、甲、鞋為404(不包含採集裝)<br>
               武器及副手為380
             </div>
-            <br>
-            <div style="font-size:20px; font-weight:bold; color:#888;">編輯紀錄</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>作者: runnywolf</div>
-            <div>最後編輯日期: 2022/10/30</div>
+            <div class="main-article-foot">
+              <div class="main-article-title-h2">編輯紀錄</div>
+              <div>作者: runnywolf</div>
+              <div>最後編輯日期: 2022/10/30</div>
+            </div>
           </div>
+          <div class="main-error" id="main-error"></div>
         </div>
       </div>
     </div>
     <div class="foot">
-      <div class="foot_version">
+      <div class="foot-info">
         "如果有一天退坑了，那麼狼除了銀幣以外，還能留下什麼呢？"<br>
-        <br>
-        如有任何問題請私訊discord: runnywolf#3104<br>
+        <div style="height:10px;"></div>
+        如有任何bug或建議請至<img src="../image/discord_icon.png" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.1.2 -> Last update date: 2022/8/17
+        v1.2 -> Last update date: 2022/12/13
       </div>
     </div>
-    <script>
-      var request = new XMLHttpRequest();
-      request.open("get", "../data.json");
-      request.responseType = "json";
-      request.send();
-      request.onload = function(){
-        var data = request.response;
-        var s = "";
-        data["mainlist"].map(function (i){
-          s += "<div style='font-size:14px; font-weight:bold;'>"+i["group"]+"("+i["pages"].length+")</div>";
-          s += "<div style='margin-left:10px; font-size:12px;'>";
-          i["pages"].map(function (j){
-            s += "<div><a href='https://runnywolf.github.io/albionwiki/page/"+j["url"]+"'>"+j["title"]+"</a></div>";
-          })
-          s += "</div>";
-        });
-        $("#mainlist").append(s)
-      };
+    <script><!--calc1-->
+      function calc1(){
+        var tier = parseInt($("#calc1_tier").val());
+        var material_ip = parseInt($("#calc1_material").val());
+        var level_ip = parseInt($("#calc1_level").val());
+        var quality_ip = parseInt($("#calc1_quality").val());
+        var skill_ip, e_skill = $("#calc1_skill");
+        
+        var tier_ip = [null, 100, 300, 500, 700, 800, 900, 1000, 1100][tier];
+        
+        if (calc_input_check(e_skill, 0, 404, true)) skill_ip = parseInt(e_skill.val());
+        else skill_ip = 0;
+        if (tier <= 3) skill_ip = 0;
+
+        var add = [null, 0, 0, 0, 0, 0.05, 0.1, 0.15, 0.2][tier];
+        var add_ip = parseInt(skill_ip*add);
+
+        $("#calc1_tier_ip").text(tier_ip);
+        $("#calc1_material_ip").text(material_ip);
+        $("#calc1_level_ip").text(level_ip);
+        $("#calc1_quality_ip").text(quality_ip);
+        $("#calc1_skill_ip").text(skill_ip);
+        $("#calc1_add").text(100*add);
+        $("#calc1_add_ip").text(add_ip);
+        $("#calc1_output").text(tier_ip+material_ip+level_ip+quality_ip+skill_ip+add_ip);
+      }
     </script>
   </body>
 </html>

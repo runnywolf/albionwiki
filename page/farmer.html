@@ -1,387 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
   <head>
-    <meta charset="utf-8"></meta>
-    <link rel="shortcut icon" type="image/png" href="../image/icon.png?">
-    <title>An albionOL wiki by wolf.</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"></script>
-    <style>
-      html, body{
-        margin: 0px;
-        height: 100%;
-      }
-      body{
-        background-image: url("../image/bg.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-size: cover;
-        font-family: monospace;
-      }
-      a{
-        text-decoration: none;
-        color: #60f;
-        font-weight: bold;
-      }
-      a:hover{
-        text-decoration: underline;
-      }
-      table{
-        margin: 4px;
-        white-space: nowrap;
-        border-collapse: separate;
-        border-spacing: 0px;
-        border-top: 1px #000000 solid;
-        border-left: 1px #000000 solid;
-        text-align: center;
-      }
-      td{
-        padding: 0px 4px;
-        border-right: 1px #000000 solid;
-        border-bottom: 1px #000000 solid;
-      }
-      select{
-        margin: 4px;
-        height: 20px;
-        font-family: monospace;
-      }
-      input{
-        margin: 4px;
-        height: 14px;
-        font-family: monospace;
-        text-align: center;
-      }
-      button{
-        margin: 4px;
-        height: 20px;
-        font-size: 12px;
-        font-family: monospace;
-        text-align: center;
-      }
-      .head{
-        width: 100%;
-        height: 50px;
-        background-color: #fd9;
-        position: fixed;
-        display: flex;
-        justify-content: flex-start;
-      }
-      .head_title{
-        margin-top: 2px;
-        margin-left: 10px;
-        height: 50px;
-        font-size: 30px;
-        line-height: 50px;
-        font-weight: bold;
-        text-align: center;
-      }
-      .mid{
-        min-width: 1000px;
-        min-height: calc(100% - 108px);
-        display: flex;
-        justify-content: center;
-      }
-      .main{
-        width: 1000px;
-        display: flex;
-        justify-content: flex-start;
-      }
-      .main_list{
-        margin: 58px 0px 0px 5px;
-        padding: 4px;
-        width: 200px;
-        border-radius: 6px;
-        background-color: #fffc;
-        font-size: 12px;
-      }
-      .main_article{
-        margin: 58px 0px 0px 12px;
-        padding: 8px;
-        width: 750px;
-        border-radius: 6px;
-        background-color: #fffc;
-        font-size: 16px;
-        word-break: break-all;
-        word-wrap: break-word;
-      }
-      .foot{
-        margin-top: 8px;
-        width: 100%;
-        min-width: 1000px;
-        height: 100px;
-        background-color: #ca6;
-        font-size: 12px;
-        text-align: center;
-      }
-      .foot_version{
-        padding-top: 14px;
-      }
-      .bold{
-        font-weight: bold;
-      }
-    </style>
+    <meta name="google-site-verification" content="KjJ2kGLplqSGMcVhe_L_akt4qWFFSB7MoQYQGAVWj3A">
+    <meta charset="utf-8">
+    <meta name="description" content="An Albion Online wiki by wolf.">
+    <link rel="canonical" href="https://runnywolf.github.io/albionwiki/">
+    <link rel="shortcut icon" type="image/png" href="../image/icon.png">
+    <title>狼的阿爾比恩攻略網</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../tool/albionwiki.js"></script>
+    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
   </head>
   <body>
-    <div class="head">
-      <a href="https://runnywolf.github.io/albionwiki/">
-        <img src="../image/albion.png" style="margin:5px 0px 0px 20px; max-height:40px;" title="首頁">
-      </a>
-      <div class="head_title">
-        狼的<span style="color:#730;">阿爾比恩</span>攻略網
-      </div>
-    </div>
-    <div class="mid">
-      <div class="main">
-        <div>
-          <div class="main_list" id="mainlist"></div>
+    <div class="headMainWrapper">
+      <div class="head flex-start">
+        <a href="https://runnywolf.github.io/albionwiki/">
+          <img src="../image/albion.png" class="head-homeButton" title="首頁">
+        </a>
+        <div class="head-title">
+          狼的<span style="color:#730;">阿爾比恩</span>攻略網
         </div>
-        <div>
-          <div class="main_article">
-            <div style="font-size:24px; font-weight:bold;">農作物種植</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>關於農作物的種植、澆水與收益。</div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">農地</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
+      </div>
+      <div class="mainWrapper">
+        <div class="main flex-start">
+          <div>
+            <div class="main-contents"></div>
+          </div>
+          <div class="main-article">
             <div>
-              如果要發展農業，必須先擁有一座 Lv2 或更高等級的島嶼。<br>
+              <div class="main-article-title-h1">農作物種植</div>
+              關於農作物的種植、澆水與收益。
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">農地</div>
+              如果要發展農業，必須先擁有一座Lv2或更高等級的島嶼。<br>
               關於島嶼購買請見<a href="https://runnywolf.github.io/albionwiki/page/island">個人島</a>。<br>
               <br>
-              打開玩家菜單，點擊<span class="bold">建造</span>，然後選擇<span class="bold">農耕</span>。
+              打開玩家菜單，點擊<span class="bold">建造</span>，然後選擇<span class="bold">農耕</span>。<br>
+              <img src="../image/farmer/1.png"><br>
+              <img src="../image/farmer/2.png"><br>
+              <span class="bold">農場</span>只能種植<span class="bold">作物</span>，<span class="bold">藥園</span>只能種植<span class="bold">草藥</span>。<br>
+              而這兩種建築都只能建造在地圖上的棕色地塊上(農地)。
             </div>
-            <img src="../image/farmer/1.png" style="margin:4px;">
-            <div><span class="bold">農場</span>只能種植<span class="bold">作物</span>，<span class="bold">藥園</span>只能種植<span class="bold">草藥</span>。</div>
-            <img src="../image/farmer/2.png" style="margin:4px;">
-            <div>而這兩種建築都只能建造在地圖上的棕色地塊上(農地)。</div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">播種</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>一塊農地建好後可以種植 9 株作物或草藥。</div>
-            <br>
-            <div>播種方法：</div>
-            <img src="../image/farmer/3.png" style="margin:4px; max-height:200px;">
-            <div>將<span class="bold">作物/草藥</span>種子放置在<span class="bold">農場/藥園</span>裡即可。</div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">澆水</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>
-              每一種農作物，從播種到成熟的時間皆為<span class="bold">22小時</span>，在此期間內只需澆一次水即可獲得澆水加成。<br>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">播種</div>
+              一塊農地建好後可以種植9株作物或草藥。<br>
+              <br>
+              播種方法：<br>
+              <img src="../image/farmer/3.png" style="max-height:200px;"><br>
+              將<span class="bold">作物/草藥</span>種子放置在<span class="bold">農場/藥園</span>裡即可。
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">澆水</div>
+              每一種農作物，從播種到成熟的時間皆為<span class="bold">22小時</span>(有尊想會員)，<br>
+              在此期間內只需澆一次水即可獲得澆水加成。<br>
               (剩<span class="bold">21小時</span>或<span class="bold">只剩10分鐘時</span>澆水都可)<br>
               <br>
-              澆水需要消耗<span class="bold">專注點</span>，沒有任何專精時一次需要消耗 1,000 專注點，<br>
+              澆水需要消耗<span class="bold">專注點</span>，沒有任何專精時一次需要消耗1,000專注點，<br>
               不過隨著內圈和外圈等級的提升，每次澆水所需的專注點會越來越少。<br>
               <br>
               計算單次澆水所需專注點：
-            </div>
-            <div style="display:flex; justify-content:flex-start; text-align:center;">
-              <input placeholder="內圈等級(農場主/草藥師)" id="calc1_inlv">
-              <input style="width:100px;" placeholder="農作物外圈等級" id="calc1_outlv">
-              <button onclick="a_calc1()">計算</button>
-              <button onclick="a_calc1_clear()">清除</button>
-              <div style="margin:2px;">澆水一次需要 <span style="color:#00f;" id="calc1_output">1000</span> 專注點</div>
-              <script>
-                function a_calc1(){
-                  var inlv = $("#calc1_inlv").val();
-                  var outlv = $("#calc1_outlv").val();
-
-                  if (!(inlv != "" && inlv >= 0 && inlv <= 100 && inlv%1 == 0)){
-                    $("#calc1_inlv").val("");
-                    inlv = 0;
-                  }
-                  if (!(outlv != "" && outlv >= 0 && outlv <= 100 && outlv%1 == 0)){
-                    $("#calc1_outlv").val("");
-                    outlv = 0;
-                  }
-                  inlv = parseInt(inlv);
-                  outlv = parseInt(outlv);
-
-                  $("#calc1_output").text(parseInt(1000/(2**((100*inlv+200*outlv)/10000))));
-                }
-                function a_calc1_clear(){
-                  $("#calc1_inlv").val("");
-                  $("#calc1_outlv").val("");
-                  $("#calc1_output").text("1000");
-                }
-              </script>
-            </div>
-            <br>
-            <div><span class="bold">手機版</span>：直接站在該株作物上<span class="bold">迅速點2下攻擊鍵</span>即可澆水。</div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">澆水加成</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>
-              澆水<span class="bold">僅會增加種子產量</span>。<br>
+              <div class="flex-start">
+                <input placeholder="內圈等級(農場主/草藥師)" id="calc1_inLevel">
+                <input style="width:100px;" placeholder="農作物外圈等級" id="calc1_outLevel">
+                <button onclick="calc1()">計算</button>
+                <button onclick="calc1_clear()">清除</button>
+                <div>澆水一次需要 <span style="color:#00f;" id="calc1_output">1000</span> 專注點</div>
+              </div>
               <br>
-              種子產出率與澆水獲利如下表：
+              <span class="bold">手機版</span>：直接站在該株作物上<span class="bold">迅速點2下攻擊鍵</span>即可澆水。
             </div>
-            <table>
-              <tr class="bold"><td>農作物</td><td>未澆水</td><td>有澆水</td><td>澆水加成 B</td><td>種子價格 p</td><td style="width:80px;">B*p</td></tr>
-              <tr><td>T1胡蘿蔔</td><td>0%</td><td>200%</td><td>+2</td><td>2,000</td><td>4,000</td></tr>
-              <tr><td>T2豌豆/草藥</td><td>33.33%</td><td>166.67%</td><td>+1.333</td><td>3,000</td><td>4,000</td></tr>
-              <tr><td>T3小麥/草藥</td><td>60%</td><td>140%</td><td>+0.8</td><td>5,000</td><td>4,000</td></tr>
-              <tr><td>T4蕪菁/草藥</td><td>73.33%</td><td>126.67%</td><td>+0.5333</td><td>7,500</td><td>4,000</td></tr>
-              <tr><td>T5白菜/草藥</td><td>80%</td><td>120%</td><td>+0.4</td><td>10,000</td><td>4,000</td></tr>
-              <tr><td>T6土豆/草藥</td><td>86.67%</td><td>113.33%</td><td>+0.2667</td><td>15,000</td><td>4,000</td></tr>
-              <tr><td>T7玉米/草藥</td><td>91.11%</td><td>108.89%</td><td>+0.1778</td><td>22,500</td><td>4,000</td></tr>
-              <tr><td>T8南瓜/草藥</td><td>93.33%</td><td>106.67%</td><td>+0.1333</td><td>30,000</td><td>4,000</td></tr>
-            </table>
-            <div>
-              澆水加成 B 可以理解為，澆水後每株作物平均會多產出 n 個種子。<br>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">澆水加成</div>
+              澆水<span class="bold">只會增加種子產量</span>。<br>
+              <br>
+              種子產出率與澆水獲利如下表：(每株農作物, 1塊田能種9株)
+              <table class="table-style1">
+                <tr><td>農作物</td><td>未澆水<br>w</td><td>有澆水<br>W</td><td>澆水加成<br>W-w</td><td>種子價格<br>p</td><td>平均澆水獲利<br>p*(W-w)</td><td>平均種子成本<br>p*(1-w)</td></tr>
+                <tr><td>T1胡蘿蔔</td><td>0%</td><td>200%</td><td>+2</td><td>2,000</td><td>4,000</td><td>2,000</td></tr>
+                <tr><td>T2豌豆/草藥</td><td>33.33%</td><td>166.67%</td><td>+1.333</td><td>3,000</td><td>4,000</td><td>2,000</td></tr>
+                <tr><td>T3小麥/草藥</td><td>60%</td><td>140%</td><td>+0.8</td><td>5,000</td><td>4,000</td><td>2,000</td></tr>
+                <tr><td>T4蕪菁/草藥</td><td>73.33%</td><td>126.67%</td><td>+0.5333</td><td>7,500</td><td>4,000</td><td>2,000</td></tr>
+                <tr><td>T5白菜/草藥</td><td>80%</td><td>120%</td><td>+0.4</td><td>10,000</td><td>4,000</td><td>2,000</td></tr>
+                <tr><td>T6土豆/草藥</td><td>86.67%</td><td>113.33%</td><td>+0.2667</td><td>15,000</td><td>4,000</td><td>2,000</td></tr>
+                <tr><td>T7玉米/草藥</td><td>91.11%</td><td>108.89%</td><td>+0.1778</td><td>22,500</td><td>4,000</td><td>2,000</td></tr>
+                <tr><td>T8南瓜/草藥</td><td>93.33%</td><td>106.67%</td><td>+0.1333</td><td>30,000</td><td>4,000</td><td>2,000</td></tr>
+              </table>
+              澆水加成 W-w 可以理解為，澆水後每株平均會多產出 n 個種子。<br>
               種子產出率如果為 120% 代表： 100% 產出 1 個種子，有 20% 的機率額外再產出 1 個種子。<br>
               <br>
               商城的種子價格可能會比農業商人略為便宜。(兩者選便宜的買)<br>
               <br>
-              由上表可知，無論你種什麼東西，每株農作物澆水後的種子平均獲利皆為 4,000。
+              <span style="color:#00f;">
+                由上表可知，無論你種什麼東西，每株澆水後的種子平均獲利皆為 4,000。<br>
+                每株平均能採收9個農作物，那麼1個農作物的種子成本為 2,000/9 ~ 222.22。
+              </span>
             </div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">收成</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">收成</div>
               每一種農作物採收後的產物數量和種植聲望皆相同。<br>
               <br>
-              每一株農作物採收後可獲得：
-            </div>
-            <table>
-              <tr class="bold"><td>產物</td><td>無尊享會員</td><td>有尊享會員</td></tr>
-              <tr><td>農作物</td><td>3~6</td><td>6~12 (2倍)</td></tr>
-              <tr><td>種子</td><td>0~2</td><td>0~2 (不影響)</td></tr>
-              <tr><td>蚯蚓</td><td>0~1</td><td>0~2 (2倍)</td></tr>
-              <tr><td>種植聲望</td><td>100</td><td>150 (1.5倍)</td></tr>
-            </table>
-            <br>
-            <div>
+              每一株作物採收後可獲得：
+              <table class="table-style1">
+                <tr><td>產物</td><td>無尊享會員</td><td>有尊享會員</td></tr>
+                <tr><td>農作物</td><td>3~6</td><td>6~12 (2倍)</td></tr>
+                <tr><td>種子</td><td>0~2</td><td>0~2 (不影響)</td></tr>
+                <tr><td>蚯蚓</td><td>0~1</td><td>0~2 (2倍)</td></tr>
+                <tr><td>種植聲望</td><td>100</td><td>150 (1.5倍)</td></tr>
+              </table>
+              <br>
               <span class="bold">手機版</span>：直接站在該株作物上，<span class="bold">迅速點2下攻擊鍵</span>即可直接採收。<br>
               非常推薦使用手機種田，採收比電腦快速方便。
             </div>
-            <br>
-            <div style="font-size:20px; font-weight:bold;">收益</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>
-              如果沒會員，種田很可能會虧錢。<br>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">收益</div>
+              如果沒會員，種田100%虧錢。<br>
               種田的收益其實與"種哪種農作物"無關，因為無論種植哪一種，種子成本皆相同。<br>
               要達到最高收益，就挑市場上最高價的來種。<br>
               <span class="bold" style="color:#f00;">注意：以下收益計算為"平均"收益，實際收益可能會因運氣成分而有誤差。</span><br>
               <br>
-              種田收益計算：(有尊享會員下、不含澆水/蚯蚓的收益)
+              種田收益計算：(有尊享會員下、不含澆水/蚯蚓的收益、一天採收一次)<br>
+              注：農地數為棕色地塊的數量。
+              <div class="flex-start">
+                <input style="width:50px;" placeholder="農地數" id="calc2_plot">
+                <input style="width:120px;" placeholder="單個農作物賣出價格" id="calc2_price">
+                <input style="width:50px;" placeholder="稅率(%)" id="calc2_tax">
+                <button onclick="calc2()">計算</button>
+                <button onclick="calc2_clear()">清除</button>
+                <div>每日收益 <span style="color:#00f;" id="calc2_output">0</span></div>
+              </div>
+              <br>
+              澆水收益計算：(買會員來澆水、不含挑戰者獎勵收益)
+              <div class="flex-start">
+                <input style="width:120px;" placeholder="單次澆水所需專注點" id="calc3_p">
+                <input style="width:120px;" placeholder="每日花費的專注點" id="calc3_dp">
+                <input style="width:100px;" placeholder="會員一個月銀幣" id="calc3_vip">
+                <button onclick="calc3()">計算</button>
+                <button onclick="calc3_clear()">清除</button>
+                <div>每日收益 <span style="color:#00f;" id="calc3_output">0</span></div>
+              </div>
             </div>
-            <div style="display:flex; justify-content:flex-start; text-align:center;">
-              <input style="width:50px;" placeholder="農地數" id="calc2_plot">
-              <input style="width:120px;" placeholder="單個農作物賣出價格" id="calc2_price">
-              <input style="width:50px;" placeholder="稅率(%)" id="calc2_tax">
-              <button onclick="a_calc2()">計算</button>
-              <button onclick="a_calc2_clear()">清除</button>
-              <div style="margin:2px;">每日收益 <span style="color:#00f;" id="calc2_output">0</span></div>
-              <script>
-                function a_calc2(){
-                  var plot = $("#calc2_plot").val();
-                  var price = $("#calc2_price").val();
-                  var tax = $("#calc2_tax").val();
-
-                  if (!(plot != "" && plot >= 0 && plot <= 100000 && plot%1 == 0)){
-                    $("#calc2_plot").val("");
-                    plot = 0;
-                  }
-                  if (!(price != "" && price >= 0 && price <= 1000000 && price%1 == 0)){
-                    $("#calc2_price").val("");
-                    price = 0;
-                  }
-                  if (!(tax != "" && tax >= 0 && tax <= 100)){
-                    $("#calc2_tax").val("");
-                    tax = 0;
-                  }
-                  plot = parseInt(plot);
-                  price = parseInt(price);
-                  tax = parseFloat(tax);
-
-                  $("#calc2_output").text((price*(1-tax/100)*9-2000)*9*plot);
-                }
-                function a_calc2_clear(){
-                  $("#calc2_plot").val("");
-                  $("#calc2_price").val("");
-                  $("#calc2_tax").val("");
-                  $("#calc2_output").text("0");
-                }
-              </script>
+            <div class="main-article-foot">
+              <div class="main-article-title-h2">編輯紀錄</div>
+              <div>作者: runnywolf</div>
+              <div>最後編輯日期: 2022/07/30</div>
             </div>
-            <br>
-            <div>澆水收益計算：(買會員來澆水、不含挑戰者獎勵收益)</div>
-            <div style="display:flex; justify-content:flex-start; text-align:center;">
-              <input style="width:120px;" placeholder="單次澆水所需專注點" id="calc3_p">
-              <input style="width:120px;" placeholder="每日花費的專注點" id="calc3_dp">
-              <input style="width:100px;" placeholder="會員一個月銀幣" id="calc3_vip">
-              <button onclick="a_calc3()">計算</button>
-              <button onclick="a_calc3_clear()">清除</button>
-              <div style="margin:2px;">每日收益 <span style="color:#00f;" id="calc3_output">0</span></div>
-              <script>
-                function a_calc3(){
-                  var p = $("#calc3_p").val();
-                  var dp = $("#calc3_dp").val();
-                  var vip = $("#calc3_vip").val();
-
-                  if (!(p != "" && p >= 125 && p <= 1000 && p%1 == 0)){
-                    $("#calc3_p").val("");
-                    p = 1;
-                  }
-                  if (!(dp != "" && dp >= 0 && dp <= 1e8 && dp%1 == 0)){
-                    $("#calc3_dp").val("");
-                    dp = 0;
-                  }
-                  if (!(vip != "" && vip >= 0 && vip <= 1e12 && vip%1 == 0)){
-                    $("#calc3_vip").val("");
-                    vip = 0;
-                  }
-                  p = parseInt(p);
-                  dp = parseInt(dp);
-                  vip = parseInt(vip);
-
-                  $("#calc3_output").text(parseInt(4000*(dp/p)-vip/300000*dp));
-                }
-                function a_calc3_clear(){
-                  $("#calc3_p").val("");
-                  $("#calc3_dp").val("");
-                  $("#calc3_vip").val("");
-                  $("#calc3_output").text("0");
-                }
-              </script>
-            </div>
-            <br>
-            <div style="font-size:20px; font-weight:bold; color:#888;">編輯紀錄</div>
-            <div style="margin:4px 0px; border-top:1px #aaa solid;"></div>
-            <div>作者: runnywolf</div>
-            <div>最後編輯日期: 2022/07/30</div>
           </div>
+          <div class="main-error" id="main-error"></div>
         </div>
       </div>
     </div>
     <div class="foot">
-      <div class="foot_version">
+      <div class="foot-info">
         "如果有一天退坑了，那麼狼除了銀幣以外，還能留下什麼呢？"<br>
-        <br>
-        如有任何問題請私訊discord: runnywolf#3104<br>
+        <div style="height:10px;"></div>
+        如有任何bug或建議請至<img src="../image/discord_icon.png" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.1.2 -> Last update date: 2022/8/17
+        v1.2 -> Last update date: 2022/12/13
       </div>
     </div>
-    <script>
-      var request = new XMLHttpRequest();
-      request.open("get", "../data.json");
-      request.responseType = "json";
-      request.send();
-      request.onload = function(){
-        var data = request.response;
-        var s = "";
-        data["mainlist"].map(function (i){
-          s += "<div style='font-size:14px; font-weight:bold;'>"+i["group"]+"("+i["pages"].length+")</div>";
-          s += "<div style='margin-left:10px; font-size:12px;'>";
-          i["pages"].map(function (j){
-            s += "<div><a href='https://runnywolf.github.io/albionwiki/page/"+j["url"]+"'>"+j["title"]+"</a></div>";
-          })
-          s += "</div>";
-        });
-        $("#mainlist").append(s)
-      };
+    <script><!--calc1-->
+      function calc1(){
+        var inLevel, e_inLevel = $("#calc1_inLevel");
+        var outLevel, e_outLevel = $("#calc1_outLevel");
+
+        if (calc_input_check(e_inLevel, 0, 100, true)) inLevel = parseInt(e_inLevel.val());
+        else inLevel = 0;
+        if (calc_input_check(e_outLevel, 0, 100, true)) outLevel = parseInt(e_outLevel.val());
+        else outLevel = 0;
+
+        $("#calc1_output").text(parseInt(1000/(2**((100*inLevel+200*outLevel)/10000))));
+      }
+      function calc1_clear(){
+        $("#calc1_inLevel").val("");
+        $("#calc1_outLevel").val("");
+        $("#calc1_output").text("1000");
+      }
+    </script>
+    <script><!--calc2-->
+      function calc2(){
+        var plot, e_plot = $("#calc2_plot");
+        var price, e_price = $("#calc2_price");
+        var tax, e_tax = $("#calc2_tax");
+
+        if (calc_input_check(e_plot, 1, 10000, true)) plot = parseInt(e_plot.val());
+        else plot = 0;
+        if (calc_input_check(e_price, 0, 100000, true)) price = parseInt(e_price.val());
+        else price = 0;
+        if (calc_input_check(e_tax, 0, 100, false)) tax = parseFloat(e_tax.val());
+        else tax = 0;
+
+        $("#calc2_output").text(parseInt((price*(1-tax/100)*9-2000)*9*plot));
+      }
+      function calc2_clear(){
+        $("#calc2_plot").val("");
+        $("#calc2_price").val("");
+        $("#calc2_tax").val("");
+        $("#calc2_output").text("0");
+      }
+    </script>
+    <script><!--calc3-->
+      function calc3(){
+        var p, e_p = $("#calc3_p");
+        var dp, e_dp = $("#calc3_dp");
+        var vip, e_vip = $("#calc3_vip");
+        
+        if (calc_input_check(e_p, 125, 1000, true)) p = parseInt(e_p.val());
+        else p = 1000;
+        if (calc_input_check(e_dp, 0, p10(6), true)) dp = parseInt(e_dp.val());
+        else dp = 0;
+        if (calc_input_check(e_vip, 0, p10(11), false)) vip = parseFloat(e_vip.val());
+        else vip = 0;
+
+        $("#calc3_output").text(parseInt(4000*parseInt(dp/p)-vip/300000*dp));
+      }
+      function calc3_clear(){
+        $("#calc3_p").val("");
+        $("#calc3_dp").val("");
+        $("#calc3_vip").val("");
+        $("#calc3_output").text("0");
+      }
     </script>
   </body>
 </html>
