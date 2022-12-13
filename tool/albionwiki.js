@@ -44,7 +44,7 @@ function calc_input_check(e_element, MIN, MAX, b_int){
 
 var error_show_id0 = null, error_show_id1 = null;
 var request = new XMLHttpRequest();
-request.open("get", "data.json");
+request.open("get", "tool/data.json");
 request.responseType = "json";
 request.send();
 request.onload = function(){
