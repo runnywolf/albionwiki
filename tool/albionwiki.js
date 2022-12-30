@@ -41,6 +41,17 @@ function calc_input_check(e_element, MIN, MAX, b_int){
   show_error(e_element, $("#main-error"), main_error_html);
   return false;
 }
+function checkbox_ckecked(e_element){
+  return e_element.prop("checked");
+}
+function albion_short_num(x){
+  s_x = ""+x;
+  if (x < p10(3)) return s_x;
+  x = parseInt(s_x.substring(0, 3))*p10(s_x.length-3);
+  if (x < p10(6)) return ""+x/p10(3)+"k";
+  if (x < p10(9)) return ""+x/p10(6)+"m";
+  return ""+x/p10(9)+"b";
+}
 function main_contents_insert(data_url){
   var request = new XMLHttpRequest();
   request.open("get", data_url);
