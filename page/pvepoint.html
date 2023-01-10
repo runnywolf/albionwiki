@@ -80,46 +80,48 @@
               <div class="main-article-paragraph">
                 <div class="main-article-title-h2">計算</div>
                 計算轉換成的戰鬥聲望點：
-                <table>
-                  <tr>
-                    <td>滿Lv100？</td>
-                    <td>內圈</td>
-                    <td>外圈</td>
-                  </tr>
-                  <tr>
-                    <td>頭</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_head_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_head_out"></td>
-                  </tr>
-                  <tr>
-                    <td>甲</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_armor_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_armor_out"></td>
-                  </tr>
-                  <tr>
-                    <td>鞋</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_out"></td>
-                  </tr>
-                  <tr>
-                    <td>武器</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_out"></td>
-                  </tr>
-                  <tr>
-                    <td>副手</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_out"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="3"><div class="flex-start"><input type="checkbox" onchange="calc1()" id="calc1_auto">是否開啟自動重新專攻</div></td>
-                  </tr>
-                </table>
-                <div class="flex-start" style="margin-top:4px;">
-                  <div>每獲得</div>
-                  <input style="width:100px;" onchange="calc1()" id="calc1_fame">
-                  <div>PvE聲望，會累積 <span style="color:#00f;" id="calc1_output_point">0</span> 戰鬥聲望點，並消耗 <span style="color:#00f;" id="calc1_output_silver">0</span> 銀幣。</div>
-                  <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+                <div class="calcWrapper" style="width:680px;">
+                  <table style="background-color:#fff;">
+                    <tr>
+                      <td>滿Lv100？</td>
+                      <td>內圈</td>
+                      <td>外圈</td>
+                    </tr>
+                    <tr>
+                      <td>頭</td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_head_in"></td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_head_out"></td>
+                    </tr>
+                    <tr>
+                      <td>甲</td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_armor_in"></td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_armor_out"></td>
+                    </tr>
+                    <tr>
+                      <td>鞋</td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_in"></td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_out"></td>
+                    </tr>
+                    <tr>
+                      <td>武器</td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_in"></td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_out"></td>
+                    </tr>
+                    <tr>
+                      <td>副手</td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_in"></td>
+                      <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_out"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3"><div class="flex-start"><input type="checkbox" onchange="calc1()" id="calc1_auto">是否開啟自動重新專攻</div></td>
+                    </tr>
+                  </table>
+                  <div class="flex-start" style="margin-top:4px;">
+                    <div>每獲得</div>
+                    <input style="width:100px;" onchange="calc1()" id="calc1_fame">
+                    <div>PvE聲望，會累積 <span style="color:#00f;" id="calc1_output_point">0</span> 戰鬥聲望點，並消耗 <span style="color:#00f;" id="calc1_output_silver">0</span> 銀幣。</div>
+                    <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+                  </div>
                 </div>
               </div>
               <div class="main-article-foot">
@@ -139,14 +141,14 @@
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.png" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.2 -> Last update date: 2022/12/13
+        <span id="foot-info_version"></span>
       </div>
     </div>
     <script>main_contents_insert("../tool/data.json");</script>
     <script><!--calc1-->
       function calc1(){
         var type_percent = {"head":0.025, "armor":0.05, "shoe":0.025, "weapon":0.1, "offhand":0.005};
-        var b_auto = checkbox_ckecked($("#calc1_auto"));
+        var b_auto = checkbox_checked($("#calc1_auto"));
         var fame, e_fame = $("#calc1_fame");
         
         if (calc_input_check(e_fame, 0, p10(12), true)) fame = parseInt(e_fame.val());
@@ -154,8 +156,8 @@
 
         var percent = 0;
         ["head", "armor", "shoe", "weapon", "offhand"].map(function (i){
-          if (checkbox_ckecked($("#calc1_"+i+"_in"))) percent += type_percent[i];
-          if (checkbox_ckecked($("#calc1_"+i+"_out"))) percent += type_percent[i];
+          if (checkbox_checked($("#calc1_"+i+"_in"))) percent += type_percent[i];
+          if (checkbox_checked($("#calc1_"+i+"_out"))) percent += type_percent[i];
         });
         
         var point = parseInt(fame*percent);

@@ -105,9 +105,9 @@
                 <div class="main-article-title-h2">防禦</div>
                 <img src="../image/infoboard/12.png">
                 <div>防禦值減傷效果計算：</div>
-                <div class="flex-start">
+                <div class="flex-start calcWrapper" style="width:460px;">
                   <div>對...的防禦</div>
-                  <input style="width:60px;" placeholder="" onchange="calc0()" id="calc0_n">
+                  <input style="width:60px;" title="對玩家/野怪的防禦" onchange="calc0()" id="calc0_n">
                   <div>%，受到的傷害為原本的 <span id="calc0_output" style="color:#00f;">1</span> 倍。</div>
                   <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
                 </div>
@@ -119,9 +119,9 @@
                 <div>例：</div>
                 <img src="../image/infoboard/10.png" style="margin:4px; max-height:36px;"><img src="../image/infoboard/11.png" style="margin:4px; max-height:36px;">
                 <div><br>計算實際影響：</div>
-                <div>
+                <div class="calcWrapper" style="width:650px;">
                   <div class="flex-start">
-                    <input style="width:60px;" placeholder="點數" onchange="calc1()" id="calc1_point">
+                    <input style="width:50px;" value="0" title="點數" onchange="calc1()" id="calc1_point">
                     <select onchange="calc1()" id="calc1_type">
                       <option disabled>屬性</option>
                       <option value="0" selected>魔法抗性</option>
@@ -136,12 +136,15 @@
                 </div>
                 <br>
                 <div>降低敵人的傷害抗性，增加我方的傷害：</div>
-                <div class="flex-start">
-                  <input style="width:120px;" placeholder="敵人的傷害抗性" id="calc2_p">
-                  <input style="width:120px;" placeholder="降低敵人的傷害抗性" id="calc2_dp">
+                <div class="flex-start calcWrapper" style="width:700px;">
+                  <div>敵人原本有</div>
+                  <input style="width:50px;" title="敵人的傷害抗性" id="calc2_p">
+                  <div>點傷害抗性，降低了</div>
+                  <input style="width:50px;" title="減少敵人的傷害抗性" id="calc2_dp">
+                  <div>點，</div>
+                  <div>造成的傷害為原本的 <span style="color:#00f;" id="calc2_output">1</span> 倍。</div>
                   <button onclick="calc2()">計算</button>
                   <button onclick="calc2_clear()">清除</button>
-                  <div>造成的傷害為原本的 <span style="color:#00f;" id="calc2_output">1</span> 倍</div>
                 </div>
                 <br>
                 <div style="color:#888; text-decoration:line-through;">例：如果敵人的傷害抗性為150，丟他T8毒藥降低了 35 點傷害抗性，造成的傷害為原本的 1.162 倍。</div>
@@ -164,7 +167,7 @@
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.png" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.2 -> Last update date: 2022/12/13
+        <span id="foot-info_version"></span>
       </div>
     </div>
     <script>main_contents_insert("../tool/data.json");</script>

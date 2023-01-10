@@ -201,7 +201,7 @@
               <div class="main-article-title-h2">PvE聲望計算</div>
               粗略計算不同情形下的PvE聲望：(不包含聲望加成、尊享會員加成、洞察背包加成)<br>
               以下的計算機僅適用於綠洞、藍洞、金洞。
-              <div class="flex-start" style="width:450px; padding:2px 4px; border-radius:4px; background-color:#ddd;">
+              <div class="flex-start calcWrapper" style="width:450px;">
                 <div>情況A:</div>
                 <select id="calc1_a_area" onchange="calc1_areaTier('a')">
                   <option style="background-color:#fff;" disabled>區域</option>
@@ -222,7 +222,7 @@
                   <option style="background-color:#ee8;" value="4">.3開圖洞</option>
                 </select>
                 <div>、</div>
-                <input style="width:30px;" value="1" id="calc1_a_n" onchange="calc1_n('a')">
+                <input style="width:30px;" title="組隊人數" value="1" id="calc1_a_n" onchange="calc1_n('a')">
                 <div>人組隊</div>
               </div>
               <div style="margin-left:50px; display:flex; justify-content:flex-start;">
@@ -233,7 +233,7 @@
                 <div style="margin:0px 6px 0px 20px; font-size:22px;">↓</div>
                 <div style="color:#00f;" id="calc1_output_ab"></div>
               </div>
-              <div class="flex-start" style="width:450px; padding:2px 4px; border-radius:4px; background-color:#ddd;">
+              <div class="flex-start calcWrapper" style="width:450px;">
                 <div>情況B:</div>
                 <select id="calc1_b_area" onchange="calc1_areaTier('b')">
                   <option style="background-color:#fff;" disabled>區域</option>
@@ -254,7 +254,7 @@
                   <option style="background-color:#ee8;" value="4">.3開圖洞</option>
                 </select>
                 <div>、</div>
-                <input style="width:30px;" value="1" id="calc1_b_n" onchange="calc1_n('b')">
+                <input style="width:30px;" title="組隊人數" value="1" id="calc1_b_n" onchange="calc1_n('b')">
                 <div>人組隊</div>
               </div>
               <br>
@@ -282,7 +282,7 @@
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.png" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.2 -> Last update date: 2022/12/13
+        <span id="foot-info_version"></span>
       </div>
     </div>
     <script>main_contents_insert("../tool/data.json");</script>

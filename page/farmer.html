@@ -59,13 +59,15 @@
                 澆水需要消耗<span class="bold">專注點</span>，沒有任何專精時一次需要消耗1,000專注點，<br>
                 不過隨著內圈和外圈等級的提升，每次澆水所需的專注點會越來越少。<br>
                 <br>
-                計算單次澆水所需專注點：
-                <div class="flex-start">
-                  <input placeholder="內圈等級(農場主/草藥師)" id="calc1_inLevel">
-                  <input style="width:100px;" placeholder="農作物外圈等級" id="calc1_outLevel">
+                計算某個作物/藥草，單次澆水所需專注點：
+                <div class="flex-start calcWrapper" style="width:550px;">
+                  <div>內圈</div>
+                  <input style="width:30px;" title="內圈等級 (農場主/草藥師)" id="calc1_inLevel">
+                  <div>等，外圈</div>
+                  <input style="width:30px;" title="該農作物的外圈等級" id="calc1_outLevel">
+                  <div>等，澆水一次需要 <span style="color:#00f;" id="calc1_output">1000</span> 專注點。</div>
                   <button onclick="calc1()">計算</button>
                   <button onclick="calc1_clear()">清除</button>
-                  <div>澆水一次需要 <span style="color:#00f;" id="calc1_output">1000</span> 專注點</div>
                 </div>
                 <br>
                 <span class="bold">手機版</span>：直接站在該株作物上<span class="bold">迅速點2下攻擊鍵</span>即可澆水。
@@ -114,36 +116,54 @@
               </div>
               <div class="main-article-paragraph">
                 <div class="main-article-title-h2">收益</div>
-                如果沒會員，種田100%虧錢。<br>
+                如果沒會員，種田<span style="text-decoration:line-through;">很可能會</span>100%虧錢。<br>
                 種田的收益其實與"種哪種農作物"無關，因為無論種植哪一種，種子成本皆相同。<br>
                 要達到最高收益，就挑市場上最高價的來種。<br>
                 <span class="bold" style="color:#f00;">注意：以下收益計算為"平均"收益，實際收益可能會因運氣成分而有誤差。</span><br>
                 <br>
                 種田收益計算：(有尊享會員下、不含澆水/蚯蚓的收益、一天採收一次)<br>
                 注：農地數為棕色地塊的數量。
-                <div class="flex-start">
-                  <input style="width:50px;" placeholder="農地數" id="calc2_plot">
-                  <input style="width:120px;" placeholder="單個農作物賣出價格" id="calc2_price">
-                  <input style="width:50px;" placeholder="稅率(%)" id="calc2_tax">
-                  <button onclick="calc2()">計算</button>
-                  <button onclick="calc2_clear()">清除</button>
-                  <div>每日收益 <span style="color:#00f;" id="calc2_output">0</span></div>
+                <div class="calcWrapper" style="width:520px;">
+                  <div class="flex-start">
+                    <div>農地</div>
+                    <input style="width:50px;" title="農地數 (棕色地塊的數量)" id="calc2_plot">
+                    <div>塊，每個農作物市場價</div>
+                    <input style="width:50px;" title="單個農作物賣出價 (未扣稅)" id="calc2_price">
+                    <div>銀幣，稅率</div>
+                    <input style="width:50px;" title="稅率 (%)" id="calc2_tax">
+                    <div>%，</div>
+                  </div>
+                  <div class="flex-start">
+                    <div>每日收益為 <span style="color:#00f;" id="calc2_output">0</span> 銀幣。</div>
+                    <button onclick="calc2()">計算</button>
+                    <button onclick="calc2_clear()">清除</button>
+                  </div>
                 </div>
                 <br>
-                澆水收益計算：(買會員來澆水、不含挑戰者獎勵收益)
-                <div class="flex-start">
-                  <input style="width:120px;" placeholder="單次澆水所需專注點" id="calc3_p">
-                  <input style="width:120px;" placeholder="每日花費的專注點" id="calc3_dp">
-                  <input style="width:100px;" placeholder="會員一個月銀幣" id="calc3_vip">
-                  <button onclick="calc3()">計算</button>
-                  <button onclick="calc3_clear()">清除</button>
-                  <div>每日收益 <span style="color:#00f;" id="calc3_output">0</span></div>
+                澆水收益計算：(買會員來澆水、不含挑戰者獎勵收益、不含你去拍賣場買種子省下的錢)
+                <div class="calcWrapper">
+                  <div class="flex-start">
+                    <div>澆一次水需要</div>
+                    <input style="width:50px;" title="單次澆水所需專注點" id="calc3_p">
+                    <div>專注點，每天平均花費</div>
+                    <input style="width:60px;" title="每日花費的專注點" id="calc3_dp">
+                    <div>專注點在澆水上，會員一個月</div>
+                    <input style="width:90px;" title="會員一個月銀幣" id="calc3_vip">
+                    <div>。</div>
+                  </div>
+                  <div class="flex-start">
+                    <div>每日收益為 <span style="color:#00f;" id="calc3_output">0</span> 銀幣。</div>
+                    <button onclick="calc3()">計算</button>
+                    <button onclick="calc3_clear()">清除</button>
+                  </div>
                 </div>
+                <br>
+                種田的總利潤即為 種田收益+澆水收益。
               </div>
               <div class="main-article-foot">
                 <div class="main-article-title-h2">編輯紀錄</div>
                 <div>作者: runnywolf</div>
-                <div>最後編輯日期: 2022/07/30</div>
+                <div>最後編輯日期: 2023/01/10</div>
               </div>
             </div>
           </div>
@@ -157,7 +177,7 @@
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.png" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        v1.2 -> Last update date: 2022/12/13
+        <span id="foot-info_version"></span>
       </div>
     </div>
     <script>main_contents_insert("../tool/data.json");</script>
@@ -192,7 +212,9 @@
         if (calc_input_check(e_tax, 0, 100, false)) tax = parseFloat(e_tax.val());
         else tax = 0;
 
-        $("#calc2_output").text(parseInt((price*(1-tax/100)*9-2000)*9*plot));
+        var output = parseInt((price*(1-tax/100)*9-2000)*9*plot);
+
+        $("#calc2_output").text(albion_short_num(output));
       }
       function calc2_clear(){
         $("#calc2_plot").val("");
@@ -211,10 +233,12 @@
         else p = 1000;
         if (calc_input_check(e_dp, 0, p10(6), true)) dp = parseInt(e_dp.val());
         else dp = 0;
-        if (calc_input_check(e_vip, 0, p10(11), false)) vip = parseFloat(e_vip.val());
+        if (calc_input_check(e_vip, 0, p10(9), false)) vip = parseFloat(e_vip.val());
         else vip = 0;
 
-        $("#calc3_output").text(parseInt(4000*parseInt(dp/p)-vip/300000*dp));
+        var output = parseInt(4000*parseInt(dp/p)-vip/300000*dp);
+
+        $("#calc3_output").text(albion_short_num(output));
       }
       function calc3_clear(){
         $("#calc3_p").val("");

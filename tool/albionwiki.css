@@ -171,6 +171,11 @@ button{
 .bold{
   font-weight: bold;
 }
+.calcWrapper{
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #ddd;
+}
 .table-style1 tr:nth-child(2n+2){
   background-color: #fff;
 }

@@ -35,22 +35,28 @@ function calc_input_check(e_element, MIN, MAX, b_int){
   if (x >= MIN && x <= MAX && !(b_int && x%1 != 0)) return true;
   e_element.val("");
 
-  var main_error_html = "輸入值必須介於 "+MIN+" ~ "+MAX;
+  var main_error_html = "輸入值必須介於 "+MIN+" ~ "+albion_short_num(MAX);
   if (b_int) main_error_html += "，且為整數";
   
   show_error(e_element, $("#main-error"), main_error_html);
   return false;
 }
-function checkbox_ckecked(e_element){
+function checkbox_checked(e_element){
   return e_element.prop("checked");
 }
 function albion_short_num(x){
-  s_x = ""+x;
-  if (x < p10(3)) return s_x;
-  x = parseInt(s_x.substring(0, 3))*p10(s_x.length-3);
-  if (x < p10(6)) return ""+x/p10(3)+"k";
-  if (x < p10(9)) return ""+x/p10(6)+"m";
-  return ""+x/p10(9)+"b";
+  abs_x = Math.abs(parseInt(x));
+  s_x = ""+abs_x;
+  round_x = parseInt(s_x.substring(0, 3))*p10(s_x.length-3);
+
+  if (abs_x < p10(3)) s_x = s_x;
+  else if (abs_x < p10(6)) s_x = ""+round_x/p10(3)+"k";
+  else if (abs_x < p10(9)) s_x = ""+round_x/p10(6)+"m";
+  else s_x = ""+round_x/p10(9)+"b";
+
+  if (x < 0) s_x = "-"+s_x;
+
+  return s_x;
 }
 function main_contents_insert(data_url){
   var request = new XMLHttpRequest();
