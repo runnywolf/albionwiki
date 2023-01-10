@@ -69,6 +69,8 @@ function main_contents_insert(data_url){
       s += "</div>";
     });
     $("#main_contents").append(s);
+
+    $("#foot-info_version").text(data["version"]);
   };
 }
 var error_show_id0 = null, error_show_id1 = null;
