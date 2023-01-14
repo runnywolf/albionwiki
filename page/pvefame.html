@@ -22,11 +22,8 @@
       </div>
       <div class="mainWrapper">
         <div class="main flex-start">
-          <div>
-            <div class="main-contents" id="main_contents"></div>
-          </div>
-          <div>
-            <div class="main-article">
+          <div class="main-contents" id="main_contents"></div>
+          <div class="main-article">
             <div>
               <div class="main-article-title-h1">PvE聲望與怪物強度</div>
               關於PvE聲望的粗略計算，以及綠/藍/金洞的怪物強度。<br>
@@ -201,7 +198,7 @@
               <div class="main-article-title-h2">PvE聲望計算</div>
               粗略計算不同情形下的PvE聲望：(不包含聲望加成、尊享會員加成、洞察背包加成)<br>
               以下的計算機僅適用於綠洞、藍洞、金洞。
-              <div class="flex-start calcWrapper" style="width:450px;">
+              <div class="flex-start calcWrapper">
                 <div>情況A:</div>
                 <select id="calc1_a_area" onchange="calc1_areaTier('a')">
                   <option style="background-color:#fff;" disabled>區域</option>
@@ -233,7 +230,7 @@
                 <div style="margin:0px 6px 0px 20px; font-size:22px;">↓</div>
                 <div style="color:#00f;" id="calc1_output_ab"></div>
               </div>
-              <div class="flex-start calcWrapper" style="width:450px;">
+              <div class="flex-start calcWrapper">
                 <div>情況B:</div>
                 <select id="calc1_b_area" onchange="calc1_areaTier('b')">
                   <option style="background-color:#fff;" disabled>區域</option>
@@ -269,7 +266,6 @@
               <div class="main-article-title-h2">編輯紀錄</div>
               <div>作者: runnywolf</div>
               <div>最後編輯日期: 2022/11/05</div>
-            </div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>

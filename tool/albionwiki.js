@@ -66,7 +66,7 @@ function main_contents_insert(data_url){
   request.onload = function(){
     var data = request.response;
     var s = "";
-    data["mainlist"].map(function (i){
+    data["main_contents"].map(function (i){
       s += "<div class='main-contents-group'>"+i["group"]+"("+i["pages"].length+")</div>";
       s += "<div class='main-contents-link'>";
       i["pages"].map(function (j){

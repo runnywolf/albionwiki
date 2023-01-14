@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="An Albion Online wiki by wolf.">
+    <link rel="canonical" href="https://runnywolf.github.io/albionwiki/">
+    <link rel="shortcut icon" type="image/webp" href="../image/icon.webp">
+    <title>狼的阿爾比恩攻略網</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../tool/albionwiki.js"></script>
+    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
+  </head>
+  <body>
+    <div class="headMainWrapper">
+      <div class="head flex-start">
+        <a href="https://runnywolf.github.io/albionwiki/">
+          <img src="../image/albion.webp" class="head-homeButton" title="首頁">
+        </a>
+        <div class="head-title">
+          狼的<span style="color:#730;">阿爾比恩</span>攻略網
+        </div>
+      </div>
+      <div class="mainWrapper">
+        <div class="main flex-start">
+          <div class="main-contents" id="main_contents"></div>
+          <div class="main-article">
+            <div>
+              <div class="main-article-title-h1">地堡</div>
+              關於地堡的建造、設施、營養值、能量等級、防禦等等。
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">種類及狀態</div>
+              <table class="table-style1">
+                <tr>
+                  <td>地圖上圖標</td>
+                  <td>類型(顏色)</td>
+                  <td>說明</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/1.webp"></td>
+                  <td><span class="bold" style="color:#0a0;">綠色地堡</span></td>
+                  <td>自己公會的地堡。</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/2.webp"></td>
+                  <td><span class="bold" style="color:#a0a;">紫色地堡</span></td>
+                  <td>自己聯盟的地堡。</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/3.webp"></td>
+                  <td><span class="bold" style="color:#0bb;">藍色地堡</span></td>
+                  <td>別的聯盟的地堡，你有權限進入。</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/4.webp"></td>
+                  <td><span class="bold" style="color:#f00;">紅色地堡</span></td>
+                  <td>別的聯盟的地堡，你沒有權限進入。</td>
+                </tr>
+              </table>
+              <table class="table-style1">
+                <tr>
+                  <td>地圖上圖標</td>
+                  <td>類型(旗子)</td>
+                  <td>說明</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/5.webp"></td>
+                  <td><span class="bold">沒有旗子的地堡</span></td>
+                  <td>一般地堡。</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/4.webp"></td>
+                  <td><span class="bold">有旗子的地堡</span></td>
+                  <td>總部地堡，只有地堡公會的人才能進入。<br>即使是聯盟地堡，如果是總部的話一樣進不去。</td>
+                </tr>
+              </table>
+              <table class="table-style1">
+                <tr>
+                  <td>地圖上圖標</td>
+                  <td>類型(狀態)</td>
+                  <td>說明</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/5.webp"></td>
+                  <td>地堡邊緣為<span class="bold" style="color:#0bb;">藍圈</span></td>
+                  <td>無敵狀態，無法被攻擊。</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/6.webp"></td>
+                  <td>地堡邊緣為<span class="bold" style="color:#bb0;">黃圈</span></td>
+                  <td>地堡圖黃金時間前20分鐘為脆弱狀態，無法直接攻擊，<br>總部地堡如果達到一定的能量等級，則會是無敵狀態(藍圈)。</td>
+                </tr>
+                <tr>
+                  <td><img src="../image/hideout/7.webp"></td>
+                  <td>交叉劍圖示</td>
+                  <td>地堡被宣，此時為可攻擊狀態，可以被破壞槌攻擊。</td>
+                </tr>
+                <tr>
+                  <td>-</td>
+                  <td>藍色背景上的鎚子圖示</td>
+                  <td>正在建造中的地堡，處於無敵狀態，無法被攻擊。</td>
+                </tr>
+                <tr>
+                  <td>-</td>
+                  <td>紅色背景上的鎚子圖示</td>
+                  <td>正在建造中的地堡，處於第一個或第二個20分鐘的脆弱狀態，<br>可以被攻擊。</td>
+                </tr>
+              </table>
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">建造</div>
+              首先需要一個藏身地堡建築工具包，找工匠製作。<br>
+              <img src="../image/hideout/10.webp" style="width:300px;"><br>
+              <br>
+              工具包重2,250公斤，記得不要負重。<br>
+              參考配裝：(不推薦速度較慢的牛、冬熊、恐熊。)<br>
+              <img src="../image/hideout/11.webp" style="width:180px;"><br>
+              <img src="../image/hideout/12.webp" style="width:120px;"><br>
+              <br>
+              地堡放置條件：
+              <ul style="font-size:13px; border:1px #000 solid; border-radius:4px;">
+                <li>擁有公會的藏身地堡管理權限。</li>
+                <li>一個公會最多蓋6個地堡，同一張圖只能蓋1個地堡。</li>
+                <li>處於地圖黃金時段內。</li>
+                <li>黑區大陸有領地的地圖，或是阿瓦隆內藏身地堡水晶旁。</li>
+                <li>地堡只能放置在平坦的地型。</li>
+                <li>地堡無法放置在野怪刷怪點上。</li>
+                <li>
+                  地堡無法放置在：
+                  <div class="flex-start">
+                    <ul>
+                      <li>距離其他地堡 180m 內</li>
+                      <li>距離區域出入口 200m 內</li>
+                      <li>距離城堡 110m 內</li>
+                      <li>距離領地燈塔 110m 內</li>
+                    </ul>
+                    <ul style="margin-left:20px;">
+                      <li>距離寶箱 110m 內</li>
+                      <li>距離法術墳墓(產奧術精華) 110m 內</li>
+                      <li>距離城堡哨站 50m 內</li>
+                      <li>距離地獄之門生成點 40m 內</li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+              <br>
+              地堡放置後，20分鐘內可以被破壞槌拆掉，之後進入無敵狀態，<br>
+              下一個黃金時段開始時又會有20分鐘的脆弱狀態，兩次20分鐘守完，即成功建造。
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">設施</div>
+              <table class="table-style1">
+                <tr>
+                  <td>等級</td>
+                  <td>設施</td>
+                  <td>升級花費</td>
+                </tr>
+                <tr>
+                  <td>Lv1</td>
+                  <td>5個建築地、維修站</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Lv2</td>
+                  <td>20個建築地、維修站、集市、農業商人</td>
+                  <td>
+                    <ul>
+                      <li>銀幣(20m)</li>
+                      <li>虹吸能量(1,000)</li>
+                      <li>T1原木(1,250)</li>
+                      <li>T1石頭(125)</li>
+                      <li>T6石磚(500)</li>
+                      <li>2天</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lv3</td>
+                  <td>
+                    25個建築地、維修站、集市、農業商人、<br>
+                    神器鑄造店、能量操縱師、遠征管理員、<br>
+                    浮華物品商人、2x2建築地(可建造公會大廳)<br>
+                    <span style="color:#999; font-size:10px; text-decoration:line-through;">誰會在地堡裡打HCE？</span>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>銀幣(80m)</li>
+                      <li>虹吸能量(4,000)</li>
+                      <li>T1原木(5,000)</li>
+                      <li>T1石頭(500)</li>
+                      <li>T6石磚(2,000)</li>
+                      <li>4天</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">營養值</div>
+              地堡的營養值會以一定的速度消耗，需要持續餵食物。
+              <table class="table-style1">
+                <tr><td>等級</td><td colspan="2">消耗速度(1天)</td><td>儲存容量(營養值)</td></tr>
+                <tr><td>Lv1</td><td>15,000營養值</td><td>牛肉三明治(~20.55)</td><td>150,000(10天份)</td></tr>
+                <tr><td>Lv2</td><td>20,000營養值</td><td>牛肉三明治(~27.4)</td><td>400,000(20天份)</td></tr>
+                <tr><td>Lv3</td><td>25,000營養值</td><td>牛肉三明治(~34.25)</td><td>750,000(30天份)</td></tr>
+              </table>
+              <br>
+              關於運哪種食物最佳，可以參考以下資料：<a href="https://runnywolf.github.io/albionwiki/hideout_food">運送食物到地堡</a>
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">能量等級</div>
+              待更新
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">攻擊</div>
+              地堡圖黃金時間前20分鐘，地堡邊緣若呈黃圈則為脆弱狀態。<br>
+              <img src="../image/hideout/6.webp"><br>
+              此時，該地圖的領地公會可以在地堡門口支付攻擊費用，然後就可以直接攻擊。<br>
+              阿瓦隆地堡可以由任何公會宣布攻擊。<br>
+              如果地堡的防禦點數沒有全滿，黃金時間前20分鐘不用宣就能直接攻擊。<br>
+              <table class="table-style1">
+                <tr>
+                  <td>等級</td>
+                  <td>攻擊費用</td>
+                  <td>防禦點</td>
+                  <td>耐久度</td>
+                  <td>耐久度回復速度</td>
+                </tr>
+                <tr>
+                  <td>Lv1</td>
+                  <td>
+                    <ul>
+                      <li>銀幣(1m)</li>
+                      <li>虹吸能量(50)</li>
+                    </ul>
+                  </td>
+                  <td>2</td>
+                  <td>50,000</td>
+                  <td>25/秒</td>
+                </tr>
+                <tr>
+                  <td>Lv2</td>
+                  <td>
+                    <ul>
+                      <li>銀幣(3m)</li>
+                      <li>虹吸能量(150)</li>
+                    </ul>
+                  </td>
+                  <td>4</td>
+                  <td>100,000</td>
+                  <td>75/秒</td>
+                </tr>
+                <tr>
+                  <td>Lv3</td>
+                  <td>
+                    <ul>
+                      <li>銀幣(11m)</li>
+                      <li>虹吸能量(550)</li>
+                    </ul>
+                  </td>
+                  <td>5</td>
+                  <td>150,000</td>
+                  <td>100/秒</td>
+                </tr>
+              </table>
+              <br>
+              如果地堡的耐久度降到0，防禦點會-1。
+              <ul>
+                <li>如果還有防禦點，則地堡會直接進入無敵狀態(藍圈)，直到下一個黃金時間開始。</li>
+                <li>如果防禦點歸零，則地堡會被拆掉。</li>
+              </ul>
+              <br>
+              如果地堡在黃金時間前20分鐘內，耐久度沒有降到0，那麼防禦點會+1，不會超過上限。
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">地堡被破壞</div>
+              如果地堡被拆，所有在裡面的人都會直接被趕出來，並且地堡內任何建築、傢俱和裝備都會被摧毀，<br>
+              除了個人倉庫內的裝備。(公會倉庫的物品會被摧毀)<br>
+              <br>
+              個人倉庫內的裝備則會被送到最近的城市的公共倉庫，郵件會通知送到哪。<br>
+              裝備會放在特殊的標籤頁中，需要支付銀幣才能拿出來，費用與物品重量成正比。
+            </div>
+            <div class="main-article-paragraph">
+              <div class="main-article-title-h2">地堡重生懲罰</div>
+              如果死亡後選擇在地堡重生，會需要等待一段時間才能出地堡。
+              <table class="table-style1">
+                <tr><td>重生次數</td><td>離開地堡冷卻</td></tr>
+                <tr><td>1</td><td>0秒</td></tr>
+                <tr><td>2</td><td>30秒</td></tr>
+                <tr><td>3</td><td>1分鐘</td></tr>
+                <tr><td>4</td><td>2分鐘</td></tr>
+                <tr><td>>= 5</td><td>4分鐘</td></tr>
+              </table>
+            </div>
+            <div class="main-article-foot">
+              <div class="main-article-title-h2">編輯紀錄</div>
+              <div>資料來源: <a href="https://wiki.albiononline.com/wiki/Hideouts">https://wiki.albiononline.com/wiki/Hideouts</a></div>
+              <div>作者: runnywolf(僅撰寫部分資料, 以及翻譯)</div>
+              <div>最後編輯日期: 2023/01/14</div>
+            </div>
+          </div>
+          <div class="main-error" id="main-error"></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="foot-info">
+        "如果有一天退坑了，那麼狼除了銀幣以外，還能留下什麼呢？"<br>
+        <div style="height:10px;"></div>
+        如有任何bug或建議請至<img src="../image/discord_icon.webp" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
+        本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
+        <span id="foot-info_version"></span>
+      </div>
+    </div>
+    <script>main_contents_insert("../tool/data.json");</script>
+  </body>
+</html>

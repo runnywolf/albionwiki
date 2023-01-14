@@ -39,6 +39,15 @@ table tr td:nth-last-child(1){
 table tr:nth-last-child(1) td table tr:nth-last-child(n+2) td{
   border-bottom-style: none;
 }
+ul{
+  width: fit-content;
+  margin: 0;
+  padding: 2px 4px 2px 20px;
+  text-align: left;
+}
+ul ul{
+  padding: 0 0 0 20px;
+}
 img{
   margin: 4px 2px 0px;
 }
@@ -65,6 +74,7 @@ button{
   font-family: monospace;
   text-align: center;
 }
+
 .headMainWrapper{
   min-width: 1000px;
   min-height: calc(100% - 108px);
@@ -97,6 +107,7 @@ button{
 }
 .main-contents{
   width: 200px;
+  height: fit-content;
   margin-left: 6px;
   padding: 4px;
   position: sticky;
@@ -114,6 +125,7 @@ button{
 }
 .main-article{
   width: 760px;
+  height: fit-content;
   margin-left: 8px;
   padding: 8px;
   border-radius: 6px;
@@ -165,6 +177,7 @@ button{
 .foot-info{
   padding-top: 14px;
 }
+
 .flex-start{
   display: flex;
 }
@@ -172,6 +185,7 @@ button{
   font-weight: bold;
 }
 .calcWrapper{
+  width: fit-content;
   padding: 2px 6px;
   border-radius: 4px;
   background-color: #ddd;
