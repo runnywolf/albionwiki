@@ -181,9 +181,7 @@ button{
 .flex-start{
   display: flex;
 }
-.bold{
-  font-weight: bold;
-}
+
 .calcWrapper{
   width: fit-content;
   padding: 2px 6px;
@@ -200,3 +198,43 @@ button{
   background-color: #9bf;
   font-weight: bold;
 }
+
+.bold{font-weight: bold;}
+.red{color: #f00;}
+.blue{color: #00f;}
+
+.bg-white{background-color: #fff;}
+
+.bg-a0{background-color: #8bf;}
+.bg-a1{background-color: #fe8;}
+.bg-a2{background-color: #f99;}
+.bg-a3{background-color: #aaa;}
+
+.bg-T1{background-color: #bbb;}
+.bg-T2{background-color: #cba;}
+.bg-T3{background-color: #8c8;}
+.bg-T4{background-color: #8be;}
+.bg-T5{background-color: #e99;}
+.bg-T6{background-color: #eb8;}
+.bg-T7{background-color: #ee8;}
+.bg-T8{background-color: #eee;}
+
+.bg-l0{background-color: #eee;}
+.bg-l1{background-color: #8f8;}
+.bg-l2{background-color: #8ff;}
+.bg-l3{background-color: #f8f;}
+.bg-l4{background-color: #ff8;}
+
+.bg-q0{background-color: #bbb;}
+.bg-q1{background-color: #bce;}
+.bg-q2{background-color: #cba;}
+.bg-q3{background-color: #eee;}
+.bg-q4{background-color: #fe9;}
+
+.bg-m0{background-color: #eee;}
+.bg-m1{background-color: #f88;}
+.bg-m2{background-color: #ff8;}
+.bg-m3{background-color: #fca;}
+.bg-m4{background-color: #faa;}
+.bg-m5{background-color: #bdf;}
+.bg-m6{background-color: #ffd;}

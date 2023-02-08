@@ -4,6 +4,20 @@ function p10(x){
 function round_(x, n){
   return Math.round(x*p10(n))/p10(n);
 }
+function albion_short_num(x){
+  abs_x = Math.abs(parseInt(x));
+  s_x = ""+abs_x;
+  round_x = parseInt(s_x.substring(0, 3))*p10(s_x.length-3);
+
+  if (abs_x < p10(3)) s_x = s_x;
+  else if (abs_x < p10(6)) s_x = ""+round_x/p10(3)+"k";
+  else if (abs_x < p10(9)) s_x = ""+round_x/p10(6)+"m";
+  else s_x = ""+round_x/p10(9)+"b";
+
+  if (x < 0) s_x = "-"+s_x;
+
+  return s_x;
+}
 function show_error(e_input, e_error, STRING){
   e_error.html(STRING);
 
@@ -44,19 +58,10 @@ function calc_input_check(e_element, MIN, MAX, b_int){
 function checkbox_checked(e_element){
   return e_element.prop("checked");
 }
-function albion_short_num(x){
-  abs_x = Math.abs(parseInt(x));
-  s_x = ""+abs_x;
-  round_x = parseInt(s_x.substring(0, 3))*p10(s_x.length-3);
-
-  if (abs_x < p10(3)) s_x = s_x;
-  else if (abs_x < p10(6)) s_x = ""+round_x/p10(3)+"k";
-  else if (abs_x < p10(9)) s_x = ""+round_x/p10(6)+"m";
-  else s_x = ""+round_x/p10(9)+"b";
-
-  if (x < 0) s_x = "-"+s_x;
-
-  return s_x;
+function select_color(e_select, l_color){
+  var e_select_i = e_select[0].selectedIndex;
+  e_select.css("background-color", l_color[e_select_i]);
+  return e_select_i;
 }
 function main_contents_insert(data_url){
   var request = new XMLHttpRequest();
@@ -80,3 +85,7 @@ function main_contents_insert(data_url){
   };
 }
 var error_show_id0 = null, error_show_id1 = null;
+var l_color_tier = ["#fff", "#bbb", "#cba", "#8c8", "#8be", "#e99", "#eb8", "#ee8", "#eee"];
+var l_color_level = ["#fff", "#eee", "#8f8", "#8ff", "#f8f", "#ff8"];
+var l_color_quality = ["#fff", "#bbb", "#bce", "#cba", "#eee", "#fe9"];
+var l_color_material = ["#fff", "#eee", "#f88", "#ff8", "#fca", "#faa", "#bdf", "#ffd"];

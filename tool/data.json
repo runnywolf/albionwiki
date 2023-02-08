@@ -3,12 +3,13 @@
         {
             "group":"攻略",
             "pages":[
-                {"url":"itempower", "title":"物品強度(ip)"},
+                {"url":"item_power", "title":"物品強度(ip)"},
                 {"url":"island", "title":"個人島"},
                 {"url":"farmer", "title":"農作物種植"},
                 {"url":"infoboard", "title":"儀錶板與減傷機制"},
                 {"url":"pvepoint", "title":"戰鬥聲望點"},
-                {"url":"hideout", "title":"地堡"}
+                {"url":"hideout", "title":"藏身地堡"},
+                {"url":"item_durability", "title":"物品耐久度與修理費"}
             ]
         },
         {
