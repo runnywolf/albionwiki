@@ -6,23 +6,29 @@
     <link rel="canonical" href="https://runnywolf.github.io/albionwiki/">
     <link rel="shortcut icon" type="image/webp" href="../image/icon.webp">
     <title>狼的阿爾比恩攻略網</title>
+    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../tool/albionwiki.js"></script>
-    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
+    <script src="../tool/pageJS/pve_fame.js"></script>
   </head>
-  <body>
+  <body style="background-image:url('../image/bg.webp');">
     <div class="headMainWrapper">
       <div class="head flex-start">
         <a href="https://runnywolf.github.io/albionwiki/">
-          <img src="../image/albion.webp" class="head-homeButton" title="首頁">
+          <img src="../image/icon.webp" class="head-homeButton" title="首頁">
         </a>
         <div class="head-title">
           狼的<span style="color:#730;">阿爾比恩</span>攻略網
         </div>
+        <div class="head-nav flex-start">
+          <a href="https://runnywolf.github.io/albionwiki/">首頁</a>
+          <a href="https://runnywolf.github.io/albionwiki/page/menu">頁面清單</a>
+          <a href="https://runnywolf.github.io/albionwiki/page/update">更新紀錄</a>
+        </div>
       </div>
       <div class="mainWrapper">
         <div class="main flex-start">
-          <div class="main-contents" id="main_contents"></div>
+          <div class="main-contents"><div class="main-contents-group">新手指南(0)</div><div class="main-contents-link"></div><div class="main-contents-group">進階攻略(7)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div></div><div class="main-contents-group">研究中(1)</div><div class="main-contents-link"><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">100抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div></div>
           <div class="main-article">
             <div>
               <div class="main-article-title-h1">PvE聲望與怪物強度</div>
@@ -33,17 +39,17 @@
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">聲望的加成倍率</div>
               目前猜測的聲望計算公式：<br>
-              獲得的聲望 = 基礎聲望*階級倍率*聲望加成*區域倍率*品質倍率*尊享會員加成*洞察背包加成<br>
+              獲得的聲望 = 基礎聲望*階級倍率*聲望增益倍率*區域倍率*品質倍率*會員倍率*洞察背包倍率<br>
               <table>
                 <tr>
                   <td class="bold">基礎聲望</td>
-                  <td style="text-align:left; font-size:13px;">
+                  <td class="pve_fame-table-tr">
                     每種怪物的基本聲望，僅與怪物的種類有關。
                   </td>
                 </tr>
                 <tr>
                   <td class="bold">階級倍率</td>
-                  <td style="text-align:left; font-size:13px;">
+                  <td class="pve_fame-table-tr">
                     地圖等階會影響總聲望，如下表：(設T4圖的聲望為1倍)<br>
                     <table>
                       <tr class="bold bg-white"><td>階級</td><td>階級倍率</td></tr>
@@ -57,15 +63,21 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="bold">聲望加成</td>
-                  <td style="text-align:left; font-size:13px;">
+                  <td class="bold">聲望增益倍率</td>
+                  <td class="pve_fame-table-tr">
                     擊殺大多數怪物時會跑出像這樣的聲望資訊：<br>
                     <img src="../image/pvefame/1.webp"><br>
-                    最後面的<img src="../image/pvefame/2.webp" style="margin:0px 2px;">為聲望加成(1.2倍)。
+                    <div class="flex-start">
+                      <div>最後面的</div>
+                      <img src="../image/pvefame/2.webp" style="margin:0px 2px;">
+                      <div>為聲望加成(聲望增益倍率 = 1.2)。</div>
+                    </div>
+                    <br>
+                    聲望增益種類如下表：
                     <table class="table-style1">
                       <tr>
                         <td>類型</td>
-                        <td>聲望加成(+)</td>
+                        <td>聲望加成(加算)</td>
                         <td>持續時間</td>
                         <td>獲取途徑</td>
                       </tr>
@@ -104,7 +116,7 @@
                       <tr></tr>
                       <tr style="background-color:#6f6; font-weight:bold;">
                         <td>類型</td>
-                        <td>聲望加成(獨立乘區)</td>
+                        <td>聲望加成(乘算)</td>
                         <td>持續時間</td>
                         <td>獲取途徑</td>
                       </tr>
@@ -128,12 +140,15 @@
                         </td>
                       </tr>
                     </table>
-                    例：金洞神龕效果+T8騎士宣言+吃活動食物 -> (1+0.1+0.1)*1.15 = 1.38倍 (+38%)
+                    <br>
+                    例：金洞神龕效果+T8騎士宣言+吃活動食物<br>
+                    聲望增益倍率 = (100% + 10% + 10%) * 1.15 = 1.2 * 1.15 = 1.38<br>
+                    <span class="red">目前沒有方法證明乘算的兩個聲望增益的關係</span>
                   </td>
                 </tr>
                 <tr>
                   <td class="bold">區域倍率</td>
-                  <td style="text-align:left; font-size:13px;">
+                  <td class="pve_fame-table-tr">
                     區域類型會影響總聲望，如下表：<br>
                     <span class="bold red">[待驗證]阿瓦隆、迷霧</span>
                     <table style="margin-bottom:4px;">
@@ -147,7 +162,7 @@
                 </tr>
                 <tr>
                   <td class="bold">品質倍率</td>
-                  <td style="text-align:left; font-size:13px;">
+                  <td class="pve_fame-table-tr">
                     綠/藍/金洞的品質會影響總聲望，如下表：(設品質.0的聲望為1倍)<br>
                     <span class="bold red">[待驗證]資源怪、城中城單劍怪、世界王雙劍怪</span><br>
                     <table>
@@ -162,19 +177,19 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="bold">尊享會員加成</td>
-                  <td style="text-align:left; font-size:13px;">
-                    如果擁有尊想會員，會+50%聲望(1.5倍)，+50%這部分<span class="bold">不計入</span>個人資料裡的PvE聲望。
+                  <td class="bold">會員倍率</td>
+                  <td class="pve_fame-table-tr">
+                    如果擁有會員，會+50%聲望(1.5倍)，+50%這部分<span class="bold">不計入</span>個人資料裡的PvE聲望。
                     <table class="table-style1" style="margin-bottom:4px;">
-                      <tr><td>尊想會員</td><td>尊享會員倍率</td></tr>
+                      <tr><td>會員</td><td>會員倍率</td></tr>
                       <tr><td>無</td><td>1</td></tr>
                       <tr><td>有</td><td>1.5</td></tr>
                     </table>
                   </td>
                 </tr>
                 <tr>
-                  <td class="bold">洞察背包加成</td>
-                  <td style="text-align:left; font-size:13px;">
+                  <td class="bold">洞察背包倍率</td>
+                  <td class="pve_fame-table-tr">
                     倍率由洞察背包的ip決定。
                   </td>
                 </tr>
@@ -186,18 +201,18 @@
               <div>
                 以下的分析以金洞尾王(黑區T8.1)的聲望資料來算。<br>
                 <br>
-                1. 怪物都有固定的<span class="bold">基礎聲望</span>，<span class="bold">基礎聲望</span>會先乘上<span class="bold">階級倍率</span>和<span class="bold">聲望加成</span>：<br>
+                1. 怪物都有固定的<span class="bold">基礎聲望</span>，<span class="bold">基礎聲望</span>會先乘上<span class="bold">階級倍率</span>和<span class="bold">聲望增益倍率</span>：<br>
                 -> 得到66,083聲望<br>
                 <br>
                 2. 66,083聲望乘上<span class="bold">區域倍率</span>(4.2)和<span class="bold">品質倍率</span>(1.6589)：<br>
                 -> 66,083<span class="blue">*4.2*1.6589</span> ~ 66,083<span class="blue">+394,413</span> = 460,425<br>
                 <img src="../image/pvefame/5.webp" style="margin:0px;"> 262,843+131,570 = 394,413<br>
                 <br>
-                3. 460,496聲望乘上<span class="bold">尊享會員加成</span>(1.5)：<br>
+                3. 460,496聲望乘上<span class="bold">會員倍率</span>(1.5)：<br>
                 -> 460,496<span class="blue">*1.5</span> ~ 460,496<span class="blue">+230,247</span> = 690,743<br>
                 <img src="../image/pvefame/6.webp" style="margin:0px;"> = 230,247<br>
                 <br>
-                4. 690,743聲望乘上<span class="bold">洞察背包加成</span>(8.0銀邊, 1.6629)：<br>
+                4. 690,743聲望乘上<span class="bold">洞察背包倍率</span>(8.0銀邊, 1.6629)：<br>
                 -> 690,743<span class="blue">*1.6629</span> ~ 690,743<span class="blue">+457,893</span> = 1,148,636<br>
                 <img src="../image/pvefame/7.webp" style="margin:0px;"> = 457,893<br>
                 <br>
@@ -206,7 +221,7 @@
             </div>
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">PvE聲望計算</div>
-              粗略計算不同情形下的PvE聲望：(不包含聲望加成、尊享會員加成、洞察背包加成)<br>
+              粗略計算不同情形下的PvE聲望：(不包含聲望增益倍率、會員倍率、洞察背包倍率)<br>
               以下的計算機僅適用於綠洞、藍洞、金洞。
               <div class="flex-start calcWrapper">
                 <div>情況A:</div>
@@ -310,94 +325,9 @@
         "如果有一天退坑了，那麼狼除了銀幣以外，還能留下什麼呢？"<br>
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.webp" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
-        本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        <span id="foot-info_version"></span>
+        本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 4.0)</a>授權條款。<br>
+        v1.3 -&gt; Last update date: 2023/3/4
       </div>
     </div>
-    <script>main_contents_insert("../tool/data.json");</script>
-    <script><!--calc1-->
-      function calc1_areaTier(ab){
-        var e_area = $("#calc1_"+ab+"_area");
-        var e_tier = $("#calc1_"+ab+"_tier");
-
-        var area = e_area.val();
-        var area_color = {0:"#8bf", 1:"#fe8", 2:"#f99", 3:"#aaa"}[area];
-        e_area.css("background-color", area_color);
-
-        var tier_show = {0:[4], 1:[5], 2:[6, 7], 3:[5, 6, 7, 8]}[area];
-        e_tier.empty();
-        e_tier.append('<option style="background-color:#fff;" disabled>階級</option>');
-        tier_show.map(function (i){
-          e_tier.append('<option value="'+i+'">T'+i+'</option>');
-        });
-        e_tier.css("background-color", area_color);
-      }
-      function calc1_level(ab){
-        var e_level = $("#calc1_"+ab+"_level");
-
-        var level = e_level.val();
-        var level_color = {0:"#eee", 1:"#8e8", 2:"#8ee", 3:"#e8e", 4:"#ee8"}[level];
-        e_level.css("background-color", level_color);
-      }
-      function calc1_n(ab){
-        var e_n = $("#calc1_"+ab+"_n");
-
-        if (calc_input_check(e_n, 1, 20, true) == false) e_n.val(1);
-      }
-      function calc1_case_clear(ab){
-        var e_area = $("#calc1_"+ab+"_area");
-        var e_tier = $("#calc1_"+ab+"_tier");
-        var e_level = $("#calc1_"+ab+"_level");
-        var e_n = $("#calc1_"+ab+"_n");
-
-        e_area.val(0);
-        e_area.css("background-color", "#8bf");
-
-        var tier_show = [4];
-        e_tier.empty();
-        e_tier.append('<option style="background-color:#fff;" disabled>階級</option>');
-        e_tier.append('<option value="4">T4</option>');
-        e_tier.css("background-color", "#8bf");
-
-        e_level.val(0);
-        e_level.css("background-color", "#eee");
-
-        e_n.val(1);
-      }
-      function calc1_case_getData(ab){
-        var e_area = $("#calc1_"+ab+"_area");
-        var e_tier = $("#calc1_"+ab+"_tier");
-        var e_level = $("#calc1_"+ab+"_level");
-        var n, e_n = $("#calc1_"+ab+"_n");
-
-        var c_area = {0:2.15, 1:2.4, 2:3.3, 3:4.2}[e_area.val()];
-        var c_tier = {4:1, 5:1.3333, 6:1.7923, 7:2.285, 8:3.029}[e_tier.val()];
-        var c_level = {0:1, 1:1.2757, 2:1.6589, 3:2.1328, 4:2.7406}[e_level.val()];
-        if (calc_input_check(e_n, 1, 20, true)) n = parseInt(e_n.val());
-        else n = 0;
-        
-        return c_tier*c_area*c_level/n;
-      }
-      function calc1(){
-        var e_output_ba = $("#calc1_output_ba");
-        var e_output_ab = $("#calc1_output_ab");
-
-        var a = calc1_case_getData("a");
-        var b = calc1_case_getData("b");
-        
-        e_output_ba.text(round_(a/b, 3)+"倍 ("+((a/b-1 >= 0)?"+":"")+round_((a/b-1)*100, 1)+"%)");
-        e_output_ab.text(round_(b/a, 3)+"倍 ("+((b/a-1 >= 0)?"+":"")+round_((b/a-1)*100, 1)+"%)");
-      }
-      function calc1_clear(){
-        var e_output_ba = $("#calc1_output_ba");
-        var e_output_ab = $("#calc1_output_ab");
-
-        calc1_case_clear("a");
-        calc1_case_clear("b");
-        e_output_ba.text("1倍 (+0%)");
-        e_output_ab.text("1倍 (+0%)");
-      }
-      calc1_clear();
-    </script>
   </body>
 </html>

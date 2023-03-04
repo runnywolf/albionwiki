@@ -3,7 +3,6 @@ html, body{
   margin: 0px;
 }
 body{
-  background-image: url("../image/bg.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
@@ -23,12 +22,12 @@ table{
   white-space: nowrap;
   border-collapse: separate;
   border-spacing: 0px;
-  text-align: center;
 }
-table td{
+td{
   padding: 0px 4px;
   border: 1px #000 solid;
   border-style: solid none none solid;
+  text-align: center;
 }
 table tr:nth-last-child(1) td{
   border-bottom-style: solid;
@@ -36,7 +35,7 @@ table tr:nth-last-child(1) td{
 table tr td:nth-last-child(1){
   border-right-style: solid;
 }
-table tr:nth-last-child(1) td table tr:nth-last-child(n+2) td{
+table tr:nth-last-child(1) tr:nth-last-child(n+2) td{
   border-bottom-style: none;
 }
 ul{
@@ -87,15 +86,31 @@ button{
   background-color: #fd9;
 }
 .head-homeButton{
-  margin: 4px 0px 0px 12px;
-  max-height: 40px;
+  margin: 5px 8px 5px 10px;
+  height: 40px;
 }
 .head-title{
   height: 50px;
-  margin: 2px 0px 0px 10px;
+  margin-top: 2px;
   line-height: 50px;
   font-size: 30px;
   font-weight: bold;
+}
+.head-nav{
+  margin-left: 6px;
+  height: 50px;
+  align-items: center;
+}
+.head-nav a{
+  padding: 2px 6px 3px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #730;
+}
+.head-nav a:hover{
+  text-decoration: none;
+  background-color: #fec;
 }
 .mainWrapper{
   display: flex;
@@ -113,7 +128,7 @@ button{
   position: sticky;
   top: 58px;
   border-radius: 6px;
-  background-color: #fffa;
+  background-color: #fffb;
 }
 .main-contents-group{
   font-size: 14px;
@@ -129,7 +144,7 @@ button{
   margin-left: 8px;
   padding: 8px;
   border-radius: 6px;
-  background-color: #fffa;
+  background-color: #fffb;
   font-size: 16px;
   word-break: break-all;
   word-wrap: break-word;
@@ -181,7 +196,6 @@ button{
 .flex-start{
   display: flex;
 }
-
 .calcWrapper{
   width: fit-content;
   padding: 2px 6px;
@@ -197,6 +211,81 @@ button{
 .table-style1 tr:nth-child(1){
   background-color: #9bf;
   font-weight: bold;
+}
+.pve_fame-table-tr{
+  padding: 4px;
+  font-size: 13px;
+  text-align: left;
+}
+.menu-title{
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.menu-list{
+  border: 1px #aaa solid;
+}
+.menu-list div{
+  padding-left: 4px;
+}
+.menu-list div:nth-child(2n+1){
+  background-color: #eee;
+}
+.sliver{
+  display: flex;
+  justify-content: center;
+}
+.sliver img{
+  margin: 0 3px;
+  height: 18px;
+  content: url("../image/_icon/sliver.webp");
+}
+.fame{
+  display: flex;
+  justify-content: center;
+}
+.fame img{
+  margin: 0 3px;
+  height: 18px;
+  content: url("../image/_icon/fame.webp");
+}
+.MT2px{
+  margin-top: 2px;
+}
+.x-bar{
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 2px;
+  color: #fff;
+  text-align: center;
+}
+.x-bar td{
+  padding: 0;
+  height: 20px;
+  border: 0 #000 solid;
+}
+.x-bar td:nth-child(1){
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.x-bar td:nth-last-child(1){
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.x-bar-legend{
+  display: flex;
+  justify-content: flex-start;
+}
+.x-bar-legend div{
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+.x-bar-legend div:nth-child(n+2){
+  margin-left: 16px;
+}
+.x-bar-legend span{
+  margin: 0 4px 0 4px;
 }
 
 .bold{font-weight: bold;}

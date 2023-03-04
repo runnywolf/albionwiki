@@ -63,28 +63,18 @@ function select_color(e_select, l_color){
   e_select.css("background-color", l_color[e_select_i]);
   return e_select_i;
 }
-function main_contents_insert(data_url){
-  var request = new XMLHttpRequest();
-  request.open("get", data_url);
-  request.responseType = "json";
-  request.send();
-  request.onload = function(){
-    var data = request.response;
-    var s = "";
-    data["main_contents"].map(function (i){
-      s += "<div class='main-contents-group'>"+i["group"]+"("+i["pages"].length+")</div>";
-      s += "<div class='main-contents-link'>";
-      i["pages"].map(function (j){
-        s += "<div><a href='https://runnywolf.github.io/albionwiki/page/"+j["url"]+"'>"+j["title"]+"</a></div>";
-      })
-      s += "</div>";
-    });
-    $("#main_contents").append(s);
 
-    $("#foot-info_version").text(data["version"]);
-  };
+var url = new URL(window.location.href);
+if (url.hash != ""){
+  window.onload = function (){
+    $(".main-article-title-h2").each(function (){
+      if ("#"+$(this).text() == decodeURI(url.hash)) $("html").animate({scrollTop: $(this).offset().top-64}, 500);
+    });
+  }
 }
+
 var error_show_id0 = null, error_show_id1 = null;
+
 var l_color_tier = ["#fff", "#bbb", "#cba", "#8c8", "#8be", "#e99", "#eb8", "#ee8", "#eee"];
 var l_color_level = ["#fff", "#eee", "#8f8", "#8ff", "#f8f", "#ff8"];
 var l_color_quality = ["#fff", "#bbb", "#bce", "#cba", "#eee", "#fe9"];

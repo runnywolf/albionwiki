@@ -6,23 +6,29 @@
     <link rel="canonical" href="https://runnywolf.github.io/albionwiki/">
     <link rel="shortcut icon" type="image/webp" href="../image/icon.webp">
     <title>狼的阿爾比恩攻略網</title>
+    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../tool/albionwiki.js"></script>
-    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
+    <script src="../tool/pageJS/farmer.js"></script>
   </head>
-  <body>
+  <body style="background-image:url('../image/bg.webp');">
     <div class="headMainWrapper">
       <div class="head flex-start">
         <a href="https://runnywolf.github.io/albionwiki/">
-          <img src="../image/albion.webp" class="head-homeButton" title="首頁">
+          <img src="../image/icon.webp" class="head-homeButton" title="首頁">
         </a>
         <div class="head-title">
           狼的<span style="color:#730;">阿爾比恩</span>攻略網
         </div>
+        <div class="head-nav flex-start">
+          <a href="https://runnywolf.github.io/albionwiki/">首頁</a>
+          <a href="https://runnywolf.github.io/albionwiki/page/menu">頁面清單</a>
+          <a href="https://runnywolf.github.io/albionwiki/page/update">更新紀錄</a>
+        </div>
       </div>
       <div class="mainWrapper">
         <div class="main flex-start">
-          <div class="main-contents" id="main_contents"></div>
+          <div class="main-contents"><div class="main-contents-group">新手指南(0)</div><div class="main-contents-link"></div><div class="main-contents-group">進階攻略(7)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div></div><div class="main-contents-group">研究中(1)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">100抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div></div>
           <div class="main-article">
             <div>
               <div class="main-article-title-h1">農作物種植</div>
@@ -30,22 +36,35 @@
             </div>
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">農地</div>
-              如果要發展農業，必須先擁有一座Lv2或更高等級的島嶼。<br>
-              關於島嶼購買請見<a href="https://runnywolf.github.io/albionwiki/page/island">個人島</a>。<br>
+              如果要發展農業，必須先擁有一座Lv2或更高等級的個人島。<br>
+              關於個人島購買請見<a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a>。<br>
               <br>
               點擊自己的id，開啟玩家選單，點擊<span class="bold">建造</span>，然後選擇<span class="bold">農耕</span>。<br>
               <img src="../image/farmer/1.webp"><br>
               <img src="../image/farmer/2.webp" style="height:400px;"><br>
               <br>
-              <span class="bold">農場</span>只能種植<span class="bold">作物</span>，<span class="bold">藥草園</span>只能種植<span class="bold">草藥</span>。<br>
-              而這兩種建築都只能建造在地圖上的棕色地塊上(農地)。
+              <table class="table-style1">
+                <tr><td>類型</td><td>建造後外觀</td><td>可以種植...</td></tr>
+                <tr>
+                  <td>農場</td>
+                  <td><img src="../image/farmer/3.webp" style="height:150px;"></td>
+                  <td><img src="../image/farmer/4.webp" style="height:150px;"></td>
+                </tr>
+                <tr>
+                  <td>藥草園</td>
+                  <td><img src="../image/farmer/5.webp" style="height:150px;"></td>
+                  <td><img src="../image/farmer/6.webp" style="height:150px;"></td>
+                </tr>
+              </table>
+              這兩種建築都只能建造在地圖上的棕色地塊上(農地)。<br>
+              <img src="../image/farmer/7.webp">
             </div>
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">播種</div>
               一塊農地建好後可以種植9株作物或草藥。<br>
               <br>
               播種方法：<br>
-              <img src="../image/farmer/3.webp" style="max-height:200px;"><br>
+              <img src="../image/farmer/8.webp" style="max-height:200px;"><br>
               將<span class="bold">作物/草藥</span>種子放置在<span class="bold">農場/藥草園</span>裡即可。
             </div>
             <div class="main-article-paragraph">
@@ -60,15 +79,13 @@
               計算某個作物/藥草，單次澆水所需專注點：
               <div class="flex-start calcWrapper">
                 <div>內圈</div>
-                <input style="width:30px;" title="內圈等級 (農場主/草藥師)" id="calc1_inLevel">
+                <input style="width:30px;" title="內圈等級 (作物農夫/草藥師)" id="calc1_inLevel">
                 <div>等，外圈</div>
                 <input style="width:30px;" title="該農作物的外圈等級" id="calc1_outLevel">
                 <div>等，澆水一次需要 <span class="blue" id="calc1_output">1000</span> 專注點。</div>
                 <button onclick="calc1()">計算</button>
                 <button onclick="calc1_clear()">清除</button>
               </div>
-              <br>
-              <span class="bold">手機版</span>：直接站在該株作物上<span class="bold">迅速點2下攻擊鍵</span>即可澆水。
             </div>
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">澆水加成</div>
@@ -76,15 +93,87 @@
               <br>
               種子產出率與澆水獲利如下表：(每株農作物, 1塊田能種9株)
               <table class="table-style1">
-                <tr><td>農作物</td><td>未澆水<br>w</td><td>有澆水<br>W</td><td>澆水加成<br>W-w</td><td>種子價格<br>p</td><td>平均澆水獲利<br>p*(W-w)</td><td>平均種子成本<br>p*(1-w)</td></tr>
-                <tr><td>T1胡蘿蔔</td><td>0%</td><td>200%</td><td>+2</td><td>2,000</td><td>4,000</td><td>2,000</td></tr>
-                <tr><td>T2豌豆/草藥</td><td>33.33%</td><td>166.67%</td><td>+1.333</td><td>3,000</td><td>4,000</td><td>2,000</td></tr>
-                <tr><td>T3小麥/草藥</td><td>60%</td><td>140%</td><td>+0.8</td><td>5,000</td><td>4,000</td><td>2,000</td></tr>
-                <tr><td>T4蕪菁/草藥</td><td>73.33%</td><td>126.67%</td><td>+0.5333</td><td>7,500</td><td>4,000</td><td>2,000</td></tr>
-                <tr><td>T5白菜/草藥</td><td>80%</td><td>120%</td><td>+0.4</td><td>10,000</td><td>4,000</td><td>2,000</td></tr>
-                <tr><td>T6土豆/草藥</td><td>86.67%</td><td>113.33%</td><td>+0.2667</td><td>15,000</td><td>4,000</td><td>2,000</td></tr>
-                <tr><td>T7玉米/草藥</td><td>91.11%</td><td>108.89%</td><td>+0.1778</td><td>22,500</td><td>4,000</td><td>2,000</td></tr>
-                <tr><td>T8南瓜/草藥</td><td>93.33%</td><td>106.67%</td><td>+0.1333</td><td>30,000</td><td>4,000</td><td>2,000</td></tr>
+                <tr>
+                  <td>農作物</td>
+                  <td>未澆水<br>w</td>
+                  <td>有澆水<br>W</td>
+                  <td>澆水加成<br>W-w</td>
+                  <td>種子價格<br>p</td>
+                  <td>平均澆水獲利<br>p*(W-w)</td>
+                  <td>平均種子成本<br>p*(1-w)</td>
+                </tr>
+                <tr>
+                  <td>T1胡蘿蔔</td>
+                  <td>0%</td>
+                  <td>200%</td>
+                  <td>+2</td>
+                  <td><div class="sliver">2,000<img></div></td>
+                  <td><div class="sliver">4,000<img></div></td>
+                  <td><div class="sliver">2,000<img></div></td>
+                </tr>
+                <tr>
+                  <td>T2豌豆/草藥</td>
+                  <td>33.33%</td>
+                  <td>166.67%</td>
+                  <td>+1.333</td>
+                  <td><div class="sliver">3,000<img></div></td>
+                  <td><div class="sliver">4,000<img></div></td>
+                  <td><div class="sliver">2,000<img></div></td>
+                </tr>
+                <tr>
+                  <td>T3小麥/草藥</td>
+                  <td>60%</td>
+                  <td>140%</td>
+                  <td>+0.8</td>
+                  <td><div class="sliver">5,000<img></div></td>
+                  <td><div class="sliver">4,000<img></div></td>
+                  <td><div class="sliver">2,000<img></div></td>
+                </tr>
+                <tr>
+                  <td>T4蕪菁/草藥</td>
+                  <td>73.33%</td>
+                  <td>126.67%</td>
+                  <td>+0.5333</td>
+                  <td><div class="sliver">7,500<img></div></td>
+                  <td><div class="sliver">4,000<img></div></td>
+                  <td><div class="sliver">2,000<img></div></td>
+                </tr>
+                <tr>
+                  <td>T5白菜/草藥</td>
+                  <td>80%</td>
+                  <td>120%</td>
+                  <td>+0.4</td>
+                  <td><div class="sliver">10,000<img></div></td>
+                  <td><div class="sliver">4,000<img></div></td>
+                  <td><div class="sliver">2,000<img></div></td>
+                </tr>
+                <tr>
+                  <td>T6馬鈴薯/草藥</td>
+                  <td>86.67%</td>
+                  <td>113.33%</td>
+                  <td>+0.2667</td>
+                  <td><div class="sliver">15,000<img></div></td>
+                  <td><div class="sliver">4,000<img></div></td>
+                  <td><div class="sliver">2,000<img></div></td>
+                </tr>
+                <tr>
+                  <td>T7玉米/草藥</td>
+                  <td>91.11%</td>
+                  <td>108.89%</td>
+                  <td>+0.1778</td>
+                  <td><div class="sliver">22,500<img></div></td>
+                  <td><div class="sliver">4,000<img></div></td>
+                  <td><div class="sliver">2,000<img></div></td>
+                </tr>
+                <tr>
+                  <td>T8南瓜/草藥</td>
+                  <td>93.33%</td>
+                  <td>106.67%</td>
+                  <td>+0.1333</td>
+                  <td><div class="sliver">30,000<img></div></td>
+                  <td><div class="sliver">4,000<img></div></td>
+                  <td><div class="sliver">2,000<img></div></td>
+                </tr>
               </table>
               澆水加成 W-w 可以理解為，澆水後每株平均會多產出 n 個種子。<br>
               種子產出率如果為 120% 代表： 100% 產出 1 個種子，有 20% 的機率額外再產出 1 個種子。<br>
@@ -92,8 +181,12 @@
               商城的種子價格可能會比農業商人略為便宜。(兩者選便宜的買)<br>
               <br>
               <span class="blue">
-                由上表可知，無論你種什麼東西，每株澆水後的種子平均獲利皆為 4,000。<br>
-                每株平均能採收9個農作物，那麼1個農作物的種子成本為 2,000/9 ~ 222.22。
+                <div class="flex-start">
+                  由上表可知，無論你種什麼東西，每株澆水後的種子平均獲利皆為&nbsp;<div class="sliver MT2px">4,000<img></div>。
+                </div>
+                <div class="flex-start">
+                  每株平均能採收9個農作物，那麼1個農作物的種子成本為&nbsp;<div class="sliver MT2px">2,000<img>/9 ~ 222.22<img></div>。
+                </div>
               </span>
             </div>
             <div class="main-article-paragraph">
@@ -106,11 +199,16 @@
                 <tr><td>農作物</td><td>3~6</td><td>6~12 (2倍)</td></tr>
                 <tr><td>種子</td><td>0~2</td><td>0~2 (不影響)</td></tr>
                 <tr><td>蚯蚓</td><td>0~1</td><td>0~2 (2倍)</td></tr>
-                <tr><td>種植聲望</td><td>100</td><td>150 (1.5倍)</td></tr>
+                <tr>
+                  <td>種植聲望</td>
+                  <td><div class="fame">100<img></div></td>
+                  <td>
+                    <div class="flex-start">
+                      <div class="fame MT2px">150<img></div>(1.5倍)
+                    </div>
+                  </td>
+                </tr>
               </table>
-              <br>
-              <span class="bold">手機版</span>：直接站在該株作物上，<span class="bold">迅速點2下攻擊鍵</span>即可直接採收。<br>
-              非常推薦使用手機種田，採收比電腦快速方便。
             </div>
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">收益</div>
@@ -123,16 +221,19 @@
               注：農地數為棕色地塊的數量。
               <div class="calcWrapper">
                 <div class="flex-start">
-                  <div>農地</div>
+                  農地
                   <input style="width:50px;" title="農地數 (棕色地塊的數量)" id="calc2_plot">
-                  <div>塊，每個農作物市場價</div>
+                  塊，每個農作物市場價
                   <input style="width:50px;" title="單個農作物賣出價 (未扣稅)" id="calc2_price">
-                  <div>銀幣，稅率</div>
+                  <div class="sliver MT2px"><img></div>
+                  ，稅率
                   <input style="width:50px;" title="稅率 (%)" id="calc2_tax">
-                  <div>%，</div>
+                  %，
                 </div>
                 <div class="flex-start">
-                  <div>每日收益為 <span class="blue" id="calc2_output">0</span> 銀幣。</div>
+                  每日收益為&nbsp;
+                  <div class="sliver MT2px"><span class="blue" id="calc2_output">0</span><img></div>
+                  。
                   <button onclick="calc2()">計算</button>
                   <button onclick="calc2_clear()">清除</button>
                 </div>
@@ -141,16 +242,18 @@
               澆水收益計算：(買會員來澆水、不含挑戰者獎勵收益、不含你去拍賣場買種子省下的錢)
               <div class="calcWrapper">
                 <div class="flex-start">
-                  <div>澆一次水需要</div>
+                  澆一次水需要
                   <input style="width:40px;" title="單次澆水所需專注點" id="calc3_p">
-                  <div>專注點，每天平均花費</div>
+                  專注點，每天平均花費
                   <input style="width:60px;" title="每日花費的專注點" id="calc3_dp">
-                  <div>專注點在澆水上，會員一個月</div>
+                  專注點在澆水上，會員一個月
                   <input style="width:90px;" title="會員一個月銀幣" id="calc3_vip">
-                  <div>。</div>
+                  。
                 </div>
                 <div class="flex-start">
-                  <div>每日收益為 <span class="blue" id="calc3_output">0</span> 銀幣。</div>
+                  每日收益為&nbsp;
+                  <div class="sliver MT2px"><span class="blue" id="calc3_output">0</span><img></div>
+                  。
                   <button onclick="calc3()">計算</button>
                   <button onclick="calc3_clear()">清除</button>
                 </div>
@@ -161,7 +264,7 @@
             <div class="main-article-foot">
               <div class="main-article-title-h2">編輯紀錄</div>
               <div>作者: runnywolf</div>
-              <div>最後編輯日期: 2023/02/08</div>
+              <div>最後編輯日期: 2023/03/02</div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>
@@ -173,76 +276,9 @@
         "如果有一天退坑了，那麼狼除了銀幣以外，還能留下什麼呢？"<br>
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.webp" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
-        本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        <span id="foot-info_version"></span>
+        本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 4.0)</a>授權條款。<br>
+        v1.3 -&gt; Last update date: 2023/3/4
       </div>
     </div>
-    <script>main_contents_insert("../tool/data.json");</script>
-    <script><!--calc1-->
-      function calc1(){
-        var inLevel, e_inLevel = $("#calc1_inLevel");
-        var outLevel, e_outLevel = $("#calc1_outLevel");
-
-        if (calc_input_check(e_inLevel, 0, 100, true)) inLevel = parseInt(e_inLevel.val());
-        else inLevel = 0;
-        if (calc_input_check(e_outLevel, 0, 100, true)) outLevel = parseInt(e_outLevel.val());
-        else outLevel = 0;
-
-        $("#calc1_output").text(parseInt(1000/(2**((100*inLevel+200*outLevel)/10000))));
-      }
-      function calc1_clear(){
-        $("#calc1_inLevel").val("");
-        $("#calc1_outLevel").val("");
-        $("#calc1_output").text("1000");
-      }
-    </script>
-    <script><!--calc2-->
-      function calc2(){
-        var plot, e_plot = $("#calc2_plot");
-        var price, e_price = $("#calc2_price");
-        var tax, e_tax = $("#calc2_tax");
-
-        if (calc_input_check(e_plot, 1, 10000, true)) plot = parseInt(e_plot.val());
-        else plot = 0;
-        if (calc_input_check(e_price, 0, 100000, true)) price = parseInt(e_price.val());
-        else price = 0;
-        if (calc_input_check(e_tax, 0, 100, false)) tax = parseFloat(e_tax.val());
-        else tax = 0;
-
-        var output = parseInt((price*(1-tax/100)*9-2000)*9*plot);
-
-        $("#calc2_output").text(albion_short_num(output));
-      }
-      function calc2_clear(){
-        $("#calc2_plot").val("");
-        $("#calc2_price").val("");
-        $("#calc2_tax").val("");
-        $("#calc2_output").text("0");
-      }
-    </script>
-    <script><!--calc3-->
-      function calc3(){
-        var p, e_p = $("#calc3_p");
-        var dp, e_dp = $("#calc3_dp");
-        var vip, e_vip = $("#calc3_vip");
-        
-        if (calc_input_check(e_p, 125, 1000, true)) p = parseInt(e_p.val());
-        else p = 1000;
-        if (calc_input_check(e_dp, 0, p10(6), true)) dp = parseInt(e_dp.val());
-        else dp = 0;
-        if (calc_input_check(e_vip, 0, p10(9), false)) vip = parseFloat(e_vip.val());
-        else vip = 0;
-
-        var output = parseInt(4000*parseInt(dp/p)-vip/300000*dp);
-
-        $("#calc3_output").text(albion_short_num(output));
-      }
-      function calc3_clear(){
-        $("#calc3_p").val("");
-        $("#calc3_dp").val("");
-        $("#calc3_vip").val("");
-        $("#calc3_output").text("0");
-      }
-    </script>
   </body>
 </html>

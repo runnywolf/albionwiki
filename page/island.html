@@ -6,23 +6,28 @@
     <link rel="canonical" href="https://runnywolf.github.io/albionwiki/">
     <link rel="shortcut icon" type="image/webp" href="../image/icon.webp">
     <title>狼的阿爾比恩攻略網</title>
+    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../tool/albionwiki.js"></script>
-    <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
   </head>
-  <body>
+  <body style="background-image:url('../image/bg.webp');">
     <div class="headMainWrapper">
       <div class="head flex-start">
         <a href="https://runnywolf.github.io/albionwiki/">
-          <img src="../image/albion.webp" class="head-homeButton" title="首頁">
+          <img src="../image/icon.webp" class="head-homeButton" title="首頁">
         </a>
         <div class="head-title">
           狼的<span style="color:#730;">阿爾比恩</span>攻略網
         </div>
+        <div class="head-nav flex-start">
+          <a href="https://runnywolf.github.io/albionwiki/">首頁</a>
+          <a href="https://runnywolf.github.io/albionwiki/page/menu">頁面清單</a>
+          <a href="https://runnywolf.github.io/albionwiki/page/update">更新紀錄</a>
+        </div>
       </div>
       <div class="mainWrapper">
         <div class="main flex-start">
-          <div class="main-contents" id="main_contents"></div>
+          <div class="main-contents"><div class="main-contents-group">新手指南(0)</div><div class="main-contents-link"></div><div class="main-contents-group">進階攻略(7)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div></div><div class="main-contents-group">研究中(1)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">100抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div></div>
           <div class="main-article">
             <div>
               <div class="main-article-title-h1">個人島</div>
@@ -37,13 +42,55 @@
               <br>
               島嶼花費如下表：
               <table class="table-style1">
-                <tr><td>島嶼等級</td><td>單次升級費用</td><td>累計升級費用</td><td>建築地</td><td>農地</td></tr>
-                <tr><td>Lv1</td><td>18,750</td><td>18,750</td><td>1大</td><td>0</td></tr>
-                <tr><td>Lv2</td><td>56,250</td><td>75,000</td><td>2大2小</td><td>1</td></tr>
-                <tr><td>Lv3</td><td>187,500</td><td>262,500</td><td>4大2小</td><td>2</td></tr>
-                <tr><td>Lv4</td><td>562,500</td><td>825,000</td><td>6大2小</td><td>3</td></tr>
-                <tr><td>Lv5</td><td>1,875,000</td><td>2,700,000	</td><td>8大2小</td><td>4</td></tr>
-                <tr><td>Lv6</td><td>3,750,000</td><td>6,450,000</td><td>11大2小</td><td>5</td></tr>
+                <tr>
+                  <td>島嶼等級</td>
+                  <td>單次升級費用</td>
+                  <td>累計升級費用</td>
+                  <td>建築地</td>
+                  <td>農地</td>
+                </tr>
+                <tr>
+                  <td>Lv1</td>
+                  <td><div class="sliver">18,750<img></div></td>
+                  <td><div class="sliver">18,750<img></div></td>
+                  <td>1大</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Lv2</td>
+                  <td><div class="sliver">56,250<img></div></td>
+                  <td><div class="sliver">75,000<img></div></td>
+                  <td>2大2小</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Lv3</td>
+                  <td><div class="sliver">187,500<img></div></td>
+                  <td><div class="sliver">262,500<img></div></td>
+                  <td>4大2小</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>Lv4</td>
+                  <td><div class="sliver">562,500<img></div></td>
+                  <td><div class="sliver">825,000<img></div></td>
+                  <td>6大2小</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Lv5</td>
+                  <td><div class="sliver">1,875,000<img></div></td>
+                  <td><div class="sliver">2,700,000<img></div></td>
+                  <td>8大2小</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Lv6</td>
+                  <td><div class="sliver">3,750,000<img></div></td>
+                  <td><div class="sliver">6,450,000<img></div></td>
+                  <td>11大2小</td>
+                  <td>5</td>
+                </tr>
               </table>
               注：因<span class="bold">全區折扣</span>，實際情況可能會比上表報價便宜一點點。<br>
               <br>
@@ -58,7 +105,9 @@
               <span class="bold">步驟一</span>：前往你目前的島嶼所在城市，找島嶼商人按放棄按鈕。<br>
               <img src="../image/island/2.webp" style="max-height:300px;"><br>
               <span class="bold">步驟二</span>：前往你想要遷移到的城市，找島嶼商人按購買按鈕。<br>
-              需要支付 Lv1 島嶼費用($18,750)，購買後的島嶼等級會等於放棄前島嶼等級。
+              <div class="flex-start">
+                需要支付 Lv1 島嶼費用(<div class="sliver MT2px">18,750<img></div>)，購買後的島嶼等級會等於放棄前島嶼等級。
+              </div>
             </div>
             <div class="main-article-foot">
               <div class="main-article-title-h2">編輯紀錄</div>
@@ -75,10 +124,9 @@
         "如果有一天退坑了，那麼狼除了銀幣以外，還能留下什麼呢？"<br>
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.webp" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
-        本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/tw/">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 3.0)</a>授權條款。<br>
-        <span id="foot-info_version"></span>
+        本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 4.0)</a>授權條款。<br>
+        v1.3 -&gt; Last update date: 2023/3/4
       </div>
     </div>
-    <script>main_contents_insert("../tool/data.json");</script>
   </body>
 </html>
