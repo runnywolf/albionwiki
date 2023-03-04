@@ -238,7 +238,7 @@ button{
 .sliver img{
   margin: 0 3px;
   height: 18px;
-  content: url("../image/_icon/sliver.webp");
+  content: url("../image/icon_/sliver.webp");
 }
 .fame{
   display: flex;
@@ -247,7 +247,7 @@ button{
 .fame img{
   margin: 0 3px;
   height: 18px;
-  content: url("../image/_icon/fame.webp");
+  content: url("../image/icon_/fame.webp");
 }
 .MT2px{
   margin-top: 2px;
