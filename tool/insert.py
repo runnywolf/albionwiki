@@ -122,7 +122,7 @@ def page_insert_codelen():
     '<table class="x-bar"><tr>',
     '<td style="width:%.1fpx; background-color:#%s;"></td>'%(c_html_temp/c_sum*bar_width, "c00"),
     '<td style="width:%.1fpx; background-color:#%s;">%d</td>'%(c_html_page/c_sum*bar_width, "f00", c_html_page),
-    '<td style="width:%.1fpx; background-color:#%s;">%d</td>'%(c_css/c_sum*bar_width, "d0d", c_css),
+    '<td style="width:%.1fpx; background-color:#%s;"></td>'%(c_css/c_sum*bar_width, "d0d"),
     '<td style="width:%.1fpx; background-color:#%s;"></td>'%(c_js_main/c_sum*bar_width, "090"),
     '<td style="width:%.1fpx; background-color:#%s;">%d</td>'%(c_js_page/c_sum*bar_width, "0c0", c_js_page),
     '<td style="width:%.1fpx; background-color:#%s;">%d</td>'%(c_py/c_sum*bar_width, "66f", c_py),
