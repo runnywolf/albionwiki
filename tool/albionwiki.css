@@ -26,17 +26,14 @@ table{
 td{
   padding: 0px 4px;
   border: 1px #000 solid;
-  border-style: solid none none solid;
+  border-style: none solid solid none;
   text-align: center;
 }
-table tr:nth-last-child(1) td{
-  border-bottom-style: solid;
+table tr:nth-child(1) td{
+  border-top-style: solid;
 }
-table tr td:nth-last-child(1){
-  border-right-style: solid;
-}
-table tr:nth-last-child(1) tr:nth-last-child(n+2) td{
-  border-bottom-style: none;
+table tr td:nth-child(1){
+  border-left-style: solid;
 }
 ul{
   width: fit-content;
@@ -193,6 +190,22 @@ button{
   padding-top: 14px;
 }
 
+.table-style1 > tbody > tr:nth-child(2n+2){
+  background-color: #fff;
+}
+.table-style1 > tbody > tr:nth-child(2n+1){
+  background-color: #eee;
+}
+.table-style1 > tbody > tr:nth-child(1){
+  background-color: #9bf;
+  font-weight: bold;
+}
+.table-noBorder > tbody > tr > td{
+  border-style: none;
+}
+.table-noPadding > tbody > tr > td{
+  padding: 0;
+}
 .flex-start{
   display: flex;
 }
@@ -201,16 +214,6 @@ button{
   padding: 2px 6px;
   border-radius: 4px;
   background-color: #ddd;
-}
-.table-style1 tr:nth-child(2n+2){
-  background-color: #fff;
-}
-.table-style1 tr:nth-child(2n+1){
-  background-color: #eee;
-}
-.table-style1 tr:nth-child(1){
-  background-color: #9bf;
-  font-weight: bold;
 }
 .pve_fame-table-tr{
   padding: 4px;
