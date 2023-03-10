@@ -135,7 +135,7 @@ def page_insert_codelen():
   file.write(s_page)
   file.close()
 
-version = "v1.3 -&gt; Last update date: 2023/3/4"
+version = "v1.3.1 -&gt; Last update date: 2023/3/10"
 a_contentsData = [
   {
     "group": "新手指南",
