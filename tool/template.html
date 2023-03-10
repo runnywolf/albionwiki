@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/webp" href="$pyINSERT_iconURL$">
     <title>狼的阿爾比恩攻略網</title>
     <link rel="stylesheet" type="text/css" href="$pyINSERT_cssURL$">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="$pyINSERT_jsURL_jquery$"></script>
     <script src="$pyINSERT_jsURL_main$"></script>$pyINSERT_pageJS$
   </head>
   <body style="background-image:url('$pyINSERT_bgURL$');">
@@ -28,7 +28,9 @@
       </div>
       <div class="mainWrapper">
         <div class="main flex-start">
-          <div class="main-contents">$pyINSERT_contents$</div>
+          <div class="main-contentsWrapper">
+            <div class="main-contents">$pyINSERT_contents$</div>
+          </div>
           <div class="main-article">$pyINSERT_article$</div>
           <div class="main-error" id="main-error"></div>
         </div>

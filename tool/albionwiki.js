@@ -73,6 +73,8 @@ if (url.hash != ""){
   }
 }
 
+$(".main-contents")
+
 var error_show_id0 = null, error_show_id1 = null;
 
 var l_color_tier = ["#fff", "#bbb", "#cba", "#8c8", "#8be", "#e99", "#eb8", "#ee8", "#eee"];

@@ -73,7 +73,7 @@ button{
 
 .headMainWrapper{
   min-width: 1000px;
-  min-height: calc(100% - 108px);
+  min-height: calc(100% - 100px - 8px);
 }
 .head{
   min-width: 1000px;
@@ -117,15 +117,30 @@ button{
   width: 1000px;
   margin-top: 8px;
 }
-.main-contents{
+.main-contentsWrapper{
   width: 200px;
   height: fit-content;
   margin-left: 6px;
-  padding: 4px;
   position: sticky;
   top: 58px;
   border-radius: 6px;
   background-color: #fffb;
+}
+.main-contents{
+  max-height: calc(100vh - 200px);
+  margin: 3px 5px;
+  overflow: auto;
+}
+.main-contents::-webkit-scrollbar{
+  width: 6px;
+}
+.main-contents::-webkit-scrollbar-track{
+  margin: 2px 0;
+  background-color: none;
+}
+.main-contents::-webkit-scrollbar-thumb{
+  border-radius: 4px;
+  background-color: #0006;
 }
 .main-contents-group{
   font-size: 14px;

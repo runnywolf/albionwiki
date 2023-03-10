@@ -7,6 +7,7 @@ def page_insert(temp, page):
   temp = str(temp)
   temp = temp.replace("$pyINSERT_iconURL$", "../image/icon.webp")
   temp = temp.replace("$pyINSERT_cssURL$", "../tool/albionwiki.css")
+  temp = temp.replace("$pyINSERT_jsURL_jquery$", "../tool/jquery-3.6.4.js")
   temp = temp.replace("$pyINSERT_jsURL_main$", "../tool/albionwiki.js")
   if "%s.js"%page in os.listdir("pageJS"):
     temp = temp.replace("$pyINSERT_pageJS$", '\n    <script src="../tool/pageJS/%s.js"></script>'%page)
@@ -56,6 +57,7 @@ def page_insert_main(temp):
   temp = str(temp)
   temp = temp.replace("$pyINSERT_iconURL$", "image/icon.webp")
   temp = temp.replace("$pyINSERT_cssURL$", "tool/albionwiki.css")
+  temp = temp.replace("$pyINSERT_jsURL_jquery$", "tool/jquery-3.6.4.js")
   temp = temp.replace("$pyINSERT_jsURL_main$", "tool/albionwiki.js")
   temp = temp.replace("$pyINSERT_pageJS$", "")
   temp = temp.replace("$pyINSERT_bgURL$", "image/bg.webp")
@@ -135,7 +137,7 @@ def page_insert_codelen():
   file.write(s_page)
   file.close()
 
-version = "v1.3.1 -&gt; Last update date: 2023/3/10"
+version = "v1.3.2 -&gt; Last update date: 2023/3/10"
 a_contentsData = [
   {
     "group": "新手指南",
