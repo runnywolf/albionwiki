@@ -59,7 +59,7 @@ def page_insert_main(temp):
   temp = temp.replace("$pyINSERT_cssURL$", "tool/albionwiki.css")
   temp = temp.replace("$pyINSERT_jsURL_jquery$", "tool/jquery-3.6.4.js")
   temp = temp.replace("$pyINSERT_jsURL_main$", "tool/albionwiki.js")
-  temp = temp.replace("$pyINSERT_pageJS$", "")
+  temp = temp.replace("$pyINSERT_pageJS$", '\n    <script src="tool/pageJS/index_.js"></script>')
   temp = temp.replace("$pyINSERT_bgURL$", "image/bg.webp")
   temp = temp.replace("$pyINSERT_headIconURL$", "image/icon.webp")
 
@@ -120,30 +120,31 @@ def page_insert_codelen():
   file.close()
   as_page = s_page.split("<!--pyINSERT_codeLength-->")
 
-  as_page[1] = "".join([
-    '<table class="x-bar"><tr>',
-    '<td style="width:%.1fpx; background-color:#%s;"></td>'%(c_html_temp/c_sum*bar_width, "c00"),
-    '<td style="width:%.1fpx; background-color:#%s;">%d</td>'%(c_html_page/c_sum*bar_width, "f00", c_html_page),
-    '<td style="width:%.1fpx; background-color:#%s;"></td>'%(c_css/c_sum*bar_width, "d0d"),
-    '<td style="width:%.1fpx; background-color:#%s;"></td>'%(c_js_main/c_sum*bar_width, "090"),
-    '<td style="width:%.1fpx; background-color:#%s;">%d</td>'%(c_js_page/c_sum*bar_width, "0c0", c_js_page),
-    '<td style="width:%.1fpx; background-color:#%s;">%d</td>'%(c_py/c_sum*bar_width, "66f", c_py),
-    '</tr></table>',
-    '<span style="margin:4px 0 0 4px;">%d</span>'%c_sum
-  ])
+  a_c = [c_html_temp, c_html_page, c_css, c_js_main, c_js_page, c_py]
+  a_color = ["c00", "f00", "d0d", "090", "0c0", "66f"]
+  as_page[1] = '<table class="Xbar"><tr>'
+  for i in range(6):
+    as_page[1] += '<td style="width:%.1fpx; background-color:#%s;" title="%s ( %.02f%% )" ></td>'%(
+      a_c[i]/c_sum*bar_width,
+      a_color[i],
+      "{:,}".format(a_c[i]),
+      a_c[i]/c_sum*100
+    )
+  as_page[1] += '</tr></table>'+'<span style="margin:4px 0 0 4px;">%d</span>'%c_sum
 
   s_page = "<!--pyINSERT_codeLength-->".join(as_page)
   file = open("../index.html", mode="w", encoding="utf-8")
   file.write(s_page)
   file.close()
 
-version = "v1.3.2 -&gt; Last update date: 2023/3/10"
+version = "v1.3.3 -&gt; Last update date: 2023/3/12"
 a_contentsData = [
   {
     "group": "新手指南",
     "a_page": [
       {"page":"welcome", "title":"歡迎來到阿爾比恩", "info":"遊戲下載、伺服器選擇、給新手的建議。"},
       {"page":"city", "title":"主城", "info":"主城位置、迷霧城進入方法。"},
+      {"page":"zone", "title":"區塊(地圖)", "info":"安全區與噴裝區、地圖的階級、五大資源的產地。"},
       {"page":"luxury_goods", "title":"奢侈品", "info":"出售奢侈品、奢侈品轉賣。"}
     ]
   },
@@ -156,7 +157,8 @@ a_contentsData = [
       {"page":"infoboard", "title":"儀錶板與減傷機制", "info":"儀錶板的數值意義、防禦減傷計算、抗性減傷計算。"},
       {"page":"pve_point", "title":"戰鬥聲望點", "info":"獲取、使用、自動重新專精。"},
       {"page":"hideout", "title":"藏身地堡", "info":"種類和狀態、建造、設施、營養值消耗、能量等級、攻擊地堡。"},
-      {"page":"item_durability", "title":"物品耐久度與修理費", "info":"耐久度消耗、實際影響、修理費計算。"}
+      {"page":"item_durability", "title":"物品耐久度與修理費", "info":"耐久度消耗、實際影響、修理費計算。"},
+      {"page":"avalon", "title":"阿瓦隆之路", "info":"地圖名分析、傳送門金屬環上的符號。"}
     ]
   },
   {

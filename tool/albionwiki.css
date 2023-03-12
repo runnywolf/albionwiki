@@ -23,7 +23,7 @@ table{
   border-collapse: separate;
   border-spacing: 0px;
 }
-td{
+table tr td{
   padding: 0px 4px;
   border: 1px #000 solid;
   border-style: none solid solid none;
@@ -193,6 +193,15 @@ button{
   display: none;
   opacity: 0;
 }
+.main-bar-info{
+  padding: 4px 6px;
+  position: absolute;
+  border: 2px #000 solid;
+  border-radius: 4px;
+  background-color: #fff;
+  display: none;
+  opacity: 0;
+}
 .foot{
   min-width: 1000px;
   height: 100px;
@@ -215,6 +224,18 @@ button{
   background-color: #9bf;
   font-weight: bold;
 }
+.table-style2{
+  font-size: 16px;
+}
+.table-style2 > tbody > tr > td:nth-child(1){
+  font-weight: bold;
+  background-color: #bfd;
+}
+.table-style2 > tbody > tr > td:nth-child(2){
+  padding: 4px;
+  font-size: 13px;
+  text-align: left;
+}
 .table-noBorder > tbody > tr > td{
   border-style: none;
 }
@@ -229,11 +250,6 @@ button{
   padding: 2px 6px;
   border-radius: 4px;
   background-color: #ddd;
-}
-.pve_fame-table-tr{
-  padding: 4px;
-  font-size: 13px;
-  text-align: left;
 }
 .menu-title{
   margin-bottom: 4px;
@@ -270,40 +286,52 @@ button{
 .MT2px{
   margin-top: 2px;
 }
-.x-bar{
+.Xbar{
   margin: 0;
   border-collapse: separate;
   border-spacing: 2px;
   color: #fff;
   text-align: center;
 }
-.x-bar td{
+.Xbar td{
   padding: 0;
   height: 20px;
   border: 0 #000 solid;
+  transition: opacity 100ms ease-in-out;
 }
-.x-bar td:nth-child(1){
+.Xbar td:nth-child(1){
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-.x-bar td:nth-last-child(1){
+.Xbar td:nth-last-child(1){
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.x-bar-legend{
+.Xbar:hover td:not(:hover){
+  opacity: 0.3;
+}
+.Xbar-legend{
   display: flex;
   justify-content: flex-start;
 }
-.x-bar-legend div{
+.Xbar-legend > div{
+  display: flex;
+  justify-content: flex-start;
+  transition: opacity 100ms ease-in-out;
+}
+.Xbar-legend > div:nth-last-child(n+2){
+  padding-right: 16px;
+}
+.Xbar-legend:hover > div:not(:hover){
+  opacity: 0.3;
+}
+.Xbar-legend > div > div{
   width: 20px;
   height: 20px;
   border-radius: 4px;
 }
-.x-bar-legend div:nth-child(n+2){
-  margin-left: 16px;
-}
-.x-bar-legend span{
-  margin: 0 4px 0 4px;
+.Xbar-legend > div > span{
+  margin: 1px 4px 0 4px;
 }
 
 .bold{font-weight: bold;}
@@ -311,6 +339,13 @@ button{
 .blue{color: #00f;}
 
 .bg-white{background-color: #fff;}
+
+.bg-for{background-color: #fff;}
+.bg-lym{background-color: #9d9;}
+.bg-bri{background-color: #fe8;}
+.bg-mar{background-color: #8bf;}
+.bg-the{background-color: #dad;}
+.bg-cae{background-color: #faa;}
 
 .bg-a0{background-color: #8bf;}
 .bg-a1{background-color: #fe8;}

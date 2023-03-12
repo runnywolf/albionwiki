@@ -19,7 +19,7 @@ function albion_short_num(x){
   return s_x;
 }
 function show_error(e_input, e_error, STRING){
-  e_error.html(STRING);
+  e_error.text(STRING);
 
   var e_window = $(window);
   
@@ -29,19 +29,19 @@ function show_error(e_input, e_error, STRING){
   else error_top += 30;
   if (e_window.width() >= 1000) error_left -= (e_window.width()-1000)/2;
 
-  $("#main-error").css("top", error_top);
-  $("#main-error").css("margin-left", error_left);
+  e_error.css("top", error_top);
+  e_error.css("margin-left", error_left);
   
   if (error_show_id0 != null && error_show_id1 != null){
     window.clearTimeout(error_show_id0);
     window.clearTimeout(error_show_id1);
-    $("#main-error").hide();
-    $("#main-error").css("opacity", 0);
+    e_error.hide();
+    e_error.css("opacity", 0);
   }
-  $("#main-error").show();
-  $("#main-error").animate({"opacity": 1}, 300);
-  error_show_id0 = setTimeout((() => $("#main-error").animate({"opacity": 0}, 300)), 4400);
-  error_show_id1 = setTimeout((() => $("#main-error").hide()), 6000);
+  e_error.show();
+  e_error.animate({"opacity": 1}, 300);
+  error_show_id0 = setTimeout((() => e_error.animate({"opacity": 0}, 300)), 4400);
+  error_show_id1 = setTimeout((() => e_error.hide()), 6000);
 }
 function calc_input_check(e_element, MIN, MAX, b_int){
   var x = e_element.val();
