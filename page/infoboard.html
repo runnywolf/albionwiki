@@ -30,7 +30,7 @@
       <div class="mainWrapper">
         <div class="main flex-start">
           <div class="main-contentsWrapper">
-            <div class="main-contents"><div class="main-contents-group">新手指南(4)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/welcome">歡迎來到阿爾比恩</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/city">主城</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/zone">區塊(地圖)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/luxury_goods">奢侈品</a></div></div><div class="main-contents-group">進階攻略(8)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/avalon">阿瓦隆之路</a></div></div><div class="main-contents-group">研究中(1)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">100抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div></div>
+            <div class="main-contents"><div class="main-contents-group">新手指南(4)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/welcome">歡迎來到阿爾比恩</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/city">主城</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/zone">區塊(地圖)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/luxury_goods">奢侈品</a></div></div><div class="main-contents-group">進階攻略(7)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">200抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div><div class="main-contents-group">施工中(2)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/avalon">阿瓦隆之路</a></div></div></div>
           </div>
           <div class="main-article">
             <div>
@@ -123,11 +123,12 @@
               <img src="../image/infoboard/11.webp"><br>
               <br>
               防禦值減傷效果計算：
-              <div class="flex-start calcWrapper">
-                <div>對...的防禦</div>
-                <input style="width:60px;" title="對玩家/野怪的防禦" onchange="calc0()" id="calc0_n">
-                <div>%，受到的傷害為原本的 <span id="calc0_output" class="blue">1</span> 倍。</div>
-                <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+              <div class="calcWrapper flex-start" id="calc1">
+                對...的防禦
+                <input style="width:60px;" title="對玩家/野怪的防禦 ( 請省略&quot;+&quot; )" id="calc1_defend">
+                <span>%，受到的傷害為原本的 <span id="calc1_damage" class="blue">?</span> 倍。</span>
+                <button id="calc1_RUN">計算</button>
+                <button id="calc1_CLEAR">清除</button>
               </div>
             </div>
             <div class="main-article-paragraph">
@@ -143,41 +144,32 @@
               <img src="../image/infoboard/15.webp" style="margin:4px; max-height:36px;"><br>
               <br>
               計算實際影響：<br>
-              <div class="calcWrapper">
+              <div class="calcWrapper" id="calc2">
                 <div class="flex-start">
-                  <input style="width:50px;" value="0" title="點數" onchange="calc1()" id="calc1_point">
-                  <select onchange="calc1()" id="calc1_type">
-                    <option disabled>屬性</option>
-                    <option value="0" selected>魔法抗性</option>
-                    <option value="1">護甲</option>
-                    <option value="2">群體控制抗性</option>
+                  如果裝備的
+                  <select id="calc2_type">
+                    <option class="select-firstOption" disabled>屬性</option>
+                    <option selected>魔法抗性</option>
+                    <option>護甲</option>
+                    <option>群體控制抗性</option>
                   </select>
-                  <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+                  點數總和為
+                  <input style="width:50px;" title="點數" id="calc2_point">
+                  ，
                 </div>
-                <div>
-                  如果裝備的<span id="calc1_output_type">魔法抗性</span>點數總和為<span id="calc1_output_point">0</span>，在面對敵人的<span id="calc1_output_Dtype1">魔法傷害</span>時，只會受到 <span id="calc1_output_n" class="blue">100%</span> 的<span id="calc1_output_Dtype2">傷害</span>。
+                <div class="flex-start">
+                  在面對敵人的
+                  <span id="calc2_attackType">魔法傷害</span>
+                  <span>時，只會受到 <span class="blue"><span id="calc2_rate">?</span>%</span> 的<span id="calc2_effect">傷害</span>。</span>
+                  <button id="calc2_RUN">計算</button>
+                  <button id="calc2_CLEAR">清除</button>
                 </div>
               </div>
-              <br>
-              降低敵人的傷害抗性，增加我方的傷害：
-              <div class="flex-start calcWrapper">
-                <div>敵人原本有</div>
-                <input style="width:50px;" title="敵人的傷害抗性" id="calc2_p">
-                <div>點傷害抗性，降低了</div>
-                <input style="width:50px;" title="減少敵人的傷害抗性" id="calc2_dp">
-                <div>點，</div>
-                <div>造成的傷害為原本的 <span class="blue" id="calc2_output">1</span> 倍。</div>
-                <button onclick="calc2()">計算</button>
-                <button onclick="calc2_clear()">清除</button>
-              </div>
-              <br>
-              <div style="color:#888; text-decoration:line-through;">例：如果敵人的傷害抗性為150，丟他T8毒藥降低了 35 點傷害抗性，造成的傷害為原本的 1.162 倍。</div>
-              <div class="bold red">目前發現減抗性機制有問題，解決中，此計算器僅供參考。</div>
             </div>
             <div class="main-article-foot">
               <div class="main-article-title-h2">編輯紀錄</div>
               <div>作者: runnywolf</div>
-              <div>最後編輯日期: 2023/02/08</div>
+              <div>最後編輯日期: 2023/2/8</div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>
@@ -191,7 +183,7 @@
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.webp" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 4.0)</a>授權條款。<br>
-        v1.3.3 -&gt; Last update date: 2023/3/12
+        v1.3.5 -&gt; Last update date: 2023/4/17
       </div>
     </div>
   </body>

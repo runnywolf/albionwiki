@@ -1,23 +1,40 @@
+window.addEventListener("load", () => {calc1(); calc2();});
 function calc1(){
-  var value, e_value = $("#calc1_value");
-  var dur, e_dur = $("#calc1_dur");
+  let e_calc1 = new Calc("calc1", "calc1_pay");
 
-  if (calc_input_check(e_value, 0, p10(9), true)) value = parseInt(e_value.val());
-  else value = 0;
-  if (calc_input_check(e_dur, 1, 100, false)) dur = parseFloat(e_dur.val());
-  else dur = 100;
+  let e_value = new CalcInput("calc1_value");
+  let e_durability = new CalcInput("calc1_durability");
+  let e_pay = new CalcOutput("calc1_pay");
 
-  $("#calc1_pay").text(albion_short_num(value*(100-dur)*0.165));
+  e_calc1.defineRunButton(() => {
+    let value = e_value.getInput("int", 0, 1e9, 0);
+    let durability = e_durability.getInput("float", 1, 100, 100);
+
+    e_pay.print(albionShortNum(value*(100-durability)*0.165));
+  });
+  e_calc1.defineClearButton(() => {
+    e_value.setValue("");
+    e_durability.setValue("");
+    e_pay.print("?");
+  });
 }
-
 function calc2(){
-  var value, e_value = $("#calc2_value");
-  var situation = parseInt($("#calc2_situation").val());
+  let e_calc2 = new Calc("calc2", "calc2_pay");
 
-  if (calc_input_check(e_value, 0, p10(9), true)) value = parseInt(e_value.val());
-  else value = 0;
+  let e_value = new CalcInput("calc2_value");
+  let e_situation = new CalcSelect("calc2_situation");
+  let e_pay = new CalcOutput("calc2_pay");
 
-  var dur = (situation?30:5);
+  e_calc2.defineRunButton(() => {
+    let value = e_value.getInput("int", 0, 1e9, 0);
+    let situation = e_situation.getIndex();
 
-  $("#calc2_pay").text(albion_short_num(value*dur*0.165));
+    let durability = [null, 5, 30][situation];
+    e_pay.print(albionShortNum(value*durability*0.165));
+  });
+  e_calc2.defineClearButton(() => {
+    e_value.setValue("");
+    e_situation.resetIndex();
+    e_pay.print("?");
+  });
 }

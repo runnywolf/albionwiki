@@ -30,7 +30,7 @@
       <div class="mainWrapper">
         <div class="main flex-start">
           <div class="main-contentsWrapper">
-            <div class="main-contents"><div class="main-contents-group">新手指南(4)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/welcome">歡迎來到阿爾比恩</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/city">主城</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/zone">區塊(地圖)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/luxury_goods">奢侈品</a></div></div><div class="main-contents-group">進階攻略(8)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/avalon">阿瓦隆之路</a></div></div><div class="main-contents-group">研究中(1)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">100抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div></div>
+            <div class="main-contents"><div class="main-contents-group">新手指南(4)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/welcome">歡迎來到阿爾比恩</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/city">主城</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/zone">區塊(地圖)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/luxury_goods">奢侈品</a></div></div><div class="main-contents-group">進階攻略(7)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">200抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div><div class="main-contents-group">施工中(2)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/avalon">阿瓦隆之路</a></div></div></div>
           </div>
           <div class="main-article">
             <div>
@@ -86,7 +86,7 @@
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">計算</div>
               計算轉換成的戰鬥聲望點：
-              <div class="calcWrapper">
+              <div class="calcWrapper" id="calc1">
                 <table style="background-color:#fff;">
                   <tr>
                     <td>滿Lv100？</td>
@@ -95,45 +95,46 @@
                   </tr>
                   <tr>
                     <td>頭</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_head_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_head_out"></td>
+                    <td><input type="checkbox" id="calc1_head_in"></td>
+                    <td><input type="checkbox" id="calc1_head_out"></td>
                   </tr>
                   <tr>
                     <td>甲</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_armor_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_armor_out"></td>
+                    <td><input type="checkbox" id="calc1_armor_in"></td>
+                    <td><input type="checkbox" id="calc1_armor_out"></td>
                   </tr>
                   <tr>
                     <td>鞋</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_shoe_out"></td>
+                    <td><input type="checkbox" id="calc1_shoe_in"></td>
+                    <td><input type="checkbox" id="calc1_shoe_out"></td>
                   </tr>
                   <tr>
                     <td>武器</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_weapon_out"></td>
+                    <td><input type="checkbox" id="calc1_weapon_in"></td>
+                    <td><input type="checkbox" id="calc1_weapon_out"></td>
                   </tr>
                   <tr>
                     <td>副手</td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_in"></td>
-                    <td><input type="checkbox" onchange="calc1()" id="calc1_offhand_out"></td>
+                    <td><input type="checkbox" id="calc1_offhand_in"></td>
+                    <td><input type="checkbox" id="calc1_offhand_out"></td>
                   </tr>
                   <tr>
-                    <td colspan="3"><div class="flex-start"><input type="checkbox" onchange="calc1()" id="calc1_auto">是否開啟自動重新專精</div></td>
+                    <td colspan="3"><div class="flex-start"><input type="checkbox" id="calc1_auto">是否開啟自動重新專精</div></td>
                   </tr>
                 </table>
                 <div class="flex-start" style="margin-top:4px;">
                   每獲得
-                  <input style="width:100px;" onchange="calc1()" id="calc1_fame">
-                  <div>PvE聲望，會累積 <span class="blue" id="calc1_output_point">0</span> 戰鬥聲望點，並消耗 <span class="blue" id="calc1_output_silver">0</span> 銀幣。</div>
-                  <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
+                  <input style="width:100px;" id="calc1_fame">
+                  <div>PvE聲望，會累積&nbsp;<span class="blue" id="calc1_credits">0</span>&nbsp;戰鬥聲望點，並消耗&nbsp;<span class="blue" id="calc1_sliver">0</span>&nbsp;銀幣。</div>
+                  <button id="calc1_RUN">計算</button>
+                  <button id="calc1_CLEAR">清除</button>
                 </div>
               </div>
             </div>
             <div class="main-article-foot">
               <div class="main-article-title-h2">編輯紀錄</div>
               <div>作者: runnywolf</div>
-              <div>最後編輯日期: 2022/08/04</div>
+              <div>最後編輯日期: 2022/8/4</div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>
@@ -147,7 +148,7 @@
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.webp" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 4.0)</a>授權條款。<br>
-        v1.3.3 -&gt; Last update date: 2023/3/12
+        v1.3.5 -&gt; Last update date: 2023/4/17
       </div>
     </div>
   </body>

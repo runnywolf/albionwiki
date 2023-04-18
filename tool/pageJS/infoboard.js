@@ -1,46 +1,45 @@
-function calc0(){
-  var n, e_n = $("#calc0_n");
-  
-  if (calc_input_check(e_n, -99.99, p10(3), false)) n = parseFloat(e_n.val());
-  else n = 0;
-
-  $("#calc0_output").text(round_(1/(1+n/100), 3));
-}
-
+window.addEventListener("load", () => {calc1(); calc2();});
 function calc1(){
-  var point, e_point = $("#calc1_point");
-  var type = parseInt($("#calc1_type").val());
+  let e_calc1 = new Calc("calc1", "calc1_damage");
 
-  if (calc_input_check(e_point, 0, p10(5), true)) point = parseInt(e_point.val());
-  else point = 0;
-  
-  $("#calc1_output_type").text(["魔法抗性","護甲","群體控制抗性"][type]);
-  $("#calc1_output_point").text(point);
-  $("#calc1_output_Dtype1").text(["魔法傷害","物理傷害","群體控制"][type]);
-  $("#calc1_output_n").text(round_(100/(point+100)*100, 2)+"%");
-  $("#calc1_output_Dtype2").text(["傷害","傷害","群控時間"][type]);
+  let e_defend = new CalcInput("calc1_defend");
+  let e_damage = new CalcOutput("calc1_damage");
+
+  e_calc1.defineRunButton(() => {
+    let defend = e_defend.getInput("float", -99.99, 100, 0);
+    if (defend >= 0) e_damage.print(round45((100-defend)/100, 3));
+    else e_damage.print(round45(100/(100+defend), 3));
+  });
+  e_calc1.defineClearButton(() => {
+    e_defend.setValue("");
+    e_damage.print("?");
+  });
 }
-
 function calc2(){
-  var p, e_p = $("#calc2_p");
-  var dp, e_dp = $("#calc2_dp");
+  const a_ATTACK_TYPE = [null, "魔法傷害", "物理傷害", "群體控制"];
+  const a_EFFECT = [null, "傷害", "傷害", "群控時間"];
 
-  if (calc_input_check($("#calc2_p"), 0, p10(5), true)) p = parseInt(e_p.val());
-  else p = 0;
-  if (calc_input_check($("#calc2_dp"), 0, p10(5), true)) dp = parseInt(e_dp.val());
-  else dp = 0;
-  if (dp > p){
-    show_error($("#calc2_dp"), $("#main-error"), "輸入值必須 <= 敵人的傷害抗性");
-    $("#calc2_p").val("");
-    $("#calc2_dp").val("");
-    p = 0;
-    dp = 0;
-  }
+  let e_calc2 = new Calc("calc2", "calc2_rate");
 
-  $("#calc2_output").text(round_((100+p)/(100+p-dp), 3));
-}
-function calc2_clear(){
-  $("#calc2_p").val("");
-  $("#calc2_dp").val("");
-  $("#calc2_output").text("1");
+  let e_type = new CalcSelect("calc2_type");
+  let e_point = new CalcInput("calc2_point");
+  let e_attackType = new CalcOutput("calc2_attackType");
+  let e_rate = new CalcOutput("calc2_rate");
+  let e_effect = new CalcOutput("calc2_effect");
+
+  e_calc2.defineRunButton(() => {
+    let type = e_type.getIndex();
+    let point = e_point.getInput("int", 0, 1e5, 0);
+    
+    e_attackType.print(a_ATTACK_TYPE[type]);
+    e_rate.print(round45(100/(point+100)*100, 2));
+    e_effect.print(a_EFFECT[type]);
+  });
+  e_calc2.defineClearButton(() => {
+    e_type.resetIndex();
+    e_point.setValue("");
+    e_attackType.print(a_ATTACK_TYPE[1]);
+    e_rate.print("?");
+    e_effect.print(a_EFFECT[1]);
+  });
 }

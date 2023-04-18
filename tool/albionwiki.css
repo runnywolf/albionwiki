@@ -49,12 +49,15 @@ img{
 }
 select{
   height: 20px;
-  margin: 1px 4px;
+  margin: 2px 4px;
+  padding: 0;
+  border-radius: 2px;
   font-family: monospace;
 }
 input{
-  height: 14px;
-  margin: 1px 4px;
+  height: 17px;
+  margin: 2px 4px;
+  padding: 0;
   font-family: monospace;
   text-align: center;
 }
@@ -65,7 +68,8 @@ input[type=checkbox]{
 }
 button{
   height: 20px;
-  margin: 1px 4px;
+  margin: 2px 4px;
+  padding: 0 4px;
   font-size: 12px;
   font-family: monospace;
   text-align: center;
@@ -142,6 +146,10 @@ button{
   border-radius: 4px;
   background-color: #0006;
 }
+.main-contents::-webkit-scrollbar-thumb:hover{
+  border-radius: 4px;
+  background-color: #000b;
+}
 .main-contents-group{
   font-size: 14px;
   font-weight: bold;
@@ -192,6 +200,7 @@ button{
   background-color: #8ff;
   display: none;
   opacity: 0;
+  white-space: nowrap;
 }
 .main-bar-info{
   padding: 4px 6px;
@@ -214,6 +223,10 @@ button{
   padding-top: 14px;
 }
 
+.select-firstOption{
+  background-color: #fff;
+  text-align: center;
+}
 .table-style1 > tbody > tr:nth-child(2n+2){
   background-color: #fff;
 }
@@ -236,6 +249,13 @@ button{
   font-size: 13px;
   text-align: left;
 }
+.table-noStyle{
+  margin: 0;
+}
+.table-noStyle > tbody > tr > td{
+  padding: 0;
+  border-style: none;
+}
 .table-noBorder > tbody > tr > td{
   border-style: none;
 }
@@ -244,12 +264,17 @@ button{
 }
 .flex-start{
   display: flex;
+  justify-content: flex-start;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
 }
 .calcWrapper{
   width: fit-content;
   padding: 2px 6px;
   border-radius: 4px;
-  background-color: #ddd;
+  background-color: #bdf;
 }
 .menu-title{
   margin-bottom: 4px;
@@ -292,6 +317,7 @@ button{
   border-spacing: 2px;
   color: #fff;
   text-align: center;
+  font-size: 16px;
 }
 .Xbar td{
   padding: 0;
@@ -334,6 +360,10 @@ button{
   margin: 1px 4px 0 4px;
 }
 
+.FS13px{
+  font-size: 13px;
+}
+
 .bold{font-weight: bold;}
 .red{color: #f00;}
 .blue{color: #00f;}
@@ -352,20 +382,20 @@ button{
 .bg-a2{background-color: #f99;}
 .bg-a3{background-color: #aaa;}
 
-.bg-T1{background-color: #bbb;}
-.bg-T2{background-color: #cba;}
-.bg-T3{background-color: #8c8;}
-.bg-T4{background-color: #8be;}
-.bg-T5{background-color: #e99;}
-.bg-T6{background-color: #eb8;}
-.bg-T7{background-color: #ee8;}
-.bg-T8{background-color: #eee;}
+.bg-t1{background-color: #bbb;}
+.bg-t2{background-color: #cba;}
+.bg-t3{background-color: #8c8;}
+.bg-t4{background-color: #8be;}
+.bg-t5{background-color: #e99;}
+.bg-t6{background-color: #eb8;}
+.bg-t7{background-color: #ee8;}
+.bg-t8{background-color: #eee;}
 
-.bg-l0{background-color: #eee;}
-.bg-l1{background-color: #8f8;}
-.bg-l2{background-color: #8ff;}
-.bg-l3{background-color: #f8f;}
-.bg-l4{background-color: #ff8;}
+.bg-e0{background-color: #eee;}
+.bg-e1{background-color: #8f8;}
+.bg-e2{background-color: #8ff;}
+.bg-e3{background-color: #f8f;}
+.bg-e4{background-color: #ff8;}
 
 .bg-q0{background-color: #bbb;}
 .bg-q1{background-color: #bce;}

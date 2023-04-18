@@ -1,62 +1,88 @@
+window.addEventListener("load", () => {calc1(); calc2(); calc3();});
 function calc1(){
-  var inLevel, e_inLevel = $("#calc1_inLevel");
-  var outLevel, e_outLevel = $("#calc1_outLevel");
+  let e_calc1 = new Calc("calc1", "calc1_point");
 
-  if (calc_input_check(e_inLevel, 0, 100, true)) inLevel = parseInt(e_inLevel.val());
-  else inLevel = 0;
-  if (calc_input_check(e_outLevel, 0, 100, true)) outLevel = parseInt(e_outLevel.val());
-  else outLevel = 0;
+  let e_inLevel = new CalcInput("calc1_inLevel");
+  let e_outLevel = new CalcInput("calc1_outLevel");
+  let e_point = new CalcOutput("calc1_point");
 
-  $("#calc1_output").text(parseInt(1000/(2**((100*inLevel+200*outLevel)/10000))));
+  e_calc1.defineRunButton(() => {
+    let inLevel = e_inLevel.getInput("int", 0, 100, 0);
+    let outLevel = e_outLevel.getInput("int", 0, 100, 0);
+
+    let point = parseInt(1000/(2**((100*inLevel+200*outLevel)/10000)));
+
+    e_point.print(point);
+  });
+  e_calc1.defineClearButton(() => {
+    e_inLevel.setValue("");
+    e_outLevel.setValue("");
+    e_point.print("?");
+  });
 }
-function calc1_clear(){
-  $("#calc1_inLevel").val("");
-  $("#calc1_outLevel").val("");
-  $("#calc1_output").text("1000");
-}
-
 function calc2(){
-  var plot, e_plot = $("#calc2_plot");
-  var price, e_price = $("#calc2_price");
-  var tax, e_tax = $("#calc2_tax");
+  let e_calc2 = new Calc("calc2", "calc2_earn");
 
-  if (calc_input_check(e_plot, 1, 10000, true)) plot = parseInt(e_plot.val());
-  else plot = 0;
-  if (calc_input_check(e_price, 0, 100000, true)) price = parseInt(e_price.val());
-  else price = 0;
-  if (calc_input_check(e_tax, 0, 100, false)) tax = parseFloat(e_tax.val());
-  else tax = 0;
+  let e_tier = new CalcSelect("calc2_tier");
+  let e_seedPrice = new CalcInput("calc2_seedPrice");
+  let e_plot = new CalcInput("calc2_plot");
+  let e_sellPrice = new CalcInput("calc2_sellPrice");
+  let e_tax = new CalcInput("calc2_tax");
+  let e_earn = new CalcOutput("calc2_earn");
 
-  var output = parseInt((price*(1-tax/100)*9-2000)*9*plot);
+  e_calc2.defineRunButton(() => {
+    const a_SEED_PRICE = [null, 2000, 3000, 5000, 7500, 10000, 15000, 22500, 30000];
 
-  $("#calc2_output").text(albion_short_num(output));
+    let tier = e_tier.getIndex();
+    let seedPrice = e_seedPrice.getInput("int", 0, 1e6, a_SEED_PRICE[tier]);
+    let plot = e_plot.getInput("int", 0, 1e4, 0);
+    let sellPrice = e_sellPrice.getInput("int", 0, 1e5, 0);
+    let tax = e_tax.getInput("float", 0, 100, 0);
+    
+    const RETURN_RATE = 1-2000/a_SEED_PRICE[tier];
+    let earn = (sellPrice*(1-tax/100)*9 - seedPrice*(1-RETURN_RATE))*9*plot;
+
+    e_earn.print(albionShortNum(earn));
+  });
+  e_calc2.defineClearButton(() => {
+    e_tier.resetIndex();
+    e_seedPrice.setValue("");
+    e_plot.setValue("");
+    e_sellPrice.setValue("");
+    e_tax.setValue("");
+    e_earn.print("?");
+  });
 }
-function calc2_clear(){
-  $("#calc2_plot").val("");
-  $("#calc2_price").val("");
-  $("#calc2_tax").val("");
-  $("#calc2_output").text("0");
-}
-
 function calc3(){
-  var p, e_p = $("#calc3_p");
-  var dp, e_dp = $("#calc3_dp");
-  var vip, e_vip = $("#calc3_vip");
-  
-  if (calc_input_check(e_p, 125, 1000, true)) p = parseInt(e_p.val());
-  else p = 1000;
-  if (calc_input_check(e_dp, 0, p10(6), true)) dp = parseInt(e_dp.val());
-  else dp = 0;
-  if (calc_input_check(e_vip, 0, p10(9), false)) vip = parseFloat(e_vip.val());
-  else vip = 0;
+  let e_calc3 = new Calc("calc3", "calc3_earn");
 
-  var output = parseInt(4000*parseInt(dp/p)-vip/300000*dp);
+  let e_tier = new CalcSelect("calc3_tier");
+  let e_seedPrice = new CalcInput("calc3_seedPrice");
+  let e_point = new CalcInput("calc3_point");
+  let e_pointPerDay = new CalcInput("calc3_pointPerDay");
+  let e_vipCost = new CalcInput("calc3_vipCost");
+  let e_earn = new CalcOutput("calc3_earn");
 
-  $("#calc3_output").text(albion_short_num(output));
-}
-function calc3_clear(){
-  $("#calc3_p").val("");
-  $("#calc3_dp").val("");
-  $("#calc3_vip").val("");
-  $("#calc3_output").text("0");
+  e_calc3.defineRunButton(() => {
+    const a_SEED_PRICE = [null, 2000, 3000, 5000, 7500, 10000, 15000, 22500, 30000];
+
+    let tier = e_tier.getIndex();
+    let seedPrice = e_seedPrice.getInput("int", 0, 1e6, a_SEED_PRICE[tier]);
+    let point = e_point.getInput("int", 125, 1000, 1000);
+    let pointPerDay = e_pointPerDay.getInput("int", 0, 1e6, 0);
+    let vipCost = e_vipCost.getInput("int", 0, 1e9, 0);
+
+    const BONUS = 4000/a_SEED_PRICE[tier];
+    let earn = albionShortNum(seedPrice*BONUS*(pointPerDay/point) - vipCost/30/10000*pointPerDay);
+
+    e_earn.print(earn);
+  });
+  e_calc3.defineClearButton(() => {
+    e_tier.resetIndex();
+    e_seedPrice.setValue("");
+    e_point.setValue("");
+    e_pointPerDay.setValue("");
+    e_vipCost.setValue("");
+    e_earn.print("?");
+  });
 }

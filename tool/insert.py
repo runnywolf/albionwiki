@@ -119,25 +119,41 @@ def page_insert_codelen():
   s_page = file.read()
   file.close()
   as_page = s_page.split("<!--pyINSERT_codeLength-->")
+  html = ""
 
+  html += '<div class="flex-start" style="margin-top:2px;">'
   a_c = [c_html_temp, c_html_page, c_css, c_js_main, c_js_page, c_py]
   a_color = ["c00", "f00", "d0d", "090", "0c0", "66f"]
-  as_page[1] = '<table class="Xbar"><tr>'
+  html += '<table class="Xbar">'
+  html += '<tr>'
   for i in range(6):
-    as_page[1] += '<td style="width:%.1fpx; background-color:#%s;" title="%s ( %.02f%% )" ></td>'%(
+    html += '<td style="width:%.2fpx; background-color:#%s;" title="%s ( %.02f%% )" ></td>'%(
       a_c[i]/c_sum*bar_width,
       a_color[i],
       "{:,}".format(a_c[i]),
       a_c[i]/c_sum*100
     )
-  as_page[1] += '</tr></table>'+'<span style="margin:4px 0 0 4px;">%d</span>'%c_sum
+  html += '</tr>'
+  html += '</table>'
+  html += '<span style="margin:4px 0 0 4px;">%d</span>'%c_sum
+  html += '</div>'
 
+  a_code_name = ["HTML(模板)", "HTML(文章)", "CSS", "JS(通用)", "JS(文章)", "Python"]
+  html += '<div class="Xbar-legend" style="margin:2px 0 0 2px;">'
+  for i in range(6):
+    html += '<div title="%s ( %.02f%% )">'%("{:,}".format(a_c[i]), a_c[i]/c_sum*100)
+    html += '<div style="background-color:#%s;"></div>'%a_color[i]
+    html += '<span%s>%s</span>'%((' style="margin-top:3px;"' if i == 2 or i == 5 else ''), a_code_name[i])
+    html += '</div>'
+  html += '</div>'
+
+  as_page[1] = html
   s_page = "<!--pyINSERT_codeLength-->".join(as_page)
   file = open("../index.html", mode="w", encoding="utf-8")
   file.write(s_page)
   file.close()
 
-version = "v1.3.3 -&gt; Last update date: 2023/3/12"
+version = "v1.3.5 -&gt; Last update date: 2023/4/17"
 a_contentsData = [
   {
     "group": "新手指南",
@@ -157,24 +173,24 @@ a_contentsData = [
       {"page":"infoboard", "title":"儀錶板與減傷機制", "info":"儀錶板的數值意義、防禦減傷計算、抗性減傷計算。"},
       {"page":"pve_point", "title":"戰鬥聲望點", "info":"獲取、使用、自動重新專精。"},
       {"page":"hideout", "title":"藏身地堡", "info":"種類和狀態、建造、設施、營養值消耗、能量等級、攻擊地堡。"},
-      {"page":"item_durability", "title":"物品耐久度與修理費", "info":"耐久度消耗、實際影響、修理費計算。"},
-      {"page":"avalon", "title":"阿瓦隆之路", "info":"地圖名分析、傳送門金屬環上的符號。"}
-    ]
-  },
-  {
-    "group": "研究中",
-    "a_page": [
-      {"page":"pve_fame", "title":"PvE聲望與怪物強度", "info":"影響PvE聲望的條件、PvE聲望計算、怪物強度。"}
+      {"page":"item_durability", "title":"物品耐久度與修理費", "info":"耐久度消耗、實際影響、修理費計算。"}
     ]
   },
   {
     "group": "資料",
     "a_page": [
-      {"page":"faction_chest", "title":"100抽陣營黑鐵寶箱", "info":"開箱結果、陣營點數的最佳兌換選項。"},
+      {"page":"faction_chest", "title":"200抽陣營黑鐵寶箱", "info":"開箱結果、陣營點數的最佳兌換選項。"},
       {"page":"conqueror_chest", "title":"100抽T7征服者寶箱", "info":"開箱結果、恩惠點數的最佳兌換選項。"},
       {"page":"hideout_food", "title":"運送食物到地堡", "info":"最適合運地堡的食物。"}
     ]
   },
+  {
+    "group": "施工中",
+    "a_page": [
+      {"page":"pve_fame", "title":"PvE聲望與怪物強度", "info":"影響PvE聲望的條件、PvE聲望計算、怪物強度。"},
+      {"page":"avalon", "title":"阿瓦隆之路", "info":"地圖名分析、傳送門金屬環上的符號。"}
+    ]
+  }
 ]
 
 file = open("template.html", mode="r", encoding="utf-8")

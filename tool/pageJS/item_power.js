@@ -1,35 +1,64 @@
+window.addEventListener("load", calc1);
 function calc1(){
-  select_color($("#calc1_tier"), l_color_tier);
-  select_color($("#calc1_material"), l_color_material);
-  select_color($("#calc1_level"), l_color_level);
-  select_color($("#calc1_quality"), l_color_quality);
-  
-  var tier = parseInt($("#calc1_tier").val());
-  var material_ip = parseInt($("#calc1_material").val());
-  var level_ip = parseInt($("#calc1_level").val());
-  var quality_ip = parseInt($("#calc1_quality").val());
-  var skill_ip, e_skill = $("#calc1_skill");
-  var b_oc = checkbox_checked($("#calc1_oc"));
-  
-  var tier_ip = [null, 100, 300, 500, 700, 800, 900, 1000, 1100][tier];
-  
-  if (calc_input_check(e_skill, 0, 404, true)) skill_ip = parseInt(e_skill.val());
-  else skill_ip = 0;
-  if (tier <= 3) skill_ip = 0;
+  let e_calc1 = new Calc("calc1", []);
 
-  var add = [null, 0, 0, 0, 0, 0.05, 0.1, 0.15, 0.2][tier];
-  var add_ip = parseInt(skill_ip*add);
+  let e_tier = new CalcSelect("calc1_tier");
+  let e_material = new CalcSelect("calc1_material");
+  let e_enchant = new CalcSelect("calc1_enchant");
+  let e_quality = new CalcSelect("calc1_quality");
+  let e_skill = new CalcInput("calc1_skill");
+  let e_overCharge = new CalcCheckBox("calc1_overCharge");
+  let e_tierIP = new CalcOutput("calc1_tierIP");
+  let e_materialIP = new CalcOutput("calc1_materialIP");
+  let e_enchantIP = new CalcOutput("calc1_enchantIP");
+  let e_qualityIP = new CalcOutput("calc1_qualityIP");
+  let e_skillIP = new CalcOutput("calc1_skillIP");
+  let e_skillBonus = new CalcOutput("calc1_skillBonus");
+  let e_skillBonusIP = new CalcOutput("calc1_skillBonusIP");
+  let e_overChargeIP = new CalcOutput("calc1_overChargeIP");
+  let e_IP = new CalcOutput("calc1_IP");
 
-  var oc_ip = 0;
-  if (b_oc && tier >= 4) oc_ip = 100;
+  e_calc1.defineChange(() => {
+    let tier = e_tier.getIndex(); let tierIP = [null, 100, 300, 500, 700, 800, 900, 1000, 1100][tier];
+    let materialIP = [null, 0, 25, 25, 50, 75, 75, 100][e_material.getIndex()];
+    let enchantIP = [null, 0, 100, 200, 300, 400][e_enchant.getIndex()];
+    let qualityIP = [null, 0, 20, 40, 60, 100][e_quality.getIndex()];
+    let skillIP = e_skill.getInput("int", 0, 404, 0);
+    let isOverCharge = e_overCharge.isCheck();
 
-  $("#calc1_tier_ip").text(tier_ip);
-  $("#calc1_material_ip").text(material_ip);
-  $("#calc1_level_ip").text(level_ip);
-  $("#calc1_quality_ip").text(quality_ip);
-  $("#calc1_skill_ip").text(skill_ip);
-  $("#calc1_add").text(100*add);
-  $("#calc1_add_ip").text(add_ip);
-  $("#calc1_oc_ip").text(oc_ip);
-  $("#calc1_output").text(tier_ip+material_ip+level_ip+quality_ip+skill_ip+add_ip+oc_ip);
+    if (tier <= 3) skillIP = 0;
+
+    const BONUS = [null, 0, 0, 0, 0, 5, 10, 15, 20][tier];
+    let skillBonusIP = parseInt(skillIP*(BONUS/100));
+
+    let overChargeIP = 0;
+    if (isOverCharge && tier >= 4) overChargeIP = 100;
+
+    e_tierIP.print(tierIP);
+    e_materialIP.print(materialIP);
+    e_enchantIP.print(enchantIP);
+    e_qualityIP.print(qualityIP);
+    e_skillIP.print(skillIP);
+    e_skillBonus.print(BONUS);
+    e_skillBonusIP.print(skillBonusIP);
+    e_overChargeIP.print(overChargeIP);
+    e_IP.print(tierIP+materialIP+enchantIP+qualityIP+skillIP+skillBonusIP+overChargeIP);
+  });
+  e_calc1.defineClearButton(() => {
+    e_tier.resetIndex();
+    e_material.resetIndex();
+    e_enchant.resetIndex();
+    e_quality.resetIndex();
+    e_skill.setValue("");
+    e_overCharge.reset();
+    e_tierIP.print("100");
+    e_materialIP.print("0");
+    e_enchantIP.print("0");
+    e_qualityIP.print("0");
+    e_skillIP.print("0");
+    e_skillBonus.print("0");
+    e_skillBonusIP.print("0");
+    e_overChargeIP.print("0");
+    e_IP.print("100");
+  });
 }

@@ -1,24 +1,48 @@
+window.addEventListener("load", calc1);
 function calc1(){
-  var type_percent = {"head":0.025, "armor":0.05, "shoe":0.025, "weapon":0.1, "offhand":0.005};
-  var b_auto = checkbox_checked($("#calc1_auto"));
-  var fame, e_fame = $("#calc1_fame");
-  
-  if (calc_input_check(e_fame, 0, p10(12), true)) fame = parseInt(e_fame.val());
-  else fame = 0;
+  const a_TYPE = ["head", "armor", "shoe", "weapon", "offhand"];
+  const a_RATE = [0.025, 0.05, 0.025, 0.1, 0.005];
 
-  var percent = 0;
-  ["head", "armor", "shoe", "weapon", "offhand"].map(function (i){
-    if (checkbox_checked($("#calc1_"+i+"_in"))) percent += type_percent[i];
-    if (checkbox_checked($("#calc1_"+i+"_out"))) percent += type_percent[i];
-  });
-  
-  var point = parseInt(fame*percent);
-  var sliver = 0;
-  if (b_auto){
-    point *= 4;
-    sliver = parseInt(point*0.9);
+  let e_calc1 = new Calc("calc1", []);
+
+  let a_e_in = Array(5).fill(null);
+  let a_e_out = Array(5).fill(null);
+  for (let i = 0; i < 5; i++){
+    a_e_in[i] = new CalcCheckBox("calc1_"+a_TYPE[i]+"_in");
+    a_e_out[i] = new CalcCheckBox("calc1_"+a_TYPE[i]+"_out");
   }
-  
-  $("#calc1_output_point").text(albion_short_num(point));
-  $("#calc1_output_silver").text(albion_short_num(sliver));
+  let e_auto = new CalcCheckBox("calc1_auto");
+  let e_fame = new CalcInput("calc1_fame");
+  let e_credits = new CalcOutput("calc1_credits");
+  let e_sliver = new CalcOutput("calc1_sliver");
+
+  e_calc1.defineChange(() => {
+    let rate = 0;
+    for (let i = 0; i < 5; i++){
+      if (a_e_in[i].isCheck()) rate += a_RATE[i];
+      if (a_e_out[i].isCheck()) rate += a_RATE[i];
+    }
+    let b_auto = e_auto.isCheck();
+    let fame = e_fame.getInput("int", 0, 1e12, 0);
+    
+    let credits = fame*rate;
+    let sliver = 0;
+    if (b_auto){
+      credits *= 4;
+      sliver = parseInt(credits*0.9);
+    }
+    
+    e_credits.print(albionShortNum(credits));
+    e_sliver.print(albionShortNum(sliver));
+  });
+  e_calc1.defineClearButton(() => {
+    for (let i = 0; i < 5; i++){
+      a_e_in[i].reset();
+      a_e_out[i].reset();
+    }
+    e_auto.reset();
+    e_fame.setValue("");
+    e_credits.print("0");
+    e_sliver.print("0");
+  });
 }

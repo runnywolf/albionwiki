@@ -1,84 +1,72 @@
-function calc1_areaTier(ab){
-  var e_area = $("#calc1_"+ab+"_area");
-  var e_tier = $("#calc1_"+ab+"_tier");
-
-  var area = e_area.val();
-  var area_color = {0:"#8bf", 1:"#fe8", 2:"#f99", 3:"#aaa"}[area];
-  e_area.css("background-color", area_color);
-
-  var tier_show = {0:[4], 1:[5], 2:[6, 7], 3:[5, 6, 7, 8]}[area];
-  e_tier.empty();
-  e_tier.append('<option style="background-color:#fff;" disabled>階級</option>');
-  tier_show.map(function (i){
-    e_tier.append('<option value="'+i+'">T'+i+'</option>');
-  });
-  e_tier.css("background-color", area_color);
-}
-function calc1_level(ab){
-  var e_level = $("#calc1_"+ab+"_level");
-
-  var level = e_level.val();
-  var level_color = {0:"#eee", 1:"#8e8", 2:"#8ee", 3:"#e8e", 4:"#ee8"}[level];
-  e_level.css("background-color", level_color);
-}
-function calc1_n(ab){
-  var e_n = $("#calc1_"+ab+"_n");
-
-  if (calc_input_check(e_n, 1, 20, true) == false) e_n.val(1);
-}
-function calc1_case_clear(ab){
-  var e_area = $("#calc1_"+ab+"_area");
-  var e_tier = $("#calc1_"+ab+"_tier");
-  var e_level = $("#calc1_"+ab+"_level");
-  var e_n = $("#calc1_"+ab+"_n");
-
-  e_area.val(0);
-  e_area.css("background-color", "#8bf");
-
-  var tier_show = [4];
-  e_tier.empty();
-  e_tier.append('<option style="background-color:#fff;" disabled>階級</option>');
-  e_tier.append('<option value="4">T4</option>');
-  e_tier.css("background-color", "#8bf");
-
-  e_level.val(0);
-  e_level.css("background-color", "#eee");
-
-  e_n.val(1);
-}
-function calc1_case_getData(ab){
-  var e_area = $("#calc1_"+ab+"_area");
-  var e_tier = $("#calc1_"+ab+"_tier");
-  var e_level = $("#calc1_"+ab+"_level");
-  var n, e_n = $("#calc1_"+ab+"_n");
-
-  var c_area = {0:2.15, 1:2.4, 2:3.3, 3:4.2}[e_area.val()];
-  var c_tier = {4:1, 5:1.3333, 6:1.7923, 7:2.285, 8:3.029}[e_tier.val()];
-  var c_level = {0:1, 1:1.2757, 2:1.6589, 3:2.1328, 4:2.7406}[e_level.val()];
-  if (calc_input_check(e_n, 1, 20, true)) n = parseInt(e_n.val());
-  else n = 0;
-  
-  return c_tier*c_area*c_level/n;
-}
+window.addEventListener("load", calc1);
 function calc1(){
-  var e_output_ba = $("#calc1_output_ba");
-  var e_output_ab = $("#calc1_output_ab");
+  const a_AREA = [null, 2.15, 2.4, 3.3, 4.2];
+  const index2tier = [null, [null, 4], [null, 5], [null, 6, 7], [null, 5, 6, 7, 8]];
+  const a_TIER = {4:1, 5:1.3333, 6:1.7923, 7:2.285, 8:3.029};
+  const a_ENCHANT = [null, 1, 1.2757, 1.6589, 2.1328, 2.7406];
 
-  var a = calc1_case_getData("a");
-  var b = calc1_case_getData("b");
-  
-  e_output_ba.text(round_(a/b, 3)+"倍 ("+((a/b-1 >= 0)?"+":"")+round_((a/b-1)*100, 1)+"%)");
-  e_output_ab.text(round_(b/a, 3)+"倍 ("+((b/a-1 >= 0)?"+":"")+round_((b/a-1)*100, 1)+"%)");
-}
-function calc1_clear(){
-  var e_output_ba = $("#calc1_output_ba");
-  var e_output_ab = $("#calc1_output_ab");
+  let e_calc1 = new Calc("calc1", []);
 
-  calc1_case_clear("a");
-  calc1_case_clear("b");
-  e_output_ba.text("1倍 (+0%)");
-  e_output_ab.text("1倍 (+0%)");
-}
-window.onload = function (){
-  calc1_clear();
+  let e_area1 = new CalcSelect("calc1a_area");
+  let e_tier1 = new CalcSelect("calc1a_tier");
+  let e_enchant1 = new CalcSelect("calc1a_enchant");
+  let e_n1 = new CalcInput("calc1a_n");
+  let e_area2 = new CalcSelect("calc1b_area");
+  let e_tier2 = new CalcSelect("calc1b_tier");
+  let e_enchant2 = new CalcSelect("calc1b_enchant");
+  let e_n2 = new CalcInput("calc1b_n");
+  let e_const_a2b = new CalcOutput("calc1_const_a2b");
+  let e_bonus_a2b = new CalcOutput("calc1_bonus_a2b");
+  let e_const_b2a = new CalcOutput("calc1_const_b2a");
+  let e_bonus_b2a = new CalcOutput("calc1_bonus_b2a");
+
+  let e_area_setting = {
+    1: [
+      {"text":"T4", "bgClass":"bg-a0"}
+    ],
+    2: [
+      {"text":"T5", "bgClass":"bg-a1"}
+    ],
+    3: [
+      {"text":"T6", "bgClass":"bg-a2"},
+      {"text":"T7", "bgClass":"bg-a2"}
+    ],
+    4: [
+      {"text":"T5", "bgClass":"bg-a3"},
+      {"text":"T6", "bgClass":"bg-a3"},
+      {"text":"T7", "bgClass":"bg-a3"},
+      {"text":"T8", "bgClass":"bg-a3"}
+    ]
+  };
+  e_area1.defineChildSelect(e_tier1, e_area_setting);
+  e_area2.defineChildSelect(e_tier2, e_area_setting);
+
+  e_calc1.defineChange(() => {
+    function getConst(e_area, e_tier, e_enchant, e_n){
+      let areaIndex = e_area.getIndex(); let areaConst = a_AREA[areaIndex];
+      let tierIndex = e_tier.getIndex(); let tierConst = a_TIER[index2tier[areaIndex][tierIndex]];
+      let enchantConst = a_ENCHANT[e_enchant.getIndex()];
+      let n = e_n.getInput("int", 1, 20, 1);
+      return areaConst*tierConst*enchantConst/n;
+    }
+    let c = getConst(e_area2, e_tier2, e_enchant2, e_n2)/getConst(e_area1, e_tier1, e_enchant1, e_n1);
+    e_const_a2b.print(round45(c, 3));
+    e_bonus_a2b.print((c>=1?"+":"")+round45((c-1)*100, 1));
+    e_const_b2a.print(round45(1/c, 3));
+    e_bonus_b2a.print((c<=1?"+":"")+round45((1/c-1)*100, 1));
+  });
+  e_calc1.defineClearButton(() => {
+    e_area1.resetIndex();
+    e_area1.resetChildSelect(e_tier1, e_area_setting);
+    e_enchant1.resetIndex();
+    e_n1.setValue("1");
+    e_area2.resetIndex();
+    e_area2.resetChildSelect(e_tier2, e_area_setting);
+    e_enchant2.resetIndex();
+    e_n2.setValue("1");
+    e_const_a2b.print("1");
+    e_bonus_a2b.print("+0");
+    e_const_b2a.print("1");
+    e_bonus_b2a.print("+0");
+  });
 }

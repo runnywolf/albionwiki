@@ -30,7 +30,7 @@
       <div class="mainWrapper">
         <div class="main flex-start">
           <div class="main-contentsWrapper">
-            <div class="main-contents"><div class="main-contents-group">新手指南(4)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/welcome">歡迎來到阿爾比恩</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/city">主城</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/zone">區塊(地圖)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/luxury_goods">奢侈品</a></div></div><div class="main-contents-group">進階攻略(8)</div><div class="main-contents-link"><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/avalon">阿瓦隆之路</a></div></div><div class="main-contents-group">研究中(1)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">100抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div></div>
+            <div class="main-contents"><div class="main-contents-group">新手指南(4)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/welcome">歡迎來到阿爾比恩</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/city">主城</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/zone">區塊(地圖)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/luxury_goods">奢侈品</a></div></div><div class="main-contents-group">進階攻略(7)</div><div class="main-contents-link"><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">200抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div><div class="main-contents-group">施工中(2)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/avalon">阿瓦隆之路</a></div></div></div>
           </div>
           <div class="main-article">
             <div>
@@ -105,75 +105,81 @@
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">計算</div>
               單個物品ip計算：
-              <div class="flex-start calcWrapper" style="text-align:center;">
-                <div>
-                  <select class="bg-T1" onchange="calc1()" id="calc1_tier">
-                    <option class="bg-white" disabled>階級</option>
-                    <option class="bg-T1" value="1" selected>T1(灰底)</option>
-                    <option class="bg-T2" value="2">T2(棕底)</option>
-                    <option class="bg-T3" value="3">T3(綠底)</option>
-                    <option class="bg-T4" value="4">T4(藍底)</option>
-                    <option class="bg-T5" value="5">T5(紅底)</option>
-                    <option class="bg-T6" value="6">T6(橙底)</option>
-                    <option class="bg-T7" value="7">T7(黃底)</option>
-                    <option class="bg-T8" value="8">T8(白底)</option>
-                  </select>
-                  <div><span id="calc1_tier_ip">100</span></div>
-                </div>
-                <div>
-                  <select class="bg-m0" onchange="calc1()" id="calc1_material">
-                    <option class="bg-white" disabled>物品素材</option>
-                    <option class="bg-m0" value="0" selected>無</option>
-                    <option class="bg-m1" value="25">含皇家素材</option>
-                    <option class="bg-m2" value="25">含符石素材</option>
-                    <option class="bg-m3" value="50">含精魂素材</option>
-                    <option class="bg-m4" value="75">含聖物素材</option>
-                    <option class="bg-m5" value="75">含迷霧素材</option>
-                    <option class="bg-m6" value="100">含阿瓦隆素材</option>
-                  </select>
-                  <div>+<span id="calc1_material_ip">0</span></div>
-                </div>
-                <div>
-                  <select class="bg-l0" onchange="calc1()" id="calc1_level">
-                    <option class="bg-white" disabled>附魔</option>
-                    <option class="bg-l0" value="0" selected>.0(無色)</option>
-                    <option class="bg-l1" value="100">.1(綠色)</option>
-                    <option class="bg-l2" value="200">.2(藍色)</option>
-                    <option class="bg-l3" value="300">.3(紫色)</option>
-                    <option class="bg-l4" value="400">.4(金色)</option>
-                  </select>
-                  <div>+<span id="calc1_level_ip">0</span></div>
-                </div>
-                <div>
-                  <select class="bg-q0" onchange="calc1()" id="calc1_quality">
-                    <option class="bg-white" disabled>品質</option>
-                    <option class="bg-q0" value="0" selected>一般(灰邊)</option>
-                    <option class="bg-q1" value="20">良好(鐵邊)</option>
-                    <option class="bg-q2" value="40">優秀(銅邊)</option>
-                    <option class="bg-q3" value="60">卓越(銀邊)</option>
-                    <option class="bg-q4" value="100">傑出(金邊)</option>
-                  </select>
-                  <div>+<span id="calc1_quality_ip">0</span></div>
-                </div>
-                <div>
-                  <input style="width:60px;" placeholder="掌握加成" title="掌握加成 ip" onchange="calc1()" id="calc1_skill">
-                  <div>+<span id="calc1_skill_ip">0</span></div>
-                </div>
-                <div title="技能掌握修正係數 ip">
-                  <div style="width:36px; margin-top:3px; height:14px;">+<span id="calc1_add">0</span>%</div>
-                  <div style="margin-top:5px;">+<span id="calc1_add_ip">0</span></div>
-                </div>
-                <div title='" 來 跟我下馬 吃食物 OC "'>
-                  <div class="flex-start" style="width:100px; margin-left:8px;">
-                    <input type="checkbox" onchange="calc1()" id="calc1_oc">
-                    <div>極限充能</div>
-                  </div>
-                  <div style="margin-top:1px;">+<span id="calc1_oc_ip">0</span></div>
-                </div>
-                <div>
-                  <button title="只是個防呆按鈕，其實你點擊頁面任意區域，都會輸出結果。">計算</button>
-                  <div>= <span class="blue" id="calc1_output">100</span> ip</div>
-                </div>
+              <div class="calcWrapper" id="calc1">
+                <table class="table-noStyle">
+                  <tr>
+                    <td>
+                      <select class="bg-t1" id="calc1_tier">
+                        <option class="select-firstOption" disabled>階級</option>
+                        <option class="bg-t1" selected>T1(灰底)</option>
+                        <option class="bg-t2">T2(棕底)</option>
+                        <option class="bg-t3">T3(綠底)</option>
+                        <option class="bg-t4">T4(藍底)</option>
+                        <option class="bg-t5">T5(紅底)</option>
+                        <option class="bg-t6">T6(橙底)</option>
+                        <option class="bg-t7">T7(黃底)</option>
+                        <option class="bg-t8">T8(白底)</option>
+                      </select>
+                    </td>
+                    <td>
+                      <select class="bg-m0" id="calc1_material">
+                        <option class="select-firstOption" disabled>物品素材</option>
+                        <option class="bg-m0" selected>無</option>
+                        <option class="bg-m1">含皇家素材</option>
+                        <option class="bg-m2">含符石素材</option>
+                        <option class="bg-m3">含精魂素材</option>
+                        <option class="bg-m4">含聖物素材</option>
+                        <option class="bg-m5">含迷霧素材</option>
+                        <option class="bg-m6">含阿瓦隆素材</option>
+                      </select>
+                    </td>
+                    <td>
+                      <select class="bg-e0" id="calc1_enchant">
+                        <option class="select-firstOption" disabled>附魔</option>
+                        <option class="bg-e0" selected>.0(無色)</option>
+                        <option class="bg-e1">.1(綠色)</option>
+                        <option class="bg-e2">.2(藍色)</option>
+                        <option class="bg-e3">.3(紫色)</option>
+                        <option class="bg-e4">.4(金色)</option>
+                      </select>
+                    </td>
+                    <td>
+                      <select class="bg-q0" id="calc1_quality">
+                        <option class="select-firstOption" disabled>品質</option>
+                        <option class="bg-q0" selected>一般(無邊)</option>
+                        <option class="bg-q1">良好(鐵邊)</option>
+                        <option class="bg-q2">優秀(銅邊)</option>
+                        <option class="bg-q3">卓越(銀邊)</option>
+                        <option class="bg-q4">傑出(金邊)</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input style="width:60px;" placeholder="掌握加成" title="掌握加成 ip" id="calc1_skill">
+                    </td>
+                    <td style="width:40px;">
+                      +<span id="calc1_skillBonus">0</span>%
+                    </td>
+                    <td>
+                      <div class="flex-start" style="margin: 0 10px 0 6px;">
+                        <input type="checkbox" id="calc1_overCharge">極限充能
+                      </div>
+                    </td>
+                    <td class="flex-start">
+                      <button id="calc1_RUN">計算</button>
+                      <button id="calc1_CLEAR">清除</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span id="calc1_tierIP">100</span></td>
+                    <td>+<span id="calc1_materialIP">0</span></td>
+                    <td>+<span id="calc1_enchantIP">0</span></td>
+                    <td>+<span id="calc1_qualityIP">0</span></td>
+                    <td>+<span id="calc1_skillIP">0</span></td>
+                    <td title="掌握補正 ip">+<span id="calc1_skillBonusIP">0</span></td>
+                    <td>+<span id="calc1_overChargeIP">0</span></td>
+                    <td>=&nbsp;<span class="blue" id="calc1_IP">100</span>&nbsp;ip</td>
+                  </tr>
+                </table>
               </div>
               <br>
               掌握加成的理論最高ip：<br>
@@ -183,7 +189,7 @@
             <div class="main-article-foot">
               <div class="main-article-title-h2">編輯紀錄</div>
               <div>作者: runnywolf</div>
-              <div>最後編輯日期: 2023/02/08</div>
+              <div>最後編輯日期: 2023/2/8</div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>
@@ -197,7 +203,7 @@
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.webp" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 4.0)</a>授權條款。<br>
-        v1.3.3 -&gt; Last update date: 2023/3/12
+        v1.3.5 -&gt; Last update date: 2023/4/17
       </div>
     </div>
   </body>

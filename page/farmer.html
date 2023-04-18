@@ -30,7 +30,7 @@
       <div class="mainWrapper">
         <div class="main flex-start">
           <div class="main-contentsWrapper">
-            <div class="main-contents"><div class="main-contents-group">新手指南(4)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/welcome">歡迎來到阿爾比恩</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/city">主城</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/zone">區塊(地圖)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/luxury_goods">奢侈品</a></div></div><div class="main-contents-group">進階攻略(8)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/avalon">阿瓦隆之路</a></div></div><div class="main-contents-group">研究中(1)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">100抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div></div>
+            <div class="main-contents"><div class="main-contents-group">新手指南(4)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/welcome">歡迎來到阿爾比恩</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/city">主城</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/zone">區塊(地圖)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/luxury_goods">奢侈品</a></div></div><div class="main-contents-group">進階攻略(7)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/item_power">物品強度(ip)</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/island">島嶼</a></div><div><a class="red" href="https://runnywolf.github.io/albionwiki/page/farmer">農作物種植</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/infoboard">儀錶板與減傷機制</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/pve_point">戰鬥聲望點</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout">藏身地堡</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/item_durability">物品耐久度與修理費</a></div></div><div class="main-contents-group">資料(3)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/faction_chest">200抽陣營黑鐵寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/conqueror_chest">100抽T7征服者寶箱</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/hideout_food">運送食物到地堡</a></div></div><div class="main-contents-group">施工中(2)</div><div class="main-contents-link"><div><a href="https://runnywolf.github.io/albionwiki/page/pve_fame">PvE聲望與怪物強度</a></div><div><a href="https://runnywolf.github.io/albionwiki/page/avalon">阿瓦隆之路</a></div></div></div>
           </div>
           <div class="main-article">
             <div>
@@ -80,14 +80,14 @@
               不過隨著內圈和外圈等級的提升，每次澆水所需的專注點會越來越少。<br>
               <br>
               計算某個作物/藥草，單次澆水所需專注點：
-              <div class="flex-start calcWrapper">
-                <div>內圈</div>
+              <div class="calcWrapper flex-start" id="calc1">
+                內圈
                 <input style="width:30px;" title="內圈等級 (作物農夫/草藥師)" id="calc1_inLevel">
-                <div>等，外圈</div>
+                等，外圈
                 <input style="width:30px;" title="該農作物的外圈等級" id="calc1_outLevel">
-                <div>等，澆水一次需要 <span class="blue" id="calc1_output">1000</span> 專注點。</div>
-                <button onclick="calc1()">計算</button>
-                <button onclick="calc1_clear()">清除</button>
+                <div>等，澆水一次需要 <span class="blue" id="calc1_point">?</span> 專注點。</div>
+                <button id="calc1_RUN">計算</button>
+                <button id="calc1_CLEAR">清除</button>
               </div>
             </div>
             <div class="main-article-paragraph">
@@ -97,6 +97,7 @@
               種子產出率與澆水獲利如下表：(每株農作物, 1塊田能種9株)
               <table class="table-style1">
                 <tr>
+                  <td>階級</td>
                   <td>農作物</td>
                   <td>未澆水<br>w</td>
                   <td>有澆水<br>W</td>
@@ -106,7 +107,8 @@
                   <td>平均種子成本<br>p*(1-w)</td>
                 </tr>
                 <tr>
-                  <td>T1胡蘿蔔</td>
+                  <td>T1</td>
+                  <td>胡蘿蔔</td>
                   <td>0%</td>
                   <td>200%</td>
                   <td>+2</td>
@@ -115,7 +117,8 @@
                   <td><div class="sliver">2,000<img></div></td>
                 </tr>
                 <tr>
-                  <td>T2豌豆/草藥</td>
+                  <td>T2</td>
+                  <td>豌豆/秘術菌菇</td>
                   <td>33.33%</td>
                   <td>166.67%</td>
                   <td>+1.333</td>
@@ -124,7 +127,8 @@
                   <td><div class="sliver">2,000<img></div></td>
                 </tr>
                 <tr>
-                  <td>T3小麥/草藥</td>
+                  <td>T3</td>
+                  <td>小麥/明葉接骨草</td>
                   <td>60%</td>
                   <td>140%</td>
                   <td>+0.8</td>
@@ -133,7 +137,8 @@
                   <td><div class="sliver">2,000<img></div></td>
                 </tr>
                 <tr>
-                  <td>T4蕪菁/草藥</td>
+                  <td>T4</td>
+                  <td>蕪菁/鈍齒牛蒡</td>
                   <td>73.33%</td>
                   <td>126.67%</td>
                   <td>+0.5333</td>
@@ -142,7 +147,8 @@
                   <td><div class="sliver">2,000<img></div></td>
                 </tr>
                 <tr>
-                  <td>T5白菜/草藥</td>
+                  <td>T5</td>
+                  <td>白菜/龍川續斷</td>
                   <td>80%</td>
                   <td>120%</td>
                   <td>+0.4</td>
@@ -151,7 +157,8 @@
                   <td><div class="sliver">2,000<img></div></td>
                 </tr>
                 <tr>
-                  <td>T6馬鈴薯/草藥</td>
+                  <td>T6</td>
+                  <td>馬鈴薯/迷幻毛地黃</td>
                   <td>86.67%</td>
                   <td>113.33%</td>
                   <td>+0.2667</td>
@@ -160,7 +167,8 @@
                   <td><div class="sliver">2,000<img></div></td>
                 </tr>
                 <tr>
-                  <td>T7玉米/草藥</td>
+                  <td>T7</td>
+                  <td>玉米/火吻毛蕊花</td>
                   <td>91.11%</td>
                   <td>108.89%</td>
                   <td>+0.1778</td>
@@ -169,7 +177,8 @@
                   <td><div class="sliver">2,000<img></div></td>
                 </tr>
                 <tr>
-                  <td>T8南瓜/草藥</td>
+                  <td>T8</td>
+                  <td>南瓜/食屍鬼鋸草</td>
                   <td>93.33%</td>
                   <td>106.67%</td>
                   <td>+0.1333</td>
@@ -178,8 +187,11 @@
                   <td><div class="sliver">2,000<img></div></td>
                 </tr>
               </table>
-              澆水加成 W-w 可以理解為，澆水後每株平均會多產出 n 個種子。<br>
-              種子產出率如果為 120% 代表： 100% 產出 1 個種子，有 20% 的機率額外再產出 1 個種子。<br>
+              <ul>
+                <li>種子產出率如果為 120% 代表： 100% 產出 1 個種子，有 20% 的機率額外再產出 1 個種子。</li>
+                <li>澆水加成 W-w 可以理解為，澆水後每株平均會多產出 n 個種子。</li>
+                <li>種子價格 p 未考慮全局折扣。</li>
+              </ul>
               <br>
               商城的種子價格可能會比農業商人略為便宜。(兩者選便宜的買)<br>
               <br>
@@ -190,6 +202,11 @@
                 <div class="flex-start">
                   每株平均能採收9個農作物，那麼1個農作物的種子成本為&nbsp;<div class="sliver MT2px">2,000<img>/9 ~ 222.22<img></div>。
                 </div>
+              </span>
+              <span class="red">
+                由於2022/11/21更新的雲中煙霞1補丁，製藥加成由紅城移至迷霧城，<br>
+                造成大量農夫在市場上拋售種子，價格暴跌。<br>
+                上述報價為理想情況，真實情況請參照頁面最下方的計算機。
               </span>
             </div>
             <div class="main-article-paragraph">
@@ -216,49 +233,86 @@
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">收益</div>
               如果沒會員，種田<span style="text-decoration:line-through;">很可能會</span>100%虧錢。<br>
-              種田的收益其實與"種哪種農作物"無關，因為無論種植哪一種，種子成本皆相同。<br>
+              種田的收益其實與"種哪種農作物"無關，因為無論種植哪一種，種子成本皆相同。(理想情況)<br>
               要達到最高收益，就挑市場上最高價的來種。<br>
               <span class="bold red">注意：以下收益計算為"平均"收益，實際收益可能會因運氣成分而有誤差。</span><br>
               <br>
-              種田收益計算：(有會員下、不含澆水/蚯蚓的收益、一天採收一次)<br>
-              注：農地數為棕色地塊的數量。
-              <div class="calcWrapper">
+              種田收益計算：(有會員、不含澆水/蚯蚓的收益、一天採收一次)<br>
+              <div class="calcWrapper" id="calc2">
                 <div class="flex-start">
-                  農地
+                  種植
+                  <select class="bg-t1" id="calc2_tier">
+                    <option class="select-firstOption" disabled>階級(農作物)</option>
+                    <option class="bg-t1" selected>T1(胡蘿蔔)</option>
+                    <option class="bg-t2">T2(豌豆/秘術菌菇)</option>
+                    <option class="bg-t3">T3(小麥/明葉接骨草)</option>
+                    <option class="bg-t4">T4(蕪菁/鈍齒牛蒡)</option>
+                    <option class="bg-t5">T5(白菜/龍川續斷)</option>
+                    <option class="bg-t6">T6(馬鈴薯/迷幻毛地黃)</option>
+                    <option class="bg-t7">T7(玉米/火吻毛蕊花)</option>
+                    <option class="bg-t8">T8(南瓜/食屍鬼鋸草)</option>
+                  </select>
+                  ，種子價格
+                  <input style="width:60px;" title="種子價格" id="calc2_seedPrice">
+                  <div class="sliver MT2px"><img></div>
+                  ，農地
                   <input style="width:50px;" title="農地數 (棕色地塊的數量)" id="calc2_plot">
-                  塊，每個農作物市場價
-                  <input style="width:50px;" title="單個農作物賣出價 (未扣稅)" id="calc2_price">
+                  塊，
+                </div>
+                <div class="flex-start">
+                  每個農作物市場賣價
+                  <input style="width:50px;" title="單個農作物賣出價 (未扣稅)" id="calc2_sellPrice">
                   <div class="sliver MT2px"><img></div>
                   ，稅率
                   <input style="width:50px;" title="稅率 (%)" id="calc2_tax">
-                  %，
+                  %。
                 </div>
                 <div class="flex-start">
                   每日收益為&nbsp;
-                  <div class="sliver MT2px"><span class="blue" id="calc2_output">0</span><img></div>
+                  <div class="sliver MT2px"><span class="blue" id="calc2_earn">?</span><img></div>
                   。
-                  <button onclick="calc2()">計算</button>
-                  <button onclick="calc2_clear()">清除</button>
+                  <button id="calc2_RUN">計算</button>
+                  <button id="calc2_CLEAR">清除</button>
                 </div>
               </div>
+              ※農地數為棕色地塊的數量。<br>
               <br>
-              澆水收益計算：(買會員來澆水、不含挑戰者獎勵收益、不含你去拍賣場買種子省下的錢)
-              <div class="calcWrapper">
+              澆水收益計算：(買會員來澆水、不含挑戰者獎勵收益)
+              <div class="calcWrapper" id="calc3">
                 <div class="flex-start">
-                  澆一次水需要
-                  <input style="width:40px;" title="單次澆水所需專注點" id="calc3_p">
-                  專注點，每天平均花費
-                  <input style="width:60px;" title="每日花費的專注點" id="calc3_dp">
+                  種植
+                  <select class="bg-t1" id="calc3_tier">
+                    <option class="select-firstOption" disabled>階級(農作物)</option>
+                    <option class="bg-t1" selected>T1(胡蘿蔔)</option>
+                    <option class="bg-t2">T2(豌豆/秘術菌菇)</option>
+                    <option class="bg-t3">T3(小麥/明葉接骨草)</option>
+                    <option class="bg-t4">T4(蕪菁/鈍齒牛蒡)</option>
+                    <option class="bg-t5">T5(白菜/龍川續斷)</option>
+                    <option class="bg-t6">T6(馬鈴薯/迷幻毛地黃)</option>
+                    <option class="bg-t7">T7(玉米/火吻毛蕊花)</option>
+                    <option class="bg-t8">T8(南瓜/食屍鬼鋸草)</option>
+                  </select>
+                  ，種子價格
+                  <input style="width:60px;" title="種子價格" id="calc3_seedPrice">
+                  <div class="sliver MT2px"><img></div>
+                  ，澆一次水需要
+                  <input style="width:40px;" title="單次澆水所需專注點" id="calc3_point">
+                  專注點，
+                </div>
+                <div class="flex-start">
+                  每天平均花費
+                  <input style="width:60px;" title="每日花費的專注點" id="calc3_pointPerDay">
                   專注點在澆水上，會員一個月
-                  <input style="width:90px;" title="會員一個月銀幣" id="calc3_vip">
+                  <input style="width:90px;" title="購買會員花費的銀幣 ( 1個月 )" id="calc3_vipCost">
+                  <div class="sliver MT2px"><img></div>
                   。
                 </div>
                 <div class="flex-start">
                   每日收益為&nbsp;
-                  <div class="sliver MT2px"><span class="blue" id="calc3_output">0</span><img></div>
+                  <div class="sliver MT2px"><span class="blue" id="calc3_earn">?</span><img></div>
                   。
-                  <button onclick="calc3()">計算</button>
-                  <button onclick="calc3_clear()">清除</button>
+                  <button id="calc3_RUN">計算</button>
+                  <button id="calc3_CLEAR">清除</button>
                 </div>
               </div>
               <br>
@@ -267,7 +321,7 @@
             <div class="main-article-foot">
               <div class="main-article-title-h2">編輯紀錄</div>
               <div>作者: runnywolf</div>
-              <div>最後編輯日期: 2023/03/02</div>
+              <div>最後編輯日期: 2023/4/13</div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>
@@ -281,7 +335,7 @@
         <div style="height:10px;"></div>
         如有任何bug或建議請至<img src="../image/discord_icon.webp" style="max-height:12px;"><a href="https://discord.gg/NF4Y9nc2j8">雪狼重工基地-類別P4 ALBION WIKI</a>，感謝你讓本wiki變的更好。<br>
         本站內容除特殊聲明外，均使用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享(CC BY-NC-SA 4.0)</a>授權條款。<br>
-        v1.3.3 -&gt; Last update date: 2023/3/12
+        v1.3.5 -&gt; Last update date: 2023/4/17
       </div>
     </div>
   </body>
