@@ -13,10 +13,13 @@ function calc1(){
   }
   let e_auto = new CalcCheckBox("calc1_auto");
   let e_fame = new CalcInput("calc1_fame");
+  let e_goldPrice = new CalcInput("calc1_goldPrice");
   let e_credits = new CalcOutput("calc1_credits");
   let e_sliver = new CalcOutput("calc1_sliver");
 
   e_calc1.defineChange(() => {
+    let globalDiscount = e_goldPrice.getInput("int", 0, 1e4, 5000)/5000;
+
     let rate = 0;
     for (let i = 0; i < 5; i++){
       if (a_e_in[i].isCheck()) rate += a_RATE[i];
@@ -29,7 +32,7 @@ function calc1(){
     let sliver = 0;
     if (b_auto){
       credits *= 4;
-      sliver = parseInt(credits*0.9);
+      sliver = parseInt(credits*globalDiscount);
     }
     
     e_credits.print(albionShortNum(credits));
@@ -42,6 +45,7 @@ function calc1(){
     }
     e_auto.reset();
     e_fame.setValue("");
+    e_goldPrice.setValue("5000");
     e_credits.print("0");
     e_sliver.print("0");
   });

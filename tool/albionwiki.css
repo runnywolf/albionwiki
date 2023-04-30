@@ -23,16 +23,16 @@ table{
   border-collapse: separate;
   border-spacing: 0px;
 }
-table tr td{
+table > tbody > tr > td{
   padding: 0px 4px;
   border: 1px #000 solid;
   border-style: none solid solid none;
   text-align: center;
 }
-table tr:nth-child(1) td{
+table > tbody > tr:nth-child(1) > td{
   border-top-style: solid;
 }
-table tr td:nth-child(1){
+table > tbody > tr > td:nth-child(1){
   border-left-style: solid;
 }
 ul{
@@ -254,7 +254,7 @@ button{
 }
 .table-noStyle > tbody > tr > td{
   padding: 0;
-  border-style: none;
+  border-style: none !important;
 }
 .table-noBorder > tbody > tr > td{
   border-style: none;

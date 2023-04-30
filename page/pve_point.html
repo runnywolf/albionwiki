@@ -40,7 +40,7 @@
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">獲取</div>
               裝備中的頭盔、護甲、鞋子、武器、副手，如果該物品內圈或外圈達到 Lv100 或以上，<br>
-              則PvE聲望會以一定比例轉為戰鬥聲望點(聲望溢出)。<br>
+              則溢出的PvE聲望會以一定比例轉為戰鬥聲望點。<br>
               <br>
               聲望溢出轉換為戰鬥聲望點的比例：(內外圈皆同)
               <table class="table-style1">
@@ -57,7 +57,8 @@
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">自動重新專精</div>
               <img src="../image/pvepoint/1.webp" style="width:700px;"><br>
-              如果開啟，獲得的戰鬥聲望點提高至 4 倍，但是每獲得 1 點戰鬥聲望點，會消耗 0.9 銀幣。
+              如果開啟，獲得的戰鬥聲望點提高至 4 倍，<br>
+              但是每獲得 1 點戰鬥聲望點，會消耗大約 1 銀幣。(能被全區折扣減免)
             </div>
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">使用</div>
@@ -65,28 +66,95 @@
               <img src="../image/pvepoint/2.webp" style="height:150px;"><br>
               <br>
               進入到升級介面<br>
-              <img src="../image/pvepoint/3.webp" style="height:300px;"><br>
-              <br>
-              把拉桿往右拉或是點擊"+"按鈕，可以花費戰鬥聲望點直接升級內外圈裝備的等級。<br>
-              裝備的外圈等級到Lv100就無法經由PvE聲望直接升級了，僅能使用戰鬥聲望點升級到Lv120。<br>
-              <br>
-              每 1 點戰鬥聲望點可以轉換成：(內外圈皆同)
-              <table class="table-style1">
-                <tr><td>裝備類型</td><td>等級進度條增加</td></tr>
-                <tr><td>頭</td><td>8 聲望</td></tr>
-                <tr><td>甲</td><td>4 聲望</td></tr>
-                <tr><td>鞋</td><td>8 聲望</td></tr>
-                <tr><td>武器</td><td>2 聲望</td></tr>
-                <tr><td>副手</td><td>40 聲望</td></tr>
+              <img src="../image/pvepoint/3.webp" style="height:300px;">
+              <table class="table-style2">
+                <tr>
+                  <td>把拉桿往右拉<br>(點擊"+"按鈕)</td>
+                  <td>
+                    可以花費戰鬥聲望點直接升級內外圈裝備的等級。<br>
+                    裝備的外圈等級到Lv100就無法經由PvE聲望直接升級了，僅能使用戰鬥聲望點升級到Lv120。<br>
+                    <br>
+                    每 1 點戰鬥聲望點可以轉換成：(內外圈皆同)
+                    <table class="table-style1">
+                      <tr><td>裝備類型</td><td>等級進度條增加</td></tr>
+                      <tr><td>頭盔</td><td><div class="fame">8<img></div></td></tr>
+                      <tr><td>護甲</td><td><div class="fame">4<img></div></td></tr>
+                      <tr><td>鞋子</td><td><div class="fame">8<img></div></td></tr>
+                      <tr><td>武器</td><td><div class="fame">2<img></div></td></tr>
+                      <tr><td>副手</td><td><div class="fame">40<img></div></td></tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>把拉桿往左拉<br>(點擊"-"按鈕)</td>
+                  <td>
+                    可以花費銀幣將<span class="bold">等級進度條</span>的聲望轉為<span class="bold">戰鬥聲望點</span>。<br>
+                    <br>
+                    自動重新專精與降等法的比較：(同時獲得10,000點PvE聲望、且武器為雙手武器)
+                    <table class="table-style2">
+                      <tr>
+                        <td>自動重新專精</td>
+                        <td>
+                          增加的戰鬥聲望點：<br>
+                          PvE聲望 * 裝備各部位的轉換率加總 * 內外圈 * 4倍點數<br>
+                          = 10,000 * (0.025+0.05+0.025+0.1) * 2 * 4<br>
+                          = 10,000 * 0.2 * 2 * 4<br>
+                          = <span class="blue">16,000</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>降等法</td>
+                        <td>
+                          增加的戰鬥聲望點：<br>
+                          頭盔、護甲、鞋子、武器的等級進度條增加10,000再拉掉<br>
+                          = PvE聲望 * 轉換倍率 * 戰鬥聲望點轉等級進度條的轉換率 * 內外圈<br>
+                          = 10,000 * 0.8 * (0.125+0.25+0.125+0.5) * 2<br>
+                          = 10,000 * 0.8 * 1 * 2<br>
+                          = <span class="blue">16,000</span><br>
+                          <br>
+                          ※內外圈都還沒滿的情況下，不會產生免費的戰鬥聲望點。
+                        </td>
+                      </tr>
+                    </table>
+                    ※這兩種方法消耗的銀幣皆為：獲得的戰鬥聲望點*全區折扣。<br>
+                    <br>
+                    <span class="red">兩種方法來刷戰鬥聲望點的速度和銀幣消耗皆同。</span><br>
+                    <br>
+                    <table class="table-style1">
+                      <tr style="font-size:16px;">
+                        <td>優點</td>
+                        <td>缺點</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <ul>
+                            <li style="text-decoration:line-through;">好像沒有?</li>
+                          </ul>
+                        </td>
+                        <td>
+                          <ul>
+                            <li>必須手動降低等級</li>
+                            <li>降等後，武器的ip會降低</li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </table>
+                    <br>
+                    <span class="red">不推薦用這種方法來刷戰鬥聲望點。</span>
+                  </td>
+                </tr>
               </table>
-              <br>
-              把拉桿往左拉或是點擊"-"按鈕，可以花費銀幣將<span class="bold">等級進度條聲望</span>轉為<span class="bold">戰鬥聲望點</span>，<br>
-              會消耗 獲得的戰鬥聲望點*0.9 銀幣。
             </div>
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">計算</div>
               計算轉換成的戰鬥聲望點：
               <div class="calcWrapper" id="calc1">
+                <div class="flex-start">
+                  目前金幣價格
+                  <input style="width:60px;" value="5000" id="calc1_goldPrice">
+                  <div class="sliver MT2px"><img></div>
+                  。(用於計算全區折扣)
+                </div>
                 <table style="background-color:#fff;">
                   <tr>
                     <td>滿Lv100？</td>
@@ -134,7 +202,7 @@
             <div class="main-article-foot">
               <div class="main-article-title-h2">編輯紀錄</div>
               <div>作者: runnywolf</div>
-              <div>最後編輯日期: 2022/8/4</div>
+              <div>最後編輯日期: 2023/4/30</div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>
