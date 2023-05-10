@@ -257,7 +257,7 @@ button{
   border-style: none !important;
 }
 .table-noBorder > tbody > tr > td{
-  border-style: none;
+  border-style: none !important;
 }
 .table-noPadding > tbody > tr > td{
   padding: 0;
