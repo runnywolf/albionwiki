@@ -308,9 +308,6 @@ button{
   height: 18px;
   content: url("../image/icon_/fame.webp");
 }
-.MT2px{
-  margin-top: 2px;
-}
 .Xbar{
   margin: 0;
   border-collapse: separate;
@@ -360,11 +357,19 @@ button{
   margin: 1px 4px 0 4px;
 }
 
+.MT2px{
+  margin-top: 2px;
+}
 .FS13px{
   font-size: 13px;
 }
 
 .bold{font-weight: bold;}
+.deleteLine{
+  font-size: 12px;
+  color: #999;
+  text-decoration: line-through;
+}
 .red{color: #f00;}
 .blue{color: #00f;}
 

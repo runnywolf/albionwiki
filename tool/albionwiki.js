@@ -126,6 +126,9 @@ function debug(obj){
 function p10(x){
   return Math.pow(10, x);
 }
+function round_down(x, n){
+  return Math.floor(x*p10(n))/p10(n);
+}
 function round45(x, n){
   return Math.round(x*p10(n))/p10(n);
 }

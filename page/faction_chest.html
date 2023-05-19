@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../tool/albionwiki.css">
     <script src="../tool/jquery-3.6.4.js"></script>
     <script src="../tool/albionwiki.js"></script>
+    <script src="../tool/pageJS/faction_chest.js"></script>
   </head>
   <body style="background-image:url('../image/bg.webp');">
     <div class="headMainWrapper">
@@ -104,24 +105,31 @@
             </div>
             <div class="main-article-paragraph">
               <div class="main-article-title-h2">陣營點數的兌換選項</div>
-              <table class="table-style1">
+              <table class="table-style1" id="calc1">
                 <tr>
-                  <td>兌換選項</td>
-                  <td>兌換資格<br><span style="font-size:12px;">(陣營地位)</span></td>
+                  <td colspan="2">兌換選項</td>
+                  <td>最低兌換資格<br><span class="FS13px">(陣營地位)</span></td>
                   <td>所需陣營點</td>
                   <td>收益</td>
                   <td>每陣營點收益</td>
                 </tr>
                 <tr>
-                  <td>山脈之心</td>
-                  <td>0 +</td>
+                  <td colspan="2">陣營之心</td>
+                  <td>0</td>
                   <td>3,000</td>
-                  <td><div class="sliver">45,000<img></div></td>
-                  <td><div class="sliver">15<img></div></td>
+                  <td>
+                    <div class="flex-center">
+                      <input style="width:60px;" title="物品賣出價 ( 扣稅後 )" id="calc1_i0_sliver">
+                      <div class="sliver MT2px"><img></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sliver"><span id="calc1_i0_SPP"></span><img></div>
+                  </td>
                 </tr>
                 <tr>
-                  <td rowspan="2">黑鐵戰役寶箱</td>
-                  <td rowspan="2">0 +</td>
+                  <td rowspan="2" colspan="2">黑鐵戰役寶箱</td>
+                  <td rowspan="2">0</td>
                   <td rowspan="2">9,000</td>
                   <td>
                     <div style="opacity:0.2;">
@@ -131,7 +139,7 @@
                       <span class="FS13px">(2022/8/1)</span>
                     </div>
                   </td>
-                  <td class="blue">
+                  <td>
                     <div class="flex-center" style="opacity:0.2;">
                       <div class="sliver">8.31<img></div>+<div class="fame">28.5<img></div>
                     </div>
@@ -144,64 +152,112 @@
                     </div>
                     <span class="FS13px">(2023/4/18)</span>
                   </td>
-                  <td class="blue">
+                  <td>
                     <div class="flex-center">
                       <div class="sliver">8.46<img></div>+<div class="fame">27.94<img></div>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>T4披風徽章</td>
-                  <td>0 +</td>
+                  <td rowspan="5">徽章<br>(陣營披風)</td>
+                  <td style="width:30px;">T4</td>
+                  <td>0</td>
                   <td>400</td>
-                  <td><div class="sliver">6,000<img></div></td>
-                  <td><div class="sliver">15<img></div></td>
+                  <td>
+                    <div class="flex-center">
+                      <input style="width:60px;" title="物品賣出價 ( 扣稅後 )" id="calc1_i1_sliver">
+                      <div class="sliver MT2px"><img></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sliver"><span id="calc1_i1_SPP"></span><img></div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>T5披風徽章</td>
-                  <td>15k +</td>
+                  <td style="border-left:none;">T5</td>
+                  <td>15k</td>
                   <td>2,250</td>
-                  <td><div class="sliver">33,000<img></div></td>
-                  <td><div class="sliver">14.67<img></div></td>
+                  <td>
+                    <div class="flex-center">
+                      <input style="width:60px;" title="物品賣出價 ( 扣稅後 )" id="calc1_i2_sliver">
+                      <div class="sliver MT2px"><img></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sliver"><span id="calc1_i2_SPP"></span><img></div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>T6披風徽章</td>
-                  <td>42k +</td>
+                  <td style="border-left:none;">T6</td>
+                  <td>42k</td>
                   <td>3,000</td>
-                  <td><div class="sliver">45,000<img></div></td>
-                  <td><div class="sliver">15<img></div></td>
+                  <td>
+                    <div class="flex-center">
+                      <input style="width:60px;" title="物品賣出價 ( 扣稅後 )" id="calc1_i3_sliver">
+                      <div class="sliver MT2px"><img></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sliver"><span id="calc1_i3_SPP"></span><img></div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>T7披風徽章</td>
-                  <td>120k +</td>
+                  <td style="border-left:none;">T7</td>
+                  <td>120k</td>
                   <td>7,500</td>
-                  <td><div class="sliver">90,000<img></div></td>
-                  <td><div class="sliver">12<img></div></td>
+                  <td>
+                    <div class="flex-center">
+                      <input style="width:60px;" title="物品賣出價 ( 扣稅後 )" id="calc1_i4_sliver">
+                      <div class="sliver MT2px"><img></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sliver"><span id="calc1_i4_SPP"></span><img></div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>T8披風徽章</td>
-                  <td>330k +</td>
+                  <td style="border-left:none;">T8</td>
+                  <td>330k</td>
                   <td>15,000</td>
-                  <td><div class="sliver">200,000<img></div></td>
-                  <td><div class="sliver">13.33<img></div></td>
+                  <td>
+                    <div class="flex-center">
+                      <input style="width:60px;" title="物品賣出價 ( 扣稅後 )" id="calc1_i5_sliver">
+                      <div class="sliver MT2px"><img></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sliver"><span id="calc1_i5_SPP"></span><img></div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>冬熊幼崽</td>
-                  <td>120k +</td>
+                  <td colspan="2">T5陣營坐騎幼仔</td>
+                  <td>120k</td>
                   <td>3,000</td>
-                  <td><div class="sliver">15,600<img></div></td>
-                  <td><div class="sliver">5.2<img></div></td>
+                  <td>
+                    <div class="flex-center">
+                      <input style="width:60px;" title="物品賣出價 ( 扣稅後 )" id="calc1_i6_sliver">
+                      <div class="sliver MT2px"><img></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sliver"><span id="calc1_i6_SPP"></span><img></div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>菁英冬熊幼崽</td>
-                  <td>1.4m +</td>
+                  <td colspan="2">T8陣營坐騎幼仔</td>
+                  <td>1.4m</td>
                   <td>50,000</td>
-                  <td><div class="sliver">857,000<img></div></td>
-                  <td class="blue"><div class="sliver">17.14<img></div></td>
+                  <td>
+                    <div class="flex-center">
+                      <input style="width:60px;" title="物品賣出價 ( 扣稅後 )" id="calc1_i7_sliver">
+                      <div class="sliver MT2px"><img></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sliver"><span id="calc1_i7_SPP"></span><img></div>
+                  </td>
                 </tr>
               </table>
-              <span class="red">上表收益除黑鐵寶箱外，均為 2022/10/11 白城直售價(未扣稅)。</span><br>
-              <span class="red">不同陣營的兌換物價格不一定相同，此表僅供參考。</span><br>
               <br>
               雖然各個陣營的兌換物價格不一定相同，不過各大城的寶箱開出來的物品基本都差不多。<br>
               開出來的陣營之心佔總收益比例極低，可忽略其造成的誤差。
@@ -209,7 +265,7 @@
             <div class="main-article-foot">
               <div class="main-article-title-h2">編輯紀錄</div>
               <div>作者: runnywolf</div>
-              <div>最後編輯日期: 2023/4/18</div>
+              <div>最後編輯日期: 2023/5/19</div>
             </div>
           </div>
           <div class="main-error" id="main-error"></div>

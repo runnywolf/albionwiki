@@ -1,6 +1,6 @@
 window.addEventListener("load", calc1);
 function calc1(){
-  const a_ITEM_POINT = [150, 90, 500, 675, 1700, 3400, 675, 90, 500, 675, 1700, 3400, 675, 11250];
+  const a_ITEM_POINT = [3000, 400, 2250, 3000, 7500, 15000, 3000, 50000];
 
   let e_calc1 = new Calc("calc1", []);
 
