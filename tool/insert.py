@@ -179,7 +179,7 @@ a_contentsData = [
   {
     "group": "資料",
     "a_page": [
-      {"page":"faction_chest", "title":"200抽陣營黑鐵寶箱", "info":"開箱結果、陣營點數的最佳兌換選項。"},
+      {"page":"faction_chest", "title":"1000抽陣營黑鐵寶箱", "info":"開箱結果、陣營點數的最佳兌換選項。"},
       {"page":"conqueror_chest", "title":"100抽T7征服者寶箱", "info":"開箱結果、恩惠點數的最佳兌換選項。"},
       {"page":"hideout_food", "title":"運送食物到地堡", "info":"最適合運地堡的食物。"}
     ]
