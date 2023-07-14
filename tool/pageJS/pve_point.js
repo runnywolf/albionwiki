@@ -19,6 +19,7 @@ function calc1(){
 
   e_calc1.defineChange(() => {
     let globalDiscount = e_goldPrice.getInput("int", 0, 1e4, 5000)/5000;
+    if (globalDiscount > 1) globalDiscount = 1;
 
     let rate = 0;
     for (let i = 0; i < 5; i++){
