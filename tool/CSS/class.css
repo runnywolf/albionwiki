@@ -1,0 +1,161 @@
+.select-firstOption{
+  background-color: #fff;
+  text-align: center;
+}
+
+.table-style1 > tbody > tr:nth-child(2n+2){
+  background-color: #fff;
+}
+.table-style1 > tbody > tr:nth-child(2n+1){
+  background-color: #eee;
+}
+.table-style1 > tbody > tr:nth-child(1){
+  background-color: #9bf;
+  font-weight: bold;
+}
+
+.table-style2{
+  font-size: 16px;
+}
+.table-style2 > tbody > tr > td:nth-child(1){
+  font-weight: bold;
+  background-color: #bfd;
+}
+.table-style2 > tbody > tr > td:nth-child(2){
+  padding: 4px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.table-noStyle{
+  margin: 0;
+}
+.table-noStyle > tbody > tr > td{
+  padding: 0;
+  border-style: none !important;
+}
+
+.table-noBorder > tbody > tr > td{
+  border-style: none !important;
+}
+
+.table-noPadding > tbody > tr > td{
+  padding: 0;
+}
+
+.flex-start{
+  display: flex;
+  justify-content: flex-start;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+
+.calcWrapper{
+  width: fit-content;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #bdf;
+}
+
+.menu-title{
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.menu-list{
+  border: 1px #aaa solid;
+}
+.menu-list div{
+  padding-left: 4px;
+}
+.menu-list div:nth-child(2n+1){
+  background-color: #ddd;
+}
+
+.sliver{
+  display: flex;
+  justify-content: center;
+}
+.sliver img{
+  margin: 0 3px;
+  height: 18px;
+  content: url("../../image/icon/sliver.webp");
+}
+
+.fame{
+  display: flex;
+  justify-content: center;
+}
+.fame img{
+  margin: 0 3px;
+  height: 18px;
+  content: url("../../image/icon/fame.webp");
+}
+
+.Xbar{
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 2px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+}
+.Xbar td{
+  padding: 0;
+  height: 20px;
+  border: 0 #000 solid;
+  transition: opacity 100ms ease-in-out;
+}
+.Xbar td:nth-child(1){
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.Xbar td:nth-last-child(1){
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.Xbar:hover td:not(:hover){
+  opacity: 0.3;
+}
+
+.Xbar-legend{
+  display: flex;
+  justify-content: flex-start;
+}
+.Xbar-legend > div{
+  display: flex;
+  justify-content: flex-start;
+  transition: opacity 100ms ease-in-out;
+}
+.Xbar-legend > div:nth-last-child(n+2){
+  padding-right: 16px;
+}
+.Xbar-legend:hover > div:not(:hover){
+  opacity: 0.3;
+}
+.Xbar-legend > div > div{
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+.Xbar-legend > div > span{
+  margin: 1px 4px 0 4px;
+}
+
+.MT2px{
+  margin-top: 2px;
+}
+.FS13px{
+  font-size: 13px;
+}
+
+.bold{font-weight: bold;}
+.deleteLine{
+  font-size: 12px;
+  color: #999;
+  text-decoration: line-through;
+}
+.red{color: #f00;}
+.blue{color: #00f;}

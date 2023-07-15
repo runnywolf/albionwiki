@@ -1,0 +1,38 @@
+[
+	{
+    "groupName": "新手指南",
+    "a_page": [
+      {"pageName":"welcome", "title":"歡迎來到阿爾比恩", "info":"遊戲下載、伺服器選擇、給新手的建議。"},
+      {"pageName":"city", "title":"主城", "info":"主城位置、迷霧城進入方法。"},
+      {"pageName":"zone", "title":"區塊(地圖)", "info":"安全區與噴裝區、地圖的階級、五大資源的產地。"},
+      {"pageName":"luxury_goods", "title":"奢侈品", "info":"出售奢侈品、奢侈品轉賣。"}
+    ]
+  },
+  {
+    "groupName": "進階攻略",
+    "a_page": [
+      {"pageName":"item_power", "title":"物品強度(ip)", "info":"物品強度、技能掌握加成、掌握補正、極限充能、裝備ip計算。"},
+      {"pageName":"island", "title":"島嶼", "info":"島嶼購買、島嶼轉移。"},
+      {"pageName":"farmer", "title":"農作物種植", "info":"使用農地、播種、澆水所需專注點、種子產量、種植收益計算。"},
+      {"pageName":"infoboard", "title":"儀錶板與減傷機制", "info":"儀錶板的數值意義、防禦減傷計算、抗性減傷計算。"},
+      {"pageName":"pve_point", "title":"戰鬥聲望點", "info":"獲取、使用、自動重新專精。"},
+      {"pageName":"hideout", "title":"藏身地堡", "info":"種類和狀態、建造、設施、營養值消耗、能量等級、攻擊地堡。"},
+      {"pageName":"item_durability", "title":"物品耐久度與修理費", "info":"耐久度消耗、實際影響、修理費計算。"}
+    ]
+  },
+  {
+    "groupName": "資料",
+    "a_page": [
+      {"pageName":"faction_chest", "title":"1000+抽陣營黑鐵寶箱", "info":"開箱結果、陣營點數的最佳兌換選項。"},
+      {"pageName":"conqueror_chest", "title":"100抽T7征服者寶箱", "info":"開箱結果、恩惠點數的最佳兌換選項。"},
+      {"pageName":"hideout_food", "title":"運送食物到地堡", "info":"最適合運地堡的食物。"}
+    ]
+  },
+  {
+    "groupName": "施工中",
+    "a_page": [
+      {"pageName":"pve_fame", "title":"PvE聲望與怪物強度", "info":"影響PvE聲望的條件、PvE聲望計算、怪物強度。"},
+      {"pageName":"avalon", "title":"阿瓦隆之路", "info":"地圖名分析、傳送門金屬環上的符號。"}
+    ]
+  }
+]

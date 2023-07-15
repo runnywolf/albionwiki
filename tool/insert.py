@@ -1,204 +1,159 @@
-import os
+import os, json
 
-def get_substr(str, substr1, substr2):
+version = "v1.4.dev-1 -&gt; Last update date: 2023/7/14"
+wiki_url = "https://runnywolf.github.io/albionwiki"
+# wiki_url = ".."
+
+def read_json(path):
+  with open(path, mode="r", encoding="utf-8") as f:
+    data = json.load(f)
+  return data
+
+def get_folder_file_name(path, file_type):
+  l_file = []
+  for root, dirs, files in os.walk(path):
+    l_file.extend(file for file in files if file.endswith(".%s"%file_type))
+  return l_file
+
+def str_cut_substr(str, substr1, substr2):
   return str.split(substr1)[1].split(substr2)[0]
 
-def page_insert(temp, page):
-  temp = str(temp)
-  temp = temp.replace("$pyINSERT_iconURL$", "../image/icon.webp")
-  temp = temp.replace("$pyINSERT_cssURL$", "../tool/albionwiki.css")
-  temp = temp.replace("$pyINSERT_jsURL_jquery$", "../tool/jquery-3.6.4.js")
-  temp = temp.replace("$pyINSERT_jsURL_main$", "../tool/albionwiki.js")
-  if "%s.js"%page in os.listdir("pageJS"):
-    temp = temp.replace("$pyINSERT_pageJS$", '\n    <script src="../tool/pageJS/%s.js"></script>'%page)
+def page_insert(s_temp, s_page, page_name):
+  s_temp = str(s_temp)
+  
+  s_temp = s_temp.replace("$pyINSERT_iconURL$", "%s/image/icon.webp"%wiki_url)
+  
+  s_css = ""
+  for file_name in get_folder_file_name("CSS", "css"):
+    s_css += '\n    <link rel="stylesheet" type="text/css" href="%s/tool/CSS/%s">'%(wiki_url, file_name)
+  s_temp = s_temp.replace("$pyINSERT_CSS$", s_css)
+  
+  s_temp = s_temp.replace("$pyINSERT_jsURL_jquery$", "%s/tool/JS/jquery-3.6.4.js"%wiki_url)
+  s_temp = s_temp.replace("$pyINSERT_jsURL_main$", "%s/tool/JS/albionwiki.js"%wiki_url)
+  if "%s.js"%page_name in get_folder_file_name("JS/page", "js"):
+    s_temp = s_temp.replace("$pyINSERT_pageJS$", '\n    <script src="%s/tool/JS/page/%s.js"></script>'%(wiki_url, page_name))
   else:
-    temp = temp.replace("$pyINSERT_pageJS$", "")
-  temp = temp.replace("$pyINSERT_bgURL$", "../image/bg.webp")
-  temp = temp.replace("$pyINSERT_headIconURL$", "../image/icon.webp")
-
+    s_temp = s_temp.replace("$pyINSERT_pageJS$", "")
+  
+  s_temp = s_temp.replace("$pyINSERT_bgURL$", "%s/image/bg.webp"%wiki_url)
+  
+  s_temp = s_temp.replace("$pyINSERT_headIconURL$", "%s/image/icon.webp"%wiki_url)
+  
   s_contents = ""
-  for groupData in a_contentsData:
-    s_contents += '<div class="main-contents-group">%s(%d)</div>'%(groupData["group"], len(groupData["a_page"]))
+  for group in group_data:
+    s_contents += '<div class="main-contents-group">%s(%d)</div>'%(group["groupName"], len(group["a_page"]))
+    
     s_contents += '<div class="main-contents-link">'
-    for pageData in groupData["a_page"]:
-      if page == pageData["page"]:
-        s_contents += '<div><a class="red" href="https://runnywolf.github.io/albionwiki/page/%s">%s</a></div>'%(page, pageData["title"])
-      else:
-        s_contents += '<div><a href="https://runnywolf.github.io/albionwiki/page/%s">%s</a></div>'%(pageData["page"], pageData["title"])
+    for page in group["a_page"]:
+      s_red_style = ""
+      if (page["pageName"] == page_name):
+        s_red_style = 'class="red"'
+      s_contents += '<div><a %shref="%s/page/%s">%s</a></div>'%(s_red_style, wiki_url, page["pageName"], page["title"])
+    
     s_contents += '</div>'
-  temp = temp.replace('$pyINSERT_contents$', s_contents)
-
-  if page == "menu":
-    s_page = '<div class="main-article-title-h1" style="text-align:center;">頁面清單</div>'
-    for groupData in a_contentsData:
-      s_page += '<div class="main-article-paragraph">'
-      s_page += '<div class="menu-title">%s(%d)</div>'%(groupData["group"], len(groupData["a_page"]))
-      s_page += '<div class="menu-list">'
-      for pageData in groupData["a_page"]:
-        s_page += '<div><a href="https://runnywolf.github.io/albionwiki/page/%s">%s</a>&nbsp;<span class="red">&gt;</span>&nbsp;%s</div>'%(pageData["page"], pageData["title"], pageData["info"])
-      s_page += '</div>'
-      s_page += '</div>'
+  s_temp = s_temp.replace('$pyINSERT_contents$', s_contents)
+  
+  if (page_name == "main_menu"):
+    s_article = '<div class="main-article-title-h1" style="text-align:center;">頁面清單</div>'
+    for group in group_data:
+      s_article += '<div class="main-article-paragraph">'
+      s_article += '<div class="menu-title">%s(%d)</div>'%(group["groupName"], len(group["a_page"]))
+      s_article += '<div class="menu-list">'
+      for page in group["a_page"]:
+        s_article += '<div><a href="https://runnywolf.github.io/albionwiki/page/%s">%s</a>&nbsp;<span class="red">&gt;</span>&nbsp;%s</div>'%(page["pageName"], page["title"], page["info"])
+      s_article += '</div>'
+      s_article += '</div>'
   else:
-    file = open("../page/%s.html"%page, mode="r", encoding="utf-8")
-    s_page = file.read()
-    file.close()
-    s_page = get_substr(s_page, '<div class="main-article">', '<div class="main-error" id="main-error">')
-    s_page = "</div>".join(s for s in s_page.split("</div>")[:-1])
-  temp = temp.replace("$pyINSERT_article$", s_page)
+    s_article = str_cut_substr(s_page, '<div class="main-article">', '<div class="main-error" id="main-error">')
+    s_article = "</div>".join(s for s in s_article.split("</div>")[:-1])
+  s_temp = s_temp.replace("$pyINSERT_article$", s_article)
+  
+  s_temp = s_temp.replace("$pyINSERT_discordIcon$", "%s/image/discord_icon.webp"%wiki_url)
+  
+  s_temp = s_temp.replace("$pyINSERT_version$", version)
+  
+  return s_temp
 
-  temp = temp.replace("$pyINSERT_discordIcon$", "../image/discord_icon.webp")
-  temp = temp.replace("$pyINSERT_version$", version)
+def page_update(page_path, page_name=""):
+  with open(page_path, mode="r", encoding="utf-8") as f:
+    s_page = f.read()
+  with open(page_path, mode="w", encoding="utf-8") as f:
+    f.write(page_insert(s_template, s_page, page_name))
 
-  file = open("../page/%s.html"%page, mode="w", encoding="utf-8")
-  file.write(temp)
-  file.close()
-
-def page_insert_main(temp):
-  temp = str(temp)
-  temp = temp.replace("$pyINSERT_iconURL$", "image/icon.webp")
-  temp = temp.replace("$pyINSERT_cssURL$", "tool/albionwiki.css")
-  temp = temp.replace("$pyINSERT_jsURL_jquery$", "tool/jquery-3.6.4.js")
-  temp = temp.replace("$pyINSERT_jsURL_main$", "tool/albionwiki.js")
-  temp = temp.replace("$pyINSERT_pageJS$", '\n    <script src="tool/pageJS/index_.js"></script>')
-  temp = temp.replace("$pyINSERT_bgURL$", "image/bg.webp")
-  temp = temp.replace("$pyINSERT_headIconURL$", "image/icon.webp")
-
-  s_contents = ""
-  for groupData in a_contentsData:
-    s_contents += '<div class="main-contents-group">%s(%d)</div>'%(groupData["group"], len(groupData["a_page"]))
-    s_contents += '<div class="main-contents-link">'
-    for pageData in groupData["a_page"]:
-      s_contents += '<div><a href="https://runnywolf.github.io/albionwiki/page/%s">%s</a></div>'%(pageData["page"], pageData["title"])
-    s_contents += '</div>'
-  temp = temp.replace('$pyINSERT_contents$', s_contents)
-
-  file = open("../index.html", mode="r", encoding="utf-8")
-  s_page = file.read()
-  file.close()
-  s_page = get_substr(s_page, '<div class="main-article">', '<div class="main-error" id="main-error">')
-  s_page = "</div>".join(s for s in s_page.split("</div>")[:-1])
-  temp = temp.replace("$pyINSERT_article$", s_page)
-
-  temp = temp.replace("$pyINSERT_discordIcon$", "image/discord_icon.webp")
-  temp = temp.replace("$pyINSERT_version$", version)
-
-  file = open("../index.html", mode="w", encoding="utf-8")
-  file.write(temp)
-  file.close()
-
-def get_file_len(url):
-  file = open(url, mode="r", encoding="utf-8")
-  s_page = file.read()
-  file.close()
+def get_file_word_count(path):
+  with open(path, mode="r", encoding="utf-8") as f:
+    s_page = f.read()
   s_page = s_page.replace(" ", "").replace("\t", "").replace("\n", "")
   return len(s_page)
-def get_article_len(url):
-  file = open(url, mode="r", encoding="utf-8")
-  s_page = file.read()
-  file.close()
-  s_page = get_substr(s_page, '<div class="main-article">', '<div class="main-error" id="main-error">')
+
+def get_article_word_count(path):
+  with open(path, mode="r", encoding="utf-8") as f:
+    s_page = f.read()
+  s_page = str_cut_substr(s_page, '<div class="main-article">', '<div class="main-error" id="main-error">')
   s_page = "</div>".join(s for s in s_page.split("</div>")[:-1])
   s_page = s_page.replace(" ", "").replace("\t", "").replace("\n", "")
   return len(s_page)
-def page_insert_codelen():
+
+def make_bar():
   bar_width = 500
-
-  c_html_temp = get_file_len("template.html")
-  c_html_page = get_article_len("../index.html")
-  for i in os.listdir("../page"):
-    c_html_page += get_article_len("../page/%s"%i)
-  c_css = get_file_len("albionwiki.css")
-  c_js_main = get_file_len("albionwiki.js")
-  c_js_page = 0
-  for i in os.listdir("pageJS"):
-    c_js_page += get_file_len("pageJS/%s"%i)
-  c_py = get_file_len("insert.py")
+  
+  c_html_temp = get_file_word_count("template.html")
+  
+  c_html_page = sum(get_article_word_count("../%s.html"%path) for path in ("index", "menu", "update"))
+  c_html_page += sum(get_article_word_count("../page/%s"%path) for path in get_folder_file_name("../page", "html"))
+  
+  c_css = sum(get_file_word_count("CSS/%s"%path) for path in get_folder_file_name("CSS", "css"))
+  
+  c_js_main = get_file_word_count("JS/albionwiki.js")
+  
+  c_js_page = sum(get_file_word_count("JS/page/%s"%path) for path in get_folder_file_name("JS/page", "js"))
+  
+  c_py = get_file_word_count("insert.py")
+  
   c_sum = c_html_temp+c_html_page+c_css+c_js_main+c_js_page+c_py
   
-  file = open("../index.html", mode="r", encoding="utf-8")
-  s_page = file.read()
-  file.close()
-  as_page = s_page.split("<!--pyINSERT_codeLength-->")
-  html = ""
-
-  html += '<div class="flex-start" style="margin-top:2px;">'
+  s_html = '<div class="flex-start" style="margin-top:2px;">'
   a_c = [c_html_temp, c_html_page, c_css, c_js_main, c_js_page, c_py]
   a_color = ["c00", "f00", "d0d", "090", "0c0", "66f"]
-  html += '<table class="Xbar">'
-  html += '<tr>'
+  s_html += '<table class="Xbar">'
+  s_html += '<tr>'
   for i in range(6):
-    html += '<td style="width:%.2fpx; background-color:#%s;" title="%s ( %.02f%% )" ></td>'%(
-      a_c[i]/c_sum*bar_width,
-      a_color[i],
-      "{:,}".format(a_c[i]),
-      a_c[i]/c_sum*100
+    s_html += '<td style="width:%.2fpx; background-color:#%s;" title="%s ( %.02f%% )" ></td>'%(
+      a_c[i]/c_sum*bar_width, a_color[i], "{:,}".format(a_c[i]), a_c[i]/c_sum*100
     )
-  html += '</tr>'
-  html += '</table>'
-  html += '<span style="margin:4px 0 0 4px;">%d</span>'%c_sum
-  html += '</div>'
-
+  s_html += '</tr>'
+  s_html += '</table>'
+  s_html += '<span style="margin:4px 0 0 4px;">%d</span>'%c_sum
+  s_html += '</div>'
+  
   a_code_name = ["HTML(模板)", "HTML(文章)", "CSS", "JS(通用)", "JS(文章)", "Python"]
-  html += '<div class="Xbar-legend" style="margin:2px 0 0 2px;">'
+  s_html += '<div class="Xbar-legend" style="margin:2px 0 0 2px;">'
   for i in range(6):
-    html += '<div title="%s ( %.02f%% )">'%("{:,}".format(a_c[i]), a_c[i]/c_sum*100)
-    html += '<div style="background-color:#%s;"></div>'%a_color[i]
-    html += '<span%s>%s</span>'%((' style="margin-top:3px;"' if i == 2 or i == 5 else ''), a_code_name[i])
-    html += '</div>'
-  html += '</div>'
+    s_html += '<div title="%s ( %.02f%% )">'%("{:,}".format(a_c[i]), a_c[i]/c_sum*100)
+    s_html += '<div style="background-color:#%s;"></div>'%a_color[i]
+    s_html += '<span%s>%s</span>'%((' style="margin-top:3px;"' if i == 2 or i == 5 else ''), a_code_name[i])
+    s_html += '</div>'
+  s_html += '</div>'
+  
+  return s_html
 
-  as_page[1] = html
-  s_page = "<!--pyINSERT_codeLength-->".join(as_page)
-  file = open("../index.html", mode="w", encoding="utf-8")
-  file.write(s_page)
-  file.close()
+def page_update_index(page_path):
+  with open(page_path, mode="r", encoding="utf-8") as f:
+    s_page = f.read()
+  a_s_page = s_page.split("<!--pyINSERT_codeLength-->")
+  a_s_page[1] = make_bar()
+  s_page = "<!--pyINSERT_codeLength-->".join(a_s_page)
+  with open(page_path, mode="w", encoding="utf-8") as f:
+    f.write(page_insert(s_template, s_page, ""))
 
-version = "v1.3.5 -&gt; Last update date: 2023/4/17"
-a_contentsData = [
-  {
-    "group": "新手指南",
-    "a_page": [
-      {"page":"welcome", "title":"歡迎來到阿爾比恩", "info":"遊戲下載、伺服器選擇、給新手的建議。"},
-      {"page":"city", "title":"主城", "info":"主城位置、迷霧城進入方法。"},
-      {"page":"zone", "title":"區塊(地圖)", "info":"安全區與噴裝區、地圖的階級、五大資源的產地。"},
-      {"page":"luxury_goods", "title":"奢侈品", "info":"出售奢侈品、奢侈品轉賣。"}
-    ]
-  },
-  {
-    "group": "進階攻略",
-    "a_page": [
-      {"page":"item_power", "title":"物品強度(ip)", "info":"物品強度、技能掌握加成、掌握補正、極限充能、裝備ip計算。"},
-      {"page":"island", "title":"島嶼", "info":"島嶼購買、島嶼轉移。"},
-      {"page":"farmer", "title":"農作物種植", "info":"使用農地、播種、澆水所需專注點、種子產量、種植收益計算。"},
-      {"page":"infoboard", "title":"儀錶板與減傷機制", "info":"儀錶板的數值意義、防禦減傷計算、抗性減傷計算。"},
-      {"page":"pve_point", "title":"戰鬥聲望點", "info":"獲取、使用、自動重新專精。"},
-      {"page":"hideout", "title":"藏身地堡", "info":"種類和狀態、建造、設施、營養值消耗、能量等級、攻擊地堡。"},
-      {"page":"item_durability", "title":"物品耐久度與修理費", "info":"耐久度消耗、實際影響、修理費計算。"}
-    ]
-  },
-  {
-    "group": "資料",
-    "a_page": [
-      {"page":"faction_chest", "title":"1000+抽陣營黑鐵寶箱", "info":"開箱結果、陣營點數的最佳兌換選項。"},
-      {"page":"conqueror_chest", "title":"100抽T7征服者寶箱", "info":"開箱結果、恩惠點數的最佳兌換選項。"},
-      {"page":"hideout_food", "title":"運送食物到地堡", "info":"最適合運地堡的食物。"}
-    ]
-  },
-  {
-    "group": "施工中",
-    "a_page": [
-      {"page":"pve_fame", "title":"PvE聲望與怪物強度", "info":"影響PvE聲望的條件、PvE聲望計算、怪物強度。"},
-      {"page":"avalon", "title":"阿瓦隆之路", "info":"地圖名分析、傳送門金屬環上的符號。"}
-    ]
-  }
-]
+group_data = read_json("groupData.json")
 
-file = open("template.html", mode="r", encoding="utf-8")
-s_temp = file.read()
-file.close()
+with open("template.html", mode="r", encoding="utf-8") as f:
+  s_template = f.read()
 
-page_insert_main(s_temp)
-for i in os.listdir("../page"):
-  page_insert(s_temp, i.split(".")[0])
+page_update_index("../index.html")
 
-page_insert_codelen()
+page_update("../menu.html", "main_menu")
+page_update("../update.html")
+for page_name in get_folder_file_name("../page", "html"):
+  page_update("../page/%s"%page_name, page_name.rstrip("html").rstrip("."))
