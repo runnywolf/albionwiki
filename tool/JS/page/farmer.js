@@ -6,7 +6,7 @@ function calc1(){
   let e_outLevel = new CalcInput("calc1_outLevel");
   let e_point = new CalcOutput("calc1_point");
 
-  e_calc1.defineRunButton(() => {
+  e_calc1.defineChange(() => {
     let inLevel = e_inLevel.getInput("int", 0, 100, 0);
     let outLevel = e_outLevel.getInput("int", 0, 100, 0);
 
@@ -15,8 +15,8 @@ function calc1(){
     e_point.print(point);
   });
   e_calc1.defineClearButton(() => {
-    e_inLevel.setValue("");
-    e_outLevel.setValue("");
+    e_inLevel.clearValue();
+    e_outLevel.clearValue();
     e_point.print("?");
   });
 }
@@ -30,7 +30,7 @@ function calc2(){
   let e_tax = new CalcInput("calc2_tax");
   let e_earn = new CalcOutput("calc2_earn");
 
-  e_calc2.defineRunButton(() => {
+  e_calc2.defineChange(() => {
     const a_SEED_PRICE = [null, 2000, 3000, 5000, 7500, 10000, 15000, 22500, 30000];
 
     let tier = e_tier.getIndex();
@@ -46,10 +46,10 @@ function calc2(){
   });
   e_calc2.defineClearButton(() => {
     e_tier.resetIndex();
-    e_seedPrice.setValue("");
-    e_plot.setValue("");
-    e_sellPrice.setValue("");
-    e_tax.setValue("");
+    e_seedPrice.clearValue();
+    e_plot.clearValue();
+    e_sellPrice.clearValue();
+    e_tax.clearValue();
     e_earn.print("?");
   });
 }
@@ -63,7 +63,7 @@ function calc3(){
   let e_vipCost = new CalcInput("calc3_vipCost");
   let e_earn = new CalcOutput("calc3_earn");
 
-  e_calc3.defineRunButton(() => {
+  e_calc3.defineChange(() => {
     const a_SEED_PRICE = [null, 2000, 3000, 5000, 7500, 10000, 15000, 22500, 30000];
 
     let tier = e_tier.getIndex();
@@ -79,10 +79,10 @@ function calc3(){
   });
   e_calc3.defineClearButton(() => {
     e_tier.resetIndex();
-    e_seedPrice.setValue("");
-    e_point.setValue("");
-    e_pointPerDay.setValue("");
-    e_vipCost.setValue("");
+    e_seedPrice.clearValue();
+    e_point.clearValue();
+    e_pointPerDay.clearValue();
+    e_vipCost.clearValue();
     e_earn.print("?");
   });
 }

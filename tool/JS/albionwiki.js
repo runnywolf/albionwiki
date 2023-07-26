@@ -44,6 +44,9 @@ class CalcInput{
   setValue(v){
     this.element.value = v;
   }
+  clearValue(){
+    this.setValue("");
+  }
 
   checkInputValue(type, vMin, vMax, resetIfFalse){
     let vInput = this.element.value;

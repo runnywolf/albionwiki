@@ -1,6 +1,6 @@
 import os, json
 
-version = "v1.4.dev-1 -&gt; Last update date: 2023/7/14"
+version = "v1.4.dev-2 -&gt; Last update date: 2023/7/26"
 wiki_url = "https://runnywolf.github.io/albionwiki"
 # wiki_url = ".."
 

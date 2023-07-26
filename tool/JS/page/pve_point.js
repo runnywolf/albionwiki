@@ -45,7 +45,7 @@ function calc1(){
       a_e_out[i].reset();
     }
     e_auto.reset();
-    e_fame.setValue("");
+    e_fame.clearValue();
     e_goldPrice.setValue("5000");
     e_credits.print("0");
     e_sliver.print("0");

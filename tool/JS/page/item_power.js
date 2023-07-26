@@ -49,7 +49,7 @@ function calc1(){
     e_material.resetIndex();
     e_enchant.resetIndex();
     e_quality.resetIndex();
-    e_skill.setValue("");
+    e_skill.clearValue();
     e_overCharge.reset();
     e_tierIP.print("100");
     e_materialIP.print("0");
